@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>IdeationDeck - Innovación Táctica de Diseño</title>
+    <!-- Tailwind CSS con plugins -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- PWA Meta Tags -->
+    <link rel="manifest" href="./manifest.json" />
+    <meta name="theme-color" content="#1b1b1c" />
+    <!-- Tipografía Premium Plus Jakarta Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <!-- Iconos Lineales Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-dim": "#d9dade",
+                        "surface-variant": "#e2e2e7",
+                        "on-secondary-fixed": "#1b1b1e",
+                        "inverse-on-surface": "#f0f0f5",
+                        "inverse-surface": "#2e3034",
+                        "surface-container-low": "#f3f3f8",
+                        "tertiary": "#000000",
+                        "surface": "#f9f9fe",
+                        "on-secondary-fixed-variant": "#464649",
+                        "tertiary-fixed": "#e6e2de",
+                        "secondary-container": "#e1dfe2",
+                        "background": "#f9f9fe",
+                        "tertiary-fixed-dim": "#cac6c2",
+                        "primary-fixed-dim": "#c8c6c7",
+                        "primary-container": "#1b1b1c",
+                        "on-error-container": "#93000a",
+                        "on-secondary-container": "#626265",
+                        "surface-bright": "#f9f9fe",
+                        "on-tertiary-container": "#868380",
+                        "on-primary-fixed": "#1b1b1c",
+                        "outline-variant": "#c7c6ca",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed": "#1c1b19",
+                        "on-surface": "#1a1c1f",
+                        "on-primary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "primary-fixed": "#e5e2e3",
+                        "on-background": "#1a1c1f",
+                        "surface-container-high": "#e8e8ed",
+                        "on-tertiary-fixed-variant": "#484644",
+                        "outline": "#76777b",
+                        "on-primary-fixed-variant": "#474647",
+                        "secondary": "#5e5e61",
+                        "surface-container-highest": "#e2e2e7",
+                        "secondary-fixed": "#e3e2e5",
+                        "secondary-fixed-dim": "#c7c6c9",
+                        "on-secondary": "#ffffff",
+                        "surface-tint": "#5f5e5f",
+                        "on-error": "#ffffff",
+                        "tertiary-container": "#1c1b19",
+                        "primary": "#000000",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface-variant": "#46474a",
+                        "on-primary-container": "#858384",
+                        "surface-container": "#ededf2",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#c8c6c7"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "0.75rem",
+                        "xl": "1rem",
+                        "2xl": "1.25rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "gutter": "16px",
+                        "container-max": "1280px",
+                        "margin-desktop": "40px",
+                        "margin-mobile": "20px",
+                        "base": "8px"
+                    },
+                    fontFamily: {
+                        sans: ["Plus Jakarta Sans", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Estilos personalizados -->
+    <link href="styles.css" rel="stylesheet" />
+    <!-- Lógica de la aplicación modularizada -->
+    <script src="app.js" defer></script>
+</head>
+
+<body
+    class="bg-surface text-on-surface min-h-screen flex flex-col dark:bg-inverse-surface dark:text-inverse-on-surface">
+
+    <!-- TopAppBar -->
+    <nav
+        class="sticky top-0 z-40 bg-white border-b border-outline-variant flex justify-between items-center w-full px-6 md:px-12 py-3 h-16 dark:bg-zinc-900 dark:border-zinc-800 shadow-sm">
+        <div class="flex items-center gap-3">
+            <i data-lucide="layers" class="w-7 h-7 text-primary dark:text-white"></i>
+            <div class="flex flex-col">
+                <span
+                    class="font-bold tracking-tight text-sm text-primary dark:text-white leading-none">IdeationDeck</span>
+                <span class="text-[9px] uppercase tracking-wider font-bold text-neutral-500">Design Opportunity
+                    Toolkit</span>
+            </div>
+        </div>
+
+        <!-- Menú de Navegación de Escritorio -->
+        <div class="hidden md:flex items-center gap-6">
+            <button onclick="switchView('home')"
+                class="nav-link text-primary font-bold text-xs tracking-wider uppercase hover:opacity-100 transition-opacity flex items-center gap-1.5 active-nav"
+                id="btn-nav-home">
+                <i data-lucide="home" class="w-4 h-4"></i> Inicio
+            </button>
+            <button onclick="switchView('deck')"
+                class="nav-link text-neutral-500 font-bold text-xs tracking-wider uppercase hover:text-primary dark:hover:text-white transition-all flex items-center gap-1.5"
+                id="btn-nav-deck">
+                <i data-lucide="layers-3" class="w-4 h-4"></i> El Mazo
+            </button>
+            <button onclick="switchView('generator')"
+                class="nav-link text-neutral-500 font-bold text-xs tracking-wider uppercase hover:text-primary dark:hover:text-white transition-all flex items-center gap-1.5"
+                id="btn-nav-generator">
+                <i data-lucide="sparkles" class="w-4 h-4"></i> Generador
+            </button>
+            <button onclick="switchView('canvas')"
+                class="nav-link text-neutral-500 font-bold text-xs tracking-wider uppercase hover:text-primary dark:hover:text-white transition-all flex items-center gap-1.5"
+                id="btn-nav-canvas">
+                <i data-lucide="layout-grid" class="w-4 h-4"></i> Canvas de Ideación
+            </button>
+            <button onclick="switchView('projects')"
+                class="nav-link text-neutral-500 font-bold text-xs tracking-wider uppercase hover:text-primary dark:hover:text-white transition-all flex items-center gap-1.5"
+                id="btn-nav-projects">
+                <i data-lucide="folder-open" class="w-4 h-4"></i> Proyectos
+            </button>
+        </div>
+
+        <!-- Acciones Rápidas (Tema Oscuro / Perfil) -->
+        <div class="flex items-center gap-3">
+            <button onclick="toggleDarkMode()"
+                class="text-on-surface-variant hover:bg-surface-container-high p-2 transition-all rounded-xl dark:text-zinc-400 dark:hover:bg-zinc-800 flex items-center justify-center"
+                title="Alternar Modo Oscuro">
+                <i id="theme-icon" data-lucide="moon" class="w-5 h-5"></i>
+            </button>
+            <div class="h-8 w-[1px] bg-outline-variant dark:bg-zinc-800 hidden md:block"></div>
+            <div class="hidden md:flex items-center gap-2 text-left">
+                <div
+                    class="w-8 h-8 rounded-full bg-zinc-900 text-white flex items-center justify-center font-bold text-xs border border-zinc-700">
+                    ID
+                </div>
+                <div>
+                    <p class="text-xs font-bold leading-none">Diseñador UX</p>
+                    <p class="text-[9px] text-neutral-500 uppercase font-bold">Rol Creativo</p>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal -->
+    <main class="flex-grow flex flex-col relative">
+
+        <!-- VISTA 1: HOME (Dashboard de Entrada) -->
+        <section id="view-home" class="view-section py-10 px-6 md:px-12 max-w-7xl mx-auto w-full space-y-12">
+            <!-- Hero Shuffle Banner -->
+            <div
+                class="relative bg-zinc-950 text-white p-8 md:p-12 rounded-3xl overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8 border border-zinc-800 shadow-2xl">
+                <div
+                    class="absolute inset-0 bg-gradient-to-r from-indigo-950/20 via-zinc-950 to-neutral-950 opacity-90 -z-10">
+                </div>
+                <!-- Patrón decorativo flotante de fondo -->
+                <div class="absolute right-0 top-0 w-80 h-80 bg-indigo-500/10 blur-[120px] rounded-full"></div>
+
+                <div class="md:w-3/5 space-y-6 z-10 text-center md:text-left">
+                    <span
+                        class="px-3.5 py-1 bg-zinc-800 border border-zinc-700 rounded-full text-[10px] font-bold tracking-wide text-zinc-300 uppercase">
+                        ⚡ MOTOR DE IDEACIÓN PROYECTUAL
+                    </span>
+                    <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight leading-tight">
+                        Desbloquea oportunidades de diseño estructuradas.
+                    </h1>
+                    <p class="text-zinc-400 text-sm md:text-base leading-relaxed max-w-lg">
+                        Combina estratégicamente variables humanas y técnicas (contextos, fricciones, necesidades) para
+                        construir hipótesis de innovación y proyectos fundamentados sobre un canvas modular interactivo.
+                    </p>
+                    <div class="flex flex-wrap gap-4 justify-center md:justify-start">
+                        <button onclick="switchView('generator')"
+                            class="px-6 py-3.5 bg-white text-zinc-950 font-bold text-xs tracking-wider uppercase rounded-xl hover:bg-zinc-200 active:scale-95 transition-all shadow-md flex items-center gap-2">
+                            <i data-lucide="sparkles" class="w-4 h-4"></i> Generar Nueva Oportunidad
+                        </button>
+                        <button onclick="switchView('canvas')"
+                            class="px-6 py-3.5 bg-zinc-900 border border-zinc-800 text-zinc-300 font-bold text-xs tracking-wider uppercase rounded-xl hover:bg-zinc-800 hover:text-white transition-all flex items-center gap-2">
+                            <i data-lucide="layout-grid" class="w-4 h-4"></i> Abrir Canvas Visual
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Elemento Visual Interactuable: Abanico de Cartas Clásicas (Estructura con Mitad Superior Destacada) -->
+                <div class="md:w-2/5 relative h-[320px] w-full flex items-center justify-center overflow-hidden">
+                    <!-- Carta Contexto -->
+                    <div
+                        class="absolute w-44 h-64 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-xl rounded-2xl rotate-[-12deg] -translate-x-12 z-20 overflow-hidden transition-transform hover:rotate-[-6deg] duration-300">
+                        <div class="h-1/2 bg-blue-700 relative p-4 flex flex-col justify-between text-white">
+                            <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=300&q=80"
+                                class="absolute inset-0 w-full h-full object-cover opacity-40" alt="Contexto">
+                            <div class="absolute inset-0 bg-gradient-to-t from-blue-900/80 to-transparent"></div>
+                            <span
+                                class="text-[9px] font-extrabold tracking-wider uppercase relative z-10">Contexto</span>
+                            <i data-lucide="map-pin" class="w-6 h-6 relative z-10"></i>
+                        </div>
+                        <div class="p-4 h-1/2 flex flex-col justify-between bg-white dark:bg-zinc-900">
+                            <p class="text-xs font-bold text-zinc-900 dark:text-zinc-100 line-clamp-2">Transporte Urbano
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Carta Usuario -->
+                    <div
+                        class="absolute w-44 h-64 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-xl rounded-2xl rotate-[2deg] translate-y-2 z-30 overflow-hidden transition-transform hover:-translate-y-2 duration-300">
+                        <div class="h-1/2 bg-purple-700 relative p-4 flex flex-col justify-between text-white">
+                            <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=300&q=80"
+                                class="absolute inset-0 w-full h-full object-cover opacity-40" alt="Usuario">
+                            <div class="absolute inset-0 bg-gradient-to-t from-purple-900/80 to-transparent"></div>
+                            <span
+                                class="text-[9px] font-extrabold tracking-wider uppercase relative z-10">Usuario</span>
+                            <i data-lucide="user" class="w-6 h-6 relative z-10"></i>
+                        </div>
+                        <div class="p-4 h-1/2 flex flex-col justify-between bg-white dark:bg-zinc-900">
+                            <p class="text-xs font-bold text-zinc-900 dark:text-zinc-100 line-clamp-2">Adulto Mayor</p>
+                        </div>
+                    </div>
+                    <!-- Carta Fricción -->
+                    <div
+                        class="absolute w-44 h-64 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-xl rounded-2xl rotate-[14deg] translate-x-12 z-10 overflow-hidden transition-transform hover:rotate-[8deg] duration-300 opacity-90">
+                        <div class="h-1/2 bg-rose-700 relative p-4 flex flex-col justify-between text-white">
+                            <img src="https://images.unsplash.com/photo-1501139083538-0139883ac06c?auto=format&fit=crop&w=300&q=80"
+                                class="absolute inset-0 w-full h-full object-cover opacity-40" alt="Fricción">
+                            <div class="absolute inset-0 bg-gradient-to-t from-rose-900/80 to-transparent"></div>
+                            <span
+                                class="text-[9px] font-extrabold tracking-wider uppercase relative z-10">Fricción</span>
+                            <i data-lucide="alert-triangle" class="w-6 h-6 relative z-10"></i>
+                        </div>
+                        <div class="p-4 h-1/2 flex flex-col justify-between bg-white dark:bg-zinc-900">
+                            <p class="text-xs font-bold text-zinc-900 dark:text-zinc-100 line-clamp-2">Fatiga Cognitiva
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dashboard Stats -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <div
+                    class="bg-neutral-50 border border-neutral-200/60 dark:bg-zinc-900 dark:border-zinc-800 rounded-2xl p-6 flex items-center justify-between shadow-sm">
+                    <div>
+                        <p class="text-[10px] font-bold text-neutral-500 uppercase tracking-widest">Cartas Totales</p>
+                        <p class="text-3xl font-extrabold text-primary dark:text-white mt-1" id="stat-total-cards">0</p>
+                    </div>
+                    <i data-lucide="copy" class="w-8 h-8 text-neutral-400"></i>
+                </div>
+                <div
+                    class="bg-neutral-50 border border-neutral-200/60 dark:bg-zinc-900 dark:border-zinc-800 rounded-2xl p-6 flex items-center justify-between shadow-sm">
+                    <div>
+                        <p class="text-[10px] font-bold text-neutral-500 uppercase tracking-widest">Hipótesis Creadas
+                        </p>
+                        <p class="text-3xl font-extrabold text-primary dark:text-white mt-1" id="stat-saved-projects">0
+                        </p>
+                    </div>
+                    <i data-lucide="folder" class="w-8 h-8 text-neutral-400"></i>
+                </div>
+                <div
+                    class="bg-neutral-50 border border-neutral-200/60 dark:bg-zinc-900 dark:border-zinc-800 rounded-2xl p-6 flex items-center justify-between shadow-sm">
+                    <div>
+                        <p class="text-[10px] font-bold text-neutral-500 uppercase tracking-widest">Categorías Activas
+                        </p>
+                        <p class="text-3xl font-extrabold text-indigo-600 dark:text-indigo-400 mt-1">12</p>
+                    </div>
+                    <i data-lucide="layout-grid" class="w-8 h-8 text-neutral-400"></i>
+                </div>
+                <div
+                    class="bg-neutral-50 border border-neutral-200/60 dark:bg-zinc-900 dark:border-zinc-800 rounded-2xl p-6 flex items-center justify-between shadow-sm">
+                    <div>
+                        <p class="text-[10px] font-bold text-neutral-500 uppercase tracking-widest">Combinaciones
+                            Posibles</p>
+                        <p class="text-3xl font-extrabold text-emerald-600 dark:text-emerald-400 mt-1">4.2M+</p>
+                    </div>
+                    <i data-lucide="trending-up" class="w-8 h-8 text-neutral-400"></i>
+                </div>
+            </div>
+
+            <!-- Hipótesis Recientes -->
+            <div class="space-y-4">
+                <div
+                    class="flex items-center justify-between border-b border-outline-variant pb-3 dark:border-zinc-800">
+                    <h2 class="font-bold text-xs tracking-wider uppercase text-neutral-500 flex items-center gap-2">
+                        <i data-lucide="network" class="w-4 h-4"></i> Hipótesis Recientes Guardadas
+                    </h2>
+                    <button onclick="switchView('projects')"
+                        class="text-xs font-bold text-indigo-600 hover:text-indigo-800 transition-colors flex items-center gap-1.5 dark:text-indigo-400">
+                        VER EL ARCHIVO <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                    </button>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="home-projects-grid">
+                    <!-- Se renderiza vía JS -->
+                </div>
+            </div>
+
+            <!-- Quick Category Explore -->
+            <div class="space-y-4">
+                <div class="border-b border-outline-variant pb-3 dark:border-zinc-800">
+                    <h2 class="font-bold text-xs tracking-wider uppercase text-neutral-500">Mazo de Variables
+                        Proyectuales (12 Categorías)</h2>
+                </div>
+                <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-3" id="home-categories-grid">
+                    <!-- Rellenado dinámicamente con las categorías -->
+                </div>
+            </div>
+        </section>
+
+        <!-- VISTA 2: EL MAZO (Biblioteca / CRUD) -->
+        <section id="view-deck" class="view-section py-8 px-6 md:px-12 max-w-7xl mx-auto w-full space-y-8 hidden">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div>
+                    <h1 class="text-3xl font-extrabold tracking-tight flex items-center gap-2.5">
+                        <i data-lucide="layers-3" class="w-8 h-8 text-neutral-500"></i> Biblioteca del Mazo
+                    </h1>
+                    <p class="text-sm text-neutral-500 mt-1">Gestiona, crea, filtra y edita todo el conjunto de cartas
+                        de variables proyectuales.</p>
+                </div>
+                <button onclick="openCardModal()"
+                    class="px-5 py-3 bg-primary text-white font-bold text-xs tracking-wider uppercase rounded-xl hover:bg-neutral-800 active:scale-95 transition-all flex items-center gap-2 self-start md:self-auto dark:bg-white dark:text-zinc-900">
+                    <i data-lucide="plus" class="w-4 h-4"></i> Añadir Nueva Carta
+                </button>
+            </div>
+
+            <!-- Filtros de búsqueda y Categorías -->
+            <div
+                class="bg-neutral-50 border border-neutral-200/60 p-5 rounded-2xl space-y-4 dark:bg-zinc-900 dark:border-zinc-800">
+                <div class="flex flex-col md:flex-row gap-4 items-center">
+                    <!-- Input de búsqueda -->
+                    <div class="relative w-full md:w-1/3 flex items-center">
+                        <i data-lucide="search" class="absolute left-3 text-neutral-400 w-4 h-4"></i>
+                        <input type="text" id="deck-search" oninput="filterDeck()"
+                            placeholder="Buscar por título, tag o descripción..."
+                            class="w-full pl-10 pr-4 py-2.5 rounded-xl border-neutral-200 text-sm focus:ring-primary focus:border-primary bg-white dark:bg-zinc-800 dark:border-zinc-700 dark:text-white dark:focus:ring-white" />
+                    </div>
+                    <!-- Select Ordenar -->
+                    <div class="w-full md:w-1/4">
+                        <select id="deck-sort" onchange="filterDeck()"
+                            class="w-full py-2.5 rounded-xl border-neutral-200 text-sm focus:ring-primary focus:border-primary bg-white dark:bg-zinc-800 dark:border-zinc-700 dark:text-white">
+                            <option value="recent">Añadidas recientemente</option>
+                            <option value="az">Alfabético A-Z</option>
+                            <option value="category">Por Categoría</option>
+                        </select>
+                    </div>
+                    <!-- Limpiar filtros -->
+                    <button onclick="clearDeckFilters()"
+                        class="text-xs font-bold text-neutral-500 hover:text-primary dark:hover:text-white underline self-center">
+                        Restablecer Filtros
+                    </button>
+                </div>
+
+                <!-- Pills de Categorías -->
+                <div class="flex flex-wrap gap-2 pt-2" id="deck-category-filters">
+                    <!-- Insertados vía JS -->
+                </div>
+                
+                <!-- Pills de Tags -->
+                <div class="flex flex-wrap gap-1.5 pt-1 mt-2 border-t border-neutral-100 dark:border-zinc-800 empty:hidden" id="deck-tag-filters">
+                    <!-- Insertados vía JS -->
+                </div>
+            </div>
+
+            <!-- Grid de Cartas -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" id="deck-cards-grid">
+                <!-- Tarjetas del Mazo dinámicas -->
+            </div>
+
+            <!-- Estado Vacío -->
+            <div id="deck-empty-state"
+                class="hidden text-center py-20 bg-neutral-50 dark:bg-zinc-900/40 rounded-3xl border border-dashed border-neutral-200 dark:border-zinc-800">
+                <i data-lucide="layers" class="w-12 h-12 text-neutral-300 dark:text-zinc-700 mx-auto"></i>
+                <p class="font-bold text-lg text-neutral-700 dark:text-zinc-300 mt-4">No se encontraron cartas</p>
+                <p class="text-sm text-neutral-500 mt-1">Prueba a limpiar la búsqueda o crea una carta personalizada
+                    ahora mismo.</p>
+                <button onclick="openCardModal()"
+                    class="mt-4 px-4 py-2 bg-zinc-900 text-white rounded-lg text-xs font-bold uppercase tracking-widest dark:bg-white dark:text-zinc-950">Crear
+                    Carta</button>
+            </div>
+        </section>
+
+        <!-- VISTA 3: GENERADOR (Modo Procedural y Fórmulas) -->
+        <section id="view-generator" class="view-section py-8 px-6 md:px-12 max-w-7xl mx-auto w-full space-y-8 hidden">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                <div>
+                    <h1 class="text-3xl font-extrabold tracking-tight flex items-center gap-2.5">
+                        <i data-lucide="sparkles" class="w-8 h-8 text-neutral-500"></i> Motor de Ideación Aleatoria
+                    </h1>
+                    <p class="text-sm text-neutral-500 mt-1">Fija o desbloquea variables proyectuales y baraja cartas
+                        aleatoriamente para ensamblar la hipótesis perfecta.</p>
+                </div>
+                <div class="flex gap-2">
+                    <button onclick="shuffleGeneratorDeck()"
+                        class="px-5 py-3 bg-indigo-600 text-white font-bold text-xs tracking-wider uppercase rounded-xl hover:bg-indigo-700 active:scale-95 transition-all flex items-center gap-2 shadow-lg shadow-indigo-500/10">
+                        <i data-lucide="refresh-cw" class="w-4 h-4"></i> BARAJAR MAZO
+                    </button>
+                    <button onclick="saveCurrentGeneration()"
+                        class="px-5 py-3 bg-zinc-900 text-white font-bold text-xs tracking-wider uppercase rounded-xl hover:bg-zinc-800 active:scale-95 transition-all flex items-center gap-2 dark:bg-zinc-100 dark:text-zinc-950">
+                        <i data-lucide="bookmark" class="w-4 h-4"></i> GUARDAR HIPÓTESIS
+                    </button>
+                </div>
+            </div>
+
+            <!-- FÓRMULA 1: EL PROBLEMA DETECTADO -->
+            <div
+                class="bg-zinc-50 border border-zinc-200 rounded-3xl p-6 dark:bg-zinc-900/60 dark:border-zinc-800 space-y-6">
+                <div class="flex justify-between items-center border-b border-zinc-200 dark:border-zinc-800 pb-3">
+                    <h2 class="text-xs font-black tracking-widest uppercase text-neutral-500 flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-red-500"></span> FÓRMULA BASE: EL PROBLEMA ORIGINAL
+                    </h2>
+                    <span class="text-xs text-neutral-400">Variables Relacionales</span>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-6 gap-4">
+                    <!-- Slot 1: Contexto -->
+                    <div class="generator-slot flex flex-col gap-2" data-category="Contexto">
+                        <div class="flex justify-between items-center px-1">
+                            <span class="text-[9px] font-bold text-blue-600 uppercase tracking-wider">Contexto</span>
+                            <button onclick="toggleSlotLock('Contexto')"
+                                class="slot-lock-btn hover:text-indigo-600 flex items-center justify-center"
+                                id="lock-Contexto">
+                                <i data-lucide="lock-keyhole-open" class="w-3.5 h-3.5 text-neutral-400"></i>
+                            </button>
+                        </div>
+                        <div class="slot-container relative h-56 bg-white dark:bg-zinc-800 border-2 border-dashed border-zinc-200 dark:border-zinc-700 rounded-2xl flex items-center justify-center overflow-hidden transition-all"
+                            id="slot-Contexto">
+                            <!-- Carta insertada dinámicamente -->
+                        </div>
+                    </div>
+                    <!-- Slot 2: Usuario -->
+                    <div class="generator-slot flex flex-col gap-2" data-category="Usuario">
+                        <div class="flex justify-between items-center px-1">
+                            <span class="text-[9px] font-bold text-purple-600 uppercase tracking-wider">Usuario</span>
+                            <button onclick="toggleSlotLock('Usuario')"
+                                class="slot-lock-btn hover:text-indigo-600 flex items-center justify-center"
+                                id="lock-Usuario">
+                                <i data-lucide="lock-keyhole-open" class="w-3.5 h-3.5 text-neutral-400"></i>
+                            </button>
+                        </div>
+                        <div class="slot-container relative h-56 bg-white dark:bg-zinc-800 border-2 border-dashed border-zinc-200 dark:border-zinc-700 rounded-2xl flex items-center justify-center overflow-hidden transition-all"
+                            id="slot-Usuario">
+                            <!-- Carta insertada dinámicamente -->
+                        </div>
+                    </div>
+                    <!-- Slot 3: Interacción -->
+                    <div class="generator-slot flex flex-col gap-2" data-category="Interacción">
+                        <div class="flex justify-between items-center px-1">
+                            <span
+                                class="text-[9px] font-bold text-emerald-600 uppercase tracking-wider">Interacción</span>
+                            <button onclick="toggleSlotLock('Interacción')"
+                                class="slot-lock-btn hover:text-indigo-600 flex items-center justify-center"
+                                id="lock-Interacción">
+                                <i data-lucide="lock-keyhole-open" class="w-3.5 h-3.5 text-neutral-400"></i>
+                            </button>
+                        </div>
+                        <div class="slot-container relative h-56 bg-white dark:bg-zinc-800 border-2 border-dashed border-zinc-200 dark:border-zinc-700 rounded-2xl flex items-center justify-center overflow-hidden transition-all"
+                            id="slot-Interacción">
+                            <!-- Carta insertada dinámicamente -->
+                        </div>
+                    </div>
+                    <!-- Slot 4: Necesidad -->
+                    <div class="generator-slot flex flex-col gap-2" data-category="Necesidad">
+                        <div class="flex justify-between items-center px-1">
+                            <span class="text-[9px] font-bold text-amber-600 uppercase tracking-wider">Necesidad</span>
+                            <button onclick="toggleSlotLock('Necesidad')"
+                                class="slot-lock-btn hover:text-indigo-600 flex items-center justify-center"
+                                id="lock-Necesidad">
+                                <i data-lucide="lock-keyhole-open" class="w-3.5 h-3.5 text-neutral-400"></i>
+                            </button>
+                        </div>
+                        <div class="slot-container relative h-56 bg-white dark:bg-zinc-800 border-2 border-dashed border-zinc-200 dark:border-zinc-700 rounded-2xl flex items-center justify-center overflow-hidden transition-all"
+                            id="slot-Necesidad">
+                            <!-- Carta insertada dinámicamente -->
+                        </div>
+                    </div>
+                    <!-- Slot 5: Fricción -->
+                    <div class="generator-slot flex flex-col gap-2" data-category="Fricción">
+                        <div class="flex justify-between items-center px-1">
+                            <span class="text-[9px] font-bold text-red-600 uppercase tracking-wider">Fricción</span>
+                            <button onclick="toggleSlotLock('Fricción')"
+                                class="slot-lock-btn hover:text-indigo-600 flex items-center justify-center"
+                                id="lock-Fricción">
+                                <i data-lucide="lock-keyhole-open" class="w-3.5 h-3.5 text-neutral-400"></i>
+                            </button>
+                        </div>
+                        <div class="slot-container relative h-56 bg-white dark:bg-zinc-800 border-2 border-dashed border-zinc-200 dark:border-zinc-700 rounded-2xl flex items-center justify-center overflow-hidden transition-all"
+                            id="slot-Fricción">
+                            <!-- Carta insertada dinámicamente -->
+                        </div>
+                    </div>
+                    <!-- Slot 6: Consecuencia -->
+                    <div class="generator-slot flex flex-col gap-2" data-category="Consecuencia">
+                        <div class="flex justify-between items-center px-1">
+                            <span
+                                class="text-[9px] font-bold text-orange-600 uppercase tracking-wider">Consecuencia</span>
+                            <button onclick="toggleSlotLock('Consecuencia')"
+                                class="slot-lock-btn hover:text-indigo-600 flex items-center justify-center"
+                                id="lock-Consecuencia">
+                                <i data-lucide="lock-keyhole-open" class="w-3.5 h-3.5 text-neutral-400"></i>
+                            </button>
+                        </div>
+                        <div class="slot-container relative h-56 bg-white dark:bg-zinc-800 border-2 border-dashed border-zinc-200 dark:border-zinc-700 rounded-2xl flex items-center justify-center overflow-hidden transition-all"
+                            id="slot-Consecuencia">
+                            <!-- Carta insertada dinámicamente -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FÓRMULA 2: LA OPORTUNIDAD / PROPUESTA -->
+            <div
+                class="bg-zinc-50 border border-zinc-200 rounded-3xl p-6 dark:bg-zinc-900/60 dark:border-zinc-800 space-y-6">
+                <div class="flex justify-between items-center border-b border-zinc-200 dark:border-zinc-800 pb-3">
+                    <h2 class="text-xs font-black tracking-widest uppercase text-neutral-500 flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-indigo-500"></span> FÓRMULA BASE: LA OPORTUNIDAD TÁCTICA
+                    </h2>
+                    <span class="text-xs text-neutral-400">Variables de Solución</span>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+                    <!-- Slot 7: Tipo de Solución -->
+                    <div class="generator-slot flex flex-col gap-2" data-category="Tipo solución">
+                        <div class="flex justify-between items-center px-1">
+                            <span class="text-[9px] font-bold text-sky-600 uppercase tracking-wider">Tipo
+                                Solución</span>
+                            <button onclick="toggleSlotLock('Tipo solución')"
+                                class="slot-lock-btn hover:text-indigo-600 flex items-center justify-center"
+                                id="lock-Tipo solución">
+                                <i data-lucide="lock-keyhole-open" class="w-3.5 h-3.5 text-neutral-400"></i>
+                            </button>
+                        </div>
+                        <div class="slot-container relative h-56 bg-white dark:bg-zinc-800 border-2 border-dashed border-zinc-200 dark:border-zinc-700 rounded-2xl flex items-center justify-center overflow-hidden transition-all"
+                            id="slot-Tipo solución">
+                            <!-- Carta insertada dinámicamente -->
+                        </div>
+                    </div>
+                    <!-- Slot 8: Mecanismo -->
+                    <div class="generator-slot flex flex-col gap-2" data-category="Mecanismo">
+                        <div class="flex justify-between items-center px-1">
+                            <span class="text-[9px] font-bold text-teal-600 uppercase tracking-wider">Mecanismo</span>
+                            <button onclick="toggleSlotLock('Mecanismo')"
+                                class="slot-lock-btn hover:text-indigo-600 flex items-center justify-center"
+                                id="lock-Mecanismo">
+                                <i data-lucide="lock-keyhole-open" class="w-3.5 h-3.5 text-neutral-400"></i>
+                            </button>
+                        </div>
+                        <div class="slot-container relative h-56 bg-white dark:bg-zinc-800 border-2 border-dashed border-zinc-200 dark:border-zinc-700 rounded-2xl flex items-center justify-center overflow-hidden transition-all"
+                            id="slot-Mecanismo">
+                            <!-- Carta insertada dinámicamente -->
+                        </div>
+                    </div>
+                    <!-- Slot 9: Lenguaje -->
+                    <div class="generator-slot flex flex-col gap-2" data-category="Lenguaje">
+                        <div class="flex justify-between items-center px-1">
+                            <span class="text-[9px] font-bold text-pink-600 uppercase tracking-wider">Lenguaje</span>
+                            <button onclick="toggleSlotLock('Lenguaje')"
+                                class="slot-lock-btn hover:text-indigo-600 flex items-center justify-center"
+                                id="lock-Lenguaje">
+                                <i data-lucide="lock-keyhole-open" class="w-3.5 h-3.5 text-neutral-400"></i>
+                            </button>
+                        </div>
+                        <div class="slot-container relative h-56 bg-white dark:bg-zinc-800 border-2 border-dashed border-zinc-200 dark:border-zinc-700 rounded-2xl flex items-center justify-center overflow-hidden transition-all"
+                            id="slot-Lenguaje">
+                            <!-- Carta insertada dinámicamente -->
+                        </div>
+                    </div>
+                    <!-- Slot 10: Formato -->
+                    <div class="generator-slot flex flex-col gap-2" data-category="Formato">
+                        <div class="flex justify-between items-center px-1">
+                            <span class="text-[9px] font-bold text-violet-600 uppercase tracking-wider">Formato</span>
+                            <button onclick="toggleSlotLock('Formato')"
+                                class="slot-lock-btn hover:text-indigo-600 flex items-center justify-center"
+                                id="lock-Formato">
+                                <i data-lucide="lock-keyhole-open" class="w-3.5 h-3.5 text-neutral-400"></i>
+                            </button>
+                        </div>
+                        <div class="slot-container relative h-56 bg-white dark:bg-zinc-800 border-2 border-dashed border-zinc-200 dark:border-zinc-700 rounded-2xl flex items-center justify-center overflow-hidden transition-all"
+                            id="slot-Formato">
+                            <!-- Carta insertada dinámicamente -->
+                        </div>
+                    </div>
+                    <!-- Slot 11: Valor -->
+                    <div class="generator-slot flex flex-col gap-2" data-category="Valor">
+                        <div class="flex justify-between items-center px-1">
+                            <span class="text-[9px] font-bold text-amber-500 uppercase tracking-wider">Valor</span>
+                            <button onclick="toggleSlotLock('Valor')"
+                                class="slot-lock-btn hover:text-indigo-600 flex items-center justify-center"
+                                id="lock-Valor">
+                                <i data-lucide="lock-keyhole-open" class="w-3.5 h-3.5 text-neutral-400"></i>
+                            </button>
+                        </div>
+                        <div class="slot-container relative h-56 bg-white dark:bg-zinc-800 border-2 border-dashed border-zinc-200 dark:border-zinc-700 rounded-2xl flex items-center justify-center overflow-hidden transition-all"
+                            id="slot-Valor">
+                            <!-- Carta insertada dinámicamente -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Narrativa Generada Integrada -->
+            <div
+                class="bg-indigo-50 border border-indigo-100 rounded-3xl p-6 dark:bg-indigo-950/20 dark:border-indigo-950/50 space-y-4">
+                <span
+                    class="px-3 py-1 bg-indigo-600 text-white rounded-full text-[10px] font-black tracking-widest uppercase">NARRATIVA
+                    FORMULADA</span>
+                <div class="space-y-4 font-serif text-lg leading-relaxed text-zinc-800 dark:text-zinc-200">
+                    <p id="narrative-problem" class="border-l-4 border-indigo-400 pl-4 italic">
+                        Cargando formulación de problema...
+                    </p>
+                    <p id="narrative-opportunity" class="border-l-4 border-emerald-400 pl-4 italic">
+                        Cargando formulación de oportunidad...
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- VISTA 4: CANVAS DE IDEACIÓN (Miro/FigJam interactivo) -->
+        <section id="view-canvas"
+            class="view-section flex-grow flex-col hidden h-[calc(100vh-4rem)] relative overflow-hidden">
+            <!-- Barra lateral de inventario y controles -->
+            <div
+                class="absolute left-4 top-4 z-20 flex flex-col gap-3 w-72 bg-white dark:bg-zinc-900 border border-outline-variant dark:border-zinc-800 p-4 rounded-2xl shadow-xl">
+                <div>
+                    <h2 class="font-extrabold text-xs uppercase tracking-widest">Mesa de Ideación</h2>
+                    <p class="text-[10px] text-neutral-500 mt-1">Arrastra o añade cartas directamente. Muévelas con
+                        total libertad y conéctalas.</p>
+                </div>
+
+                <!-- Acciones Rápidas del Canvas -->
+                <div class="grid grid-cols-2 gap-2 text-center">
+                    <button onclick="clearCanvas()"
+                        class="px-2.5 py-1.5 border border-red-200 hover:bg-red-50 text-red-600 text-[10px] font-bold rounded-lg uppercase tracking-wider dark:border-red-950/50 dark:hover:bg-red-950/30 flex items-center justify-center gap-1">
+                        <i data-lucide="trash" class="w-3.5 h-3.5"></i> Limpiar
+                    </button>
+                    <button onclick="exportCanvasState()"
+                        class="px-2.5 py-1.5 border border-neutral-200 hover:bg-neutral-50 text-neutral-600 text-[10px] font-bold rounded-lg uppercase tracking-wider dark:border-zinc-800 dark:hover:bg-zinc-800 dark:text-zinc-300 flex items-center justify-center gap-1">
+                        <i data-lucide="download" class="w-3.5 h-3.5"></i> Exportar
+                    </button>
+                </div>
+
+                <!-- Selector de Cartas para Spawn -->
+                <div class="space-y-2">
+                    <label class="text-[9px] font-bold text-neutral-400 uppercase tracking-widest">Inyectar Carta al
+                        Lienzo</label>
+                    <select id="canvas-card-spawn-selector"
+                        class="w-full text-xs rounded-lg border-neutral-200 dark:bg-zinc-800 dark:border-zinc-700 dark:text-white">
+                        <!-- Rellenado dinámicamente con las cartas -->
+                    </select>
+                    <button onclick="spawnSelectedCardOnCanvas()"
+                        class="w-full py-2 bg-primary text-white hover:bg-neutral-800 font-bold text-[10px] tracking-wider uppercase rounded-lg dark:bg-white dark:text-zinc-950 flex items-center justify-center gap-1">
+                        <i data-lucide="plus" class="w-3.5 h-3.5"></i> Añadir Carta
+                    </button>
+                </div>
+
+                <!-- Instrucciones -->
+                <div
+                    class="border-t border-neutral-100 dark:border-zinc-800 pt-2 text-[10px] text-neutral-500 space-y-1">
+                    <p class="font-bold text-neutral-600 dark:text-zinc-300">¿Cómo conectar cartas?</p>
+                    <p>1. Presiona <span class="font-mono bg-neutral-100 dark:bg-zinc-800 px-1 rounded">Conectar</span>
+                        en la Carta A.</p>
+                    <p>2. Haz clic en la Carta B para trazar el enlace conceptual.</p>
+                </div>
+            </div>
+
+            <!-- El Lienzo Infinito Dot Grid -->
+            <div id="canvas-workspace"
+                class="flex-grow w-full h-full overflow-hidden relative dot-grid bg-neutral-50 dark:bg-zinc-950 cursor-grab select-none">
+                <!-- Contenedor Móvil interno que aloja las cartas -->
+                <div id="canvas-container" class="absolute inset-0 w-[4000px] h-[4000px]"
+                    style="transform: translate(-1000px, -1000px);">
+
+                    <!-- SVG Overlay para las líneas curbas dinámicas de FigJam -->
+                    <svg id="canvas-connections-svg" class="absolute inset-0 w-full h-full pointer-events-none z-0">
+                        <!-- Markers para flechas del vector de conexión -->
+                        <defs>
+                            <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6"
+                                orient="auto-start-reverse">
+                                <path d="M 0 1 L 10 5 L 0 9 z" fill="#6366f1" />
+                            </marker>
+                        </defs>
+                        <!-- Las líneas se dibujan por Javascript -->
+                    </svg>
+
+                    <!-- Tarjetas virtuales en el Canvas se inyectan aquí -->
+                </div>
+            </div>
+        </section>
+
+        <!-- VISTA 5: PROYECTOS / ARCHIVO -->
+        <section id="view-projects" class="view-section py-8 px-6 md:px-12 max-w-7xl mx-auto w-full space-y-8 hidden">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                <div>
+                    <h1 class="text-3xl font-extrabold tracking-tight flex items-center gap-2.5">
+                        <i data-lucide="folder-open" class="w-8 h-8 text-neutral-500"></i> Archivo Táctico de Proyectos
+                    </h1>
+                    <p class="text-sm text-neutral-500 mt-1">Revisa, exporta o edita hipótesis y relaciones guardadas
+                        con anterioridad.</p>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-2">
+                    <input type="file" id="import-workspace-input" accept=".json" class="hidden" onchange="importWorkspace(event)" />
+                    <button onclick="document.getElementById('import-workspace-input').click()"
+                        class="px-4 py-2 bg-indigo-600/10 text-indigo-600 font-bold text-xs tracking-wider uppercase rounded-xl hover:bg-indigo-600/20 transition-all flex items-center justify-center gap-2 dark:bg-indigo-500/10 dark:text-indigo-400">
+                        <i data-lucide="upload" class="w-4 h-4"></i> Importar Workspace
+                    </button>
+                    <button onclick="exportWorkspace()"
+                        class="px-4 py-2 bg-neutral-100 text-neutral-700 font-bold text-xs tracking-wider uppercase rounded-xl hover:bg-neutral-200 transition-all flex items-center justify-center gap-2 dark:bg-zinc-800 dark:text-zinc-200 dark:hover:bg-zinc-700">
+                        <i data-lucide="download" class="w-4 h-4"></i> Exportar JSON
+                    </button>
+                </div>
+            </div>
+
+            <!-- Grid de proyectos -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="projects-archive-grid">
+                <!-- Proyectos renderizados vía JS -->
+            </div>
+
+            <!-- Estado Vacío -->
+            <div id="projects-empty-state"
+                class="hidden text-center py-20 bg-neutral-50 dark:bg-zinc-900/40 rounded-3xl border border-dashed border-neutral-200 dark:border-zinc-800">
+                <i data-lucide="folder" class="w-12 h-12 text-neutral-300 dark:text-zinc-700 mx-auto"></i>
+                <p class="font-bold text-lg text-neutral-700 dark:text-zinc-300 mt-4">El archivo está vacío</p>
+                <p class="text-sm text-neutral-500 mt-1">Ve al Generador para construir tu primera hipótesis de diseño
+                    fundamentada.</p>
+                <button onclick="switchView('generator')"
+                    class="mt-4 px-5 py-2.5 bg-indigo-600 text-white rounded-xl text-xs font-bold uppercase tracking-widest">Generar
+                    Oportunidad</button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- BottomNavBar Mobile -->
+    <nav
+        class="md:hidden fixed bottom-0 left-0 w-full z-40 flex justify-around items-center bg-white border-t border-outline-variant px-2 py-3 shadow-xl h-16 dark:bg-zinc-950 dark:border-zinc-900">
+        <button onclick="switchView('home')"
+            class="flex flex-col items-center justify-center text-xs font-bold text-neutral-500 transition-colors gap-0.5"
+            id="btn-mobile-home">
+            <i data-lucide="home" class="w-4 h-4"></i>
+            <span>Inicio</span>
+        </button>
+        <button onclick="switchView('deck')"
+            class="flex flex-col items-center justify-center text-xs font-bold text-neutral-500 transition-colors gap-0.5"
+            id="btn-mobile-deck">
+            <i data-lucide="layers-3" class="w-4 h-4"></i>
+            <span>El Mazo</span>
+        </button>
+        <button onclick="switchView('generator')"
+            class="flex flex-col items-center justify-center text-xs font-bold text-neutral-500 transition-colors gap-0.5"
+            id="btn-mobile-generator">
+            <i data-lucide="sparkles" class="w-4 h-4"></i>
+            <span>Ideador</span>
+        </button>
+        <button onclick="switchView('canvas')"
+            class="flex flex-col items-center justify-center text-xs font-bold text-neutral-500 transition-colors gap-0.5"
+            id="btn-mobile-canvas">
+            <i data-lucide="layout-grid" class="w-4 h-4"></i>
+            <span>Lienzo</span>
+        </button>
+        <button onclick="switchView('projects')"
+            class="flex flex-col items-center justify-center text-xs font-bold text-neutral-500 transition-colors gap-0.5"
+            id="btn-mobile-projects">
+            <i data-lucide="folder-open" class="w-4 h-4"></i>
+            <span>Proyectos</span>
+        </button>
+    </nav>
+
+    <!-- MODAL DE CREACIÓN/EDICIÓN DE CARTAS -->
+    <div id="card-modal"
+        class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm hidden p-4">
+        <div
+            class="bg-white dark:bg-zinc-900 w-full max-w-lg rounded-2xl border border-neutral-200 dark:border-zinc-800 shadow-2xl p-6 relative flex flex-col max-h-[90vh]">
+            <button onclick="closeCardModal()"
+                class="absolute top-4 right-4 text-neutral-400 hover:text-neutral-600 flex items-center justify-center w-8 h-8 rounded-full hover:bg-neutral-100 dark:hover:bg-zinc-800">
+                <i data-lucide="x" class="w-4 h-4"></i>
+            </button>
+            <h2 id="modal-card-title-label" class="text-xl font-extrabold mb-1">Añadir Nueva Carta</h2>
+            <p class="text-xs text-neutral-500 mb-6">Completa los campos para expandir el mazo modular con imágenes y
+                colores ricos.</p>
+
+            <form id="card-form" onsubmit="handleCardSubmit(event)" class="space-y-4 overflow-y-auto flex-grow pr-1">
+                <input type="hidden" id="modal-card-id" />
+
+                <div>
+                    <label
+                        class="block text-xs font-bold text-neutral-600 dark:text-zinc-300 uppercase tracking-wider mb-2">Título
+                        de la Carta</label>
+                    <input type="text" id="modal-card-title" required placeholder="Ej. Freelance Súper-Conectado"
+                        class="w-full text-sm rounded-xl border-neutral-200 focus:ring-primary focus:border-primary dark:bg-zinc-800 dark:border-zinc-700 dark:text-white" />
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label
+                            class="block text-xs font-bold text-neutral-600 dark:text-zinc-300 uppercase tracking-wider mb-2">Categoría
+                            del Deck</label>
+                        <select id="modal-card-category" onchange="updateFormColorIndicator()"
+                            class="w-full text-sm rounded-xl border-neutral-200 dark:bg-zinc-800 dark:border-zinc-700 dark:text-white">
+                            <!-- Inyectado dinámicamente -->
+                        </select>
+                    </div>
+                    <div>
+                        <label
+                            class="block text-xs font-bold text-neutral-600 dark:text-zinc-300 uppercase tracking-wider mb-2">Icono
+                            (Lucide)</label>
+                        <input type="text" id="modal-card-icon" placeholder="Ej. laptop, user, bus, heart"
+                            class="w-full text-sm rounded-xl border-neutral-200 dark:bg-zinc-800 dark:border-zinc-700 dark:text-white" />
+                    </div>
+                </div>
+
+                <div>
+                    <label
+                        class="block text-xs font-bold text-neutral-600 dark:text-zinc-300 uppercase tracking-wider mb-2">Enlace
+                        de Imagen (URL opcional)</label>
+                    <input type="url" id="modal-card-image" placeholder="Ej. https://images.unsplash.com/... o vacío"
+                        class="w-full text-sm rounded-xl border-neutral-200 dark:bg-zinc-800 dark:border-zinc-700 dark:text-white focus:ring-primary focus:border-primary" />
+                    <p class="text-[10px] text-neutral-400 mt-1">Introduce una URL de imagen para mostrarla sobre el
+                        fondo destacado de la tarjeta.</p>
+                </div>
+
+                <div>
+                    <label
+                        class="block text-xs font-bold text-neutral-600 dark:text-zinc-300 uppercase tracking-wider mb-2">Breve
+                        Descripción</label>
+                    <textarea id="modal-card-desc" rows="3" required
+                        placeholder="Explica resumidamente el valor, fricción o interacción..."
+                        class="w-full text-sm rounded-xl border-neutral-200 dark:bg-zinc-800 dark:border-zinc-700 dark:text-white"></textarea>
+                </div>
+
+                <div>
+                    <label
+                        class="block text-xs font-bold text-neutral-600 dark:text-zinc-300 uppercase tracking-wider mb-2">Tags
+                        (Separados por coma)</label>
+                    <input type="text" id="modal-card-tags" placeholder="Ej. digital, remoto, fatiga"
+                        class="w-full text-sm rounded-xl border-neutral-200 dark:bg-zinc-800 dark:border-zinc-700 dark:text-white" />
+                </div>
+
+                <!-- Indicador Visual del Color de la Categoría -->
+                <div class="flex items-center gap-3 bg-neutral-50 dark:bg-zinc-800/50 p-3 rounded-xl">
+                    <div id="modal-color-indicator" class="w-8 h-8 rounded-xl"></div>
+                    <div>
+                        <p class="text-[10px] font-extrabold uppercase tracking-widest text-neutral-400">Color Asignado
+                        </p>
+                        <p id="modal-color-name" class="text-xs font-bold">Por Defecto</p>
+                    </div>
+                </div>
+
+                <div class="flex gap-2 justify-end pt-4 border-t border-neutral-100 dark:border-zinc-800">
+                    <button type="button" onclick="closeCardModal()"
+                        class="px-4 py-2 bg-neutral-100 hover:bg-neutral-200 text-neutral-700 text-xs font-bold rounded-lg uppercase dark:bg-zinc-800 dark:text-zinc-300">Cancelar</button>
+                    <button type="submit"
+                        class="px-5 py-2.5 bg-primary text-white hover:bg-neutral-800 text-xs font-bold rounded-lg uppercase dark:bg-white dark:text-zinc-950">Guardar
+                        Carta</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL DETALLE DE PROYECTO GUARDADO -->
+    <div id="project-detail-modal"
+        class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm hidden p-4">
+        <div
+            class="bg-white dark:bg-zinc-900 w-full max-w-2xl rounded-2xl border border-neutral-200 dark:border-zinc-800 shadow-2xl p-6 relative flex flex-col max-h-[90vh]">
+            <button onclick="closeProjectModal()"
+                class="absolute top-4 right-4 text-neutral-400 hover:text-neutral-600 flex items-center justify-center w-8 h-8 rounded-full hover:bg-neutral-100 dark:hover:bg-zinc-800">
+                <i data-lucide="x" class="w-4 h-4"></i>
+            </button>
+            <span
+                class="px-2.5 py-1 bg-indigo-100 text-indigo-700 text-[10px] font-black tracking-widest uppercase rounded self-start mb-2 dark:bg-indigo-950 dark:text-indigo-300">Ficha
+                de Hipótesis</span>
+            <h2 id="project-detail-title" class="text-2xl font-black">Nombre del Proyecto</h2>
+            <p id="project-detail-date" class="text-xs text-neutral-400 mb-6">Creado en...</p>
+
+            <div class="space-y-6 overflow-y-auto flex-grow pr-1">
+                <!-- Narrativa Completa -->
+                <div class="p-4 bg-zinc-50 dark:bg-zinc-800/40 border border-zinc-200 dark:border-zinc-800 rounded-2xl">
+                    <h3 class="text-xs font-bold text-neutral-500 uppercase tracking-widest mb-3">Enunciado de
+                        Oportunidad</h3>
+                    <div class="space-y-3 font-serif text-base leading-relaxed text-zinc-800 dark:text-zinc-200 italic">
+                        <p id="project-detail-problem"></p>
+                        <p id="project-detail-opportunity"></p>
+                    </div>
+                </div>
+
+                <!-- Notas del Diseñador -->
+                <div class="space-y-2">
+                    <label
+                        class="block text-xs font-bold text-neutral-600 dark:text-zinc-300 uppercase tracking-wider">Notas
+                        Adicionales / Plan de Acción</label>
+                    <textarea id="project-detail-notes" rows="4"
+                        placeholder="Agrega objetivos, notas de campo, stakeholders o ideas del equipo..."
+                        class="w-full text-sm rounded-xl border-neutral-200 dark:bg-zinc-800 dark:border-zinc-700 dark:text-white focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"></textarea>
+                    <button onclick="saveProjectNotes()"
+                        class="px-3 py-1.5 bg-zinc-900 hover:bg-neutral-800 text-white font-bold text-[10px] tracking-wider uppercase rounded-lg dark:bg-white dark:text-zinc-950">Guardar
+                        Anotaciones</button>
+                </div>
+
+                <!-- Composición del Deck Utilizado -->
+                <div>
+                    <h3 class="text-xs font-bold text-neutral-500 uppercase tracking-widest mb-3">Cartas Relacionadas
+                    </h3>
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3" id="project-cards-composition">
+                        <!-- Cartas inyectadas por Javascript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SISTEMA DE NOTIFICACIONES TOAST (Sustituto Premium de alert) -->
+    <div id="toast-container"
+        class="fixed bottom-20 right-6 md:bottom-10 md:right-10 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+    <!-- MODAL DE CONFIRMACIÓN CUSTOM (Sustituto Premium de confirm) -->
+    <div id="confirm-modal"
+        class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm hidden p-4">
+        <div
+            class="bg-white dark:bg-zinc-900 w-full max-w-sm rounded-2xl border border-neutral-200 dark:border-zinc-800 shadow-2xl p-6 relative flex flex-col">
+            <div class="flex items-center gap-3 mb-4">
+                <div
+                    class="w-10 h-10 rounded-full bg-red-100 dark:bg-red-950/40 flex items-center justify-center text-red-600">
+                    <i data-lucide="alert-triangle" class="w-5 h-5"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-base text-zinc-950 dark:text-zinc-50" id="confirm-modal-title">Confirmar
+                        Acción</h3>
+                    <p class="text-xs text-neutral-500 mt-0.5" id="confirm-modal-desc">¿Estás seguro de continuar?</p>
+                </div>
+            </div>
+            <div class="flex gap-2 justify-end">
+                <button id="confirm-cancel-btn"
+                    class="px-4 py-2 bg-neutral-100 hover:bg-neutral-200 text-neutral-700 text-xs font-bold rounded-lg uppercase dark:bg-zinc-800 dark:text-zinc-300">Cancelar</button>
+                <button id="confirm-ok-btn"
+                    class="px-4 py-2 bg-red-600 hover:bg-red-700 text-white text-xs font-bold rounded-lg uppercase">Confirmar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lógica cargada de forma modular desde app.js -->
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js').then(registration => {
+                    console.log('SW registered: ', registration);
+                }).catch(registrationError => {
+                    console.log('SW registration failed: ', registrationError);
+                });
+            });
+        }
+    </script>
+</body>
+
+</html>

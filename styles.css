@@ -1,0 +1,57 @@
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Patrón del lienzo infinito FigJam */
+.dot-grid {
+    background-image: radial-gradient(circle, #c7c6ca 1.2px, transparent 1.2px);
+    background-size: 20px 20px;
+}
+
+.dark .dot-grid {
+    background-image: radial-gradient(circle, #444548 1.2px, transparent 1.2px);
+}
+
+/* Animaciones para barajado de cartas */
+@keyframes deal-card {
+    0% {
+        transform: scale(0.8) translateY(40px) rotate(-10deg);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1) translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+.animate-deal {
+    animation: deal-card 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Efecto de arrastre sobre el canvas */
+.canvas-card-dragging {
+    z-index: 1000 !important;
+    cursor: grabbing !important;
+    box-shadow: 0 25px 30px -5px rgb(0 0 0 / 0.25), 0 12px 15px -6px rgb(0 0 0 / 0.25) !important;
+}
+
+/* Ocultar barra de scroll estéticamente */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c7c6ca;
+    border-radius: 3px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+    background: #46474a;
+}

@@ -1,0 +1,182 @@
+[
+    {
+        "id": "c1",
+        "title": "Transporte Público Urbano",
+        "desc": "Sistemas de buses, trenes y estaciones congestionadas en horas pico.",
+        "category": "Contexto",
+        "icon": "bus",
+        "tags": ["ciudad", "movilidad", "ruido"],
+        "image": "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=300&q=80"
+    },
+    {
+        "id": "c2",
+        "title": "Entornos de Teletrabajo",
+        "desc": "Oficinas domésticas propensas a interrupciones e hibridación laboral.",
+        "category": "Contexto",
+        "icon": "laptop",
+        "tags": ["hogar", "remoto", "digital"],
+        "image": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=300&q=80"
+    },
+    {
+        "id": "c3",
+        "title": "Clínicas y Consultorios",
+        "desc": "Salas de espera saturadas y espacios con altos niveles de estrés clínico.",
+        "category": "Contexto",
+        "icon": "hospital",
+        "tags": ["salud", "espera", "ansiedad"],
+        "image": "https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=300&q=80"
+    },
+    {
+        "id": "u1",
+        "title": "Adultos Mayores (65+)",
+        "desc": "Personas con baja alfabetización digital pero necesidades activas de autonomía.",
+        "category": "Usuario",
+        "icon": "accessibility",
+        "tags": ["inclusión", "salud", "edad"],
+        "image": "https://images.unsplash.com/photo-1501139083538-0139883ac06c?auto=format&fit=crop&w=300&q=80"
+    },
+    {
+        "id": "u2",
+        "title": "Estudiantes Universitarios",
+        "desc": "Jóvenes sobreestimulados gestionando múltiples entregas bajo fatiga académica.",
+        "category": "Usuario",
+        "icon": "graduation-cap",
+        "tags": ["academia", "estrés", "joven"],
+        "image": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=300&q=80"
+    },
+    {
+        "id": "u3",
+        "title": "Trabajadores Gig Economy",
+        "desc": "Repartidores y conductores que dependen enteramente de algoritmos de apps.",
+        "category": "Usuario",
+        "icon": "bike",
+        "tags": ["precariedad", "móvil", "calle"],
+        "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=300&q=80"
+    },
+    {
+        "id": "i1",
+        "title": "Realizar Pago de Servicios",
+        "desc": "Completar transacciones obligatorias mediante portales virtuales o presenciales.",
+        "category": "Interacción",
+        "icon": "credit-card",
+        "tags": ["dinero", "trámite"],
+        "image": "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=300&q=80"
+    },
+    {
+        "id": "i2",
+        "title": "Sincronizar Información",
+        "desc": "Transferir reportes, archivos u horas de desarrollo a plataformas compartidas.",
+        "category": "Interacción",
+        "icon": "refresh-cw",
+        "tags": ["datos", "rutina"],
+        "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=300&q=80"
+    },
+    {
+        "id": "i3",
+        "title": "Consultar Historial Clínico",
+        "desc": "Revisar resultados, recetas y diagnósticos pasados de manera urgente.",
+        "category": "Interacción",
+        "icon": "clipboard-list",
+        "tags": ["información", "privacidad"],
+        "image": "https://images.unsplash.com/photo-1504813184591-01557010c473?auto=format&fit=crop&w=300&q=80"
+    },
+    {
+        "id": "n1",
+        "title": "Reducir el Estrés Operativo",
+        "desc": "Lograr completar tareas sin experimentar frustración o culpa cognitiva.",
+        "category": "Necesidad",
+        "icon": "heart",
+        "tags": ["paz-mental", "flujo"],
+        "image": "https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=300&q=80"
+    },
+    {
+        "id": "n2",
+        "title": "Optimizar Tiempos de Espera",
+        "desc": "Convertir los vacíos temporales del día a día en momentos productivos o de relax.",
+        "category": "Necesidad",
+        "icon": "hourglass",
+        "tags": ["eficiencia", "tiempo"],
+        "image": "https://images.unsplash.com/photo-1495364141860-b0d03eccd065?auto=format&fit=crop&w=300&q=80"
+    },
+    {
+        "id": "f1",
+        "title": "Interfaces Oscuras",
+        "desc": "Diseño que induce con trampas a contratar seguros o suscribirse por accidente.",
+        "category": "Fricción",
+        "icon": "scale",
+        "tags": ["ética", "diseño-malo"],
+        "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=300&q=80"
+    },
+    {
+        "id": "f2",
+        "title": "Saturación de Notificaciones",
+        "desc": "Avisos constantes de aplicaciones que compiten agresivamente por la atención.",
+        "category": "Fricción",
+        "icon": "bell",
+        "tags": ["interrupción", "ruido"],
+        "image": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=300&q=80"
+    },
+    {
+        "id": "co1",
+        "title": "Pérdida de Enfoque Profundo",
+        "desc": "Fragmentación crónica de la atención en periodos menores de 10 minutos.",
+        "category": "Consecuencia",
+        "icon": "frown",
+        "tags": ["cognitivo", "productividad"],
+        "image": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=300&q=80"
+    },
+    {
+        "id": "s1",
+        "title": "Aplicación Móvil Offline First",
+        "desc": "App de alto rendimiento que opera sin internet ni recargas obligatorias.",
+        "category": "Tipo solución",
+        "icon": "smartphone",
+        "tags": ["mobile", "ligero"],
+        "image": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=300&q=80"
+    },
+    {
+        "id": "s2",
+        "title": "Dispositivo IoT de Mesa",
+        "desc": "Hardware minimalista e independiente con indicadores ambientales discretos.",
+        "category": "Tipo solución",
+        "icon": "cpu",
+        "tags": ["físico", "hardware"],
+        "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=300&q=80"
+    },
+    {
+        "id": "m1",
+        "title": "Feedback Háptico Táctil",
+        "desc": "Alertas físicas por vibración progresiva para guiar sin requerir pantallas.",
+        "category": "Mecanismo",
+        "icon": "activity",
+        "tags": ["sensorial", "tacto"],
+        "image": "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=300&q=80"
+    },
+    {
+        "id": "l1",
+        "title": "Minimalismo Funcional",
+        "desc": "Inspirado en Linear y Notion, centrado en alto contraste e iconos finos.",
+        "category": "Lenguaje",
+        "icon": "grid",
+        "tags": ["diseño", "limpio"],
+        "image": "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=300&q=80"
+    },
+    {
+        "id": "fo1",
+        "title": "Extensión de Navegador Silenciosa",
+        "desc": "Complemento web invisible que actúa de filtro purificador en segundo plano.",
+        "category": "Formato",
+        "icon": "toy-brick",
+        "tags": ["navegador", "utilidad"],
+        "image": "https://images.unsplash.com/photo-1618401471353-b98aedd07871?auto=format&fit=crop&w=300&q=80"
+    },
+    {
+        "id": "v1",
+        "title": "Paz Mental y Enfoque Activo",
+        "desc": "Espacio mental libre de ruidos corporativos que optimiza la tranquilidad diaria.",
+        "category": "Valor",
+        "icon": "leaf",
+        "tags": ["bienestar", "salud"],
+        "image": "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=300&q=80"
+    }
+]

@@ -1,0 +1,21 @@
+{
+  "name": "IdeationDeck - Design Opportunity Toolkit",
+  "short_name": "IdeationDeck",
+  "description": "Herramienta estructurada para construir hipótesis de innovación y oportunidades de diseño.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#1b1b1c",
+  "theme_color": "#1b1b1c",
+  "icons": [
+    {
+      "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Hexagon.svg/512px-Hexagon.svg.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Hexagon.svg/512px-Hexagon.svg.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
