@@ -1,182 +1,3155 @@
 [
     {
-        "id": "c1",
-        "title": "Transporte Público Urbano",
-        "desc": "Sistemas de buses, trenes y estaciones congestionadas en horas pico.",
+        "id": "ctx_001",
+        "title": "Hospital",
+        "description": "Espacio institucional de atención médica.",
         "category": "Contexto",
-        "icon": "bus",
-        "tags": ["ciudad", "movilidad", "ruido"],
-        "image": "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=300&q=80"
+        "tags": [
+            "salud",
+            "espera",
+            "orientacion",
+            "informacion",
+            "incertidumbre"
+        ],
+        "domains": [
+            "health",
+            "service",
+            "navigation"
+        ],
+        "level": "specific",
+        "weight": 0.9,
+        "color": "#2563EB",
+        "icon": "hospital"
     },
     {
-        "id": "c2",
-        "title": "Entornos de Teletrabajo",
-        "desc": "Oficinas domésticas propensas a interrupciones e hibridación laboral.",
+        "id": "ctx_002",
+        "title": "Transporte público",
+        "description": "Sistemas de buses, trenes y estaciones en horas pico.",
         "category": "Contexto",
-        "icon": "laptop",
-        "tags": ["hogar", "remoto", "digital"],
-        "image": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=300&q=80"
+        "tags": [
+            "movilidad",
+            "ruido",
+            "aglomeracion",
+            "tiempo",
+            "ciudad"
+        ],
+        "domains": [
+            "urban",
+            "mobility",
+            "public"
+        ],
+        "level": "specific",
+        "weight": 0.85,
+        "color": "#059669",
+        "icon": "bus"
     },
     {
-        "id": "c3",
-        "title": "Clínicas y Consultorios",
-        "desc": "Salas de espera saturadas y espacios con altos niveles de estrés clínico.",
+        "id": "ctx_003",
+        "title": "Home office",
+        "description": "Espacio doméstico adaptado para trabajo remoto.",
         "category": "Contexto",
-        "icon": "hospital",
-        "tags": ["salud", "espera", "ansiedad"],
-        "image": "https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=300&q=80"
+        "tags": [
+            "hogar",
+            "remoto",
+            "digital",
+            "interrupcion",
+            "hibrido"
+        ],
+        "domains": [
+            "work",
+            "home",
+            "digital"
+        ],
+        "level": "specific",
+        "weight": 0.9,
+        "color": "#7C3AED",
+        "icon": "laptop"
     },
     {
-        "id": "u1",
-        "title": "Adultos Mayores (65+)",
-        "desc": "Personas con baja alfabetización digital pero necesidades activas de autonomía.",
+        "id": "ctx_004",
+        "title": "Sala de clases",
+        "description": "Entorno educativo formal con dinámicas grupales.",
+        "category": "Contexto",
+        "tags": [
+            "educacion",
+            "grupo",
+            "atencion",
+            "aprendizaje",
+            "jerarquia"
+        ],
+        "domains": [
+            "education",
+            "social",
+            "institutional"
+        ],
+        "level": "specific",
+        "weight": 0.8,
+        "color": "#DC2626",
+        "icon": "graduation-cap"
+    },
+    {
+        "id": "ctx_005",
+        "title": "Espacio urbano",
+        "description": "Calles, plazas y entornos públicos abiertos.",
+        "category": "Contexto",
+        "tags": [
+            "ciudad",
+            "publico",
+            "transito",
+            "senaletica",
+            "accesibilidad"
+        ],
+        "domains": [
+            "urban",
+            "public",
+            "outdoor"
+        ],
+        "level": "broad",
+        "weight": 0.75,
+        "color": "#EA580C",
+        "icon": "map-pin"
+    },
+    {
+        "id": "ctx_006",
+        "title": "Museo",
+        "description": "Espacio cultural de exhibición y experiencia contemplativa.",
+        "category": "Contexto",
+        "tags": [
+            "cultura",
+            "contemplacion",
+            "narrativa",
+            "experiencia",
+            "guiado"
+        ],
+        "domains": [
+            "culture",
+            "experience",
+            "institutional"
+        ],
+        "level": "specific",
+        "weight": 0.7,
+        "color": "#DB2777",
+        "icon": "palette"
+    },
+    {
+        "id": "ctx_007",
+        "title": "Redes sociales",
+        "description": "Entorno digital de interacción social mediada.",
+        "category": "Contexto",
+        "tags": [
+            "digital",
+            "social",
+            "atencion",
+            "contenido",
+            "comparacion"
+        ],
+        "domains": [
+            "digital",
+            "social",
+            "media"
+        ],
+        "level": "broad",
+        "weight": 0.95,
+        "color": "#EC4899",
+        "icon": "share-2"
+    },
+    {
+        "id": "ctx_008",
+        "title": "Comercio retail",
+        "description": "Tiendas y espacios de compra comercial.",
+        "category": "Contexto",
+        "tags": [
+            "compra",
+            "decision",
+            "producto",
+            "servicio",
+            "experiencia"
+        ],
+        "domains": [
+            "retail",
+            "commerce",
+            "service"
+        ],
+        "level": "specific",
+        "weight": 0.8,
+        "color": "#0891B2",
+        "icon": "shopping-cart"
+    },
+    {
+        "id": "ctx_009",
+        "title": "Biblioteca",
+        "description": "Espacio de estudio, lectura y concentración silenciosa.",
+        "category": "Contexto",
+        "tags": [
+            "silencio",
+            "concentracion",
+            "informacion",
+            "archivo",
+            "estudio"
+        ],
+        "domains": [
+            "education",
+            "quiet",
+            "institutional"
+        ],
+        "level": "specific",
+        "weight": 0.65,
+        "color": "#7C2D12",
+        "icon": "book-open"
+    },
+    {
+        "id": "ctx_010",
+        "title": "Aeropuerto",
+        "description": "Terminal de transporte aéreo con flujos intensivos.",
+        "category": "Contexto",
+        "tags": [
+            "viaje",
+            "espera",
+            "orientacion",
+            "seguridad",
+            "internacional"
+        ],
+        "domains": [
+            "travel",
+            "transport",
+            "navigation"
+        ],
+        "level": "specific",
+        "weight": 0.7,
+        "color": "#1E40AF",
+        "icon": "plane"
+    },
+    {
+        "id": "ctx_011",
+        "title": "Evento masivo",
+        "description": "Conciertos, ferias o reuniones de gran concurrencia.",
+        "category": "Contexto",
+        "tags": [
+            "multitud",
+            "energia",
+            "experiencia",
+            "coordinacion",
+            "seguridad"
+        ],
+        "domains": [
+            "event",
+            "social",
+            "entertainment"
+        ],
+        "level": "specific",
+        "weight": 0.6,
+        "color": "#BE185D",
+        "icon": "users"
+    },
+    {
+        "id": "ctx_012",
+        "title": "Gimnasio",
+        "description": "Espacio de actividad física y entrenamiento.",
+        "category": "Contexto",
+        "tags": [
+            "salud",
+            "ejercicio",
+            "motivacion",
+            "rutina",
+            "progreso"
+        ],
+        "domains": [
+            "health",
+            "fitness",
+            "personal"
+        ],
+        "level": "specific",
+        "weight": 0.7,
+        "color": "#CA8A04",
+        "icon": "activity"
+    },
+    {
+        "id": "ctx_013",
+        "title": "Espacio cowork",
+        "description": "Oficina compartida para profesionales independientes.",
+        "category": "Contexto",
+        "tags": [
+            "colaboracion",
+            "red",
+            "flexibilidad",
+            "comunidad",
+            "trabajo"
+        ],
+        "domains": [
+            "work",
+            "shared",
+            "community"
+        ],
+        "level": "specific",
+        "weight": 0.75,
+        "color": "#059669",
+        "icon": "briefcase"
+    },
+    {
+        "id": "ctx_014",
+        "title": "Hogar doméstico",
+        "description": "Vivienda familiar como centro de actividades cotidianas.",
+        "category": "Contexto",
+        "tags": [
+            "familia",
+            "rutina",
+            "intimidad",
+            "organizacion",
+            "convivencia"
+        ],
+        "domains": [
+            "home",
+            "family",
+            "daily"
+        ],
+        "level": "broad",
+        "weight": 0.85,
+        "color": "#DC2626",
+        "icon": "home"
+    },
+    {
+        "id": "ctx_015",
+        "title": "Centro cultural",
+        "description": "Espacio multipropósito para actividades artísticas y comunitarias.",
+        "category": "Contexto",
+        "tags": [
+            "cultura",
+            "comunidad",
+            "diversidad",
+            "expresion",
+            "encuentro"
+        ],
+        "domains": [
+            "culture",
+            "community",
+            "arts"
+        ],
+        "level": "specific",
+        "weight": 0.65,
+        "color": "#7C3AED",
+        "icon": "theater"
+    },
+    {
+        "id": "usr_001",
+        "title": "Estudiante",
+        "description": "Persona en proceso de aprendizaje formal o autodidacta.",
         "category": "Usuario",
-        "icon": "accessibility",
-        "tags": ["inclusión", "salud", "edad"],
-        "image": "https://images.unsplash.com/photo-1501139083538-0139883ac06c?auto=format&fit=crop&w=300&q=80"
+        "tags": [
+            "aprendizaje",
+            "curiosidad",
+            "tiempo-limitado",
+            "presupuesto"
+        ],
+        "domains": [
+            "education",
+            "personal",
+            "growth"
+        ],
+        "level": "broad",
+        "weight": 0.9,
+        "color": "#6D28D9",
+        "icon": "graduation-cap"
     },
     {
-        "id": "u2",
-        "title": "Estudiantes Universitarios",
-        "desc": "Jóvenes sobreestimulados gestionando múltiples entregas bajo fatiga académica.",
+        "id": "usr_002",
+        "title": "Adulto mayor",
+        "description": "Persona de tercera edad con necesidades de accesibilidad específicas.",
         "category": "Usuario",
-        "icon": "graduation-cap",
-        "tags": ["academia", "estrés", "joven"],
-        "image": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=300&q=80"
+        "tags": [
+            "accesibilidad",
+            "experiencia",
+            "paciencia",
+            "tradicion"
+        ],
+        "domains": [
+            "senior",
+            "accessibility",
+            "care"
+        ],
+        "level": "specific",
+        "weight": 0.85,
+        "color": "#DC2626",
+        "icon": "accessibility"
     },
     {
-        "id": "u3",
-        "title": "Trabajadores Gig Economy",
-        "desc": "Repartidores y conductores que dependen enteramente de algoritmos de apps.",
+        "id": "usr_003",
+        "title": "Freelancer",
+        "description": "Profesional independiente gestionando múltiples proyectos.",
         "category": "Usuario",
-        "icon": "bike",
-        "tags": ["precariedad", "móvil", "calle"],
-        "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=300&q=80"
+        "tags": [
+            "autonomia",
+            "gestion",
+            "flexibilidad",
+            "incertidumbre"
+        ],
+        "domains": [
+            "work",
+            "independent",
+            "creative"
+        ],
+        "level": "specific",
+        "weight": 0.8,
+        "color": "#059669",
+        "icon": "briefcase"
     },
     {
-        "id": "i1",
-        "title": "Realizar Pago de Servicios",
-        "desc": "Completar transacciones obligatorias mediante portales virtuales o presenciales.",
+        "id": "usr_004",
+        "title": "Niño",
+        "description": "Usuario en desarrollo con necesidades de seguridad y juego.",
+        "category": "Usuario",
+        "tags": [
+            "juego",
+            "seguridad",
+            "curiosidad",
+            "desarrollo"
+        ],
+        "domains": [
+            "children",
+            "education",
+            "play"
+        ],
+        "level": "specific",
+        "weight": 0.75,
+        "color": "#F59E0B",
+        "icon": "smile"
+    },
+    {
+        "id": "usr_005",
+        "title": "Turista",
+        "description": "Visitante temporal explorando un lugar desconocido.",
+        "category": "Usuario",
+        "tags": [
+            "exploracion",
+            "orientacion",
+            "idioma",
+            "cultura"
+        ],
+        "domains": [
+            "travel",
+            "tourism",
+            "navigation"
+        ],
+        "level": "specific",
+        "weight": 0.7,
+        "color": "#0891B2",
+        "icon": "map"
+    },
+    {
+        "id": "usr_006",
+        "title": "Paciente",
+        "description": "Persona recibiendo atención médica o terapéutica.",
+        "category": "Usuario",
+        "tags": [
+            "salud",
+            "vulnerabilidad",
+            "confianza",
+            "informacion"
+        ],
+        "domains": [
+            "health",
+            "care",
+            "medical"
+        ],
+        "level": "specific",
+        "weight": 0.85,
+        "color": "#EF4444",
+        "icon": "heart-pulse"
+    },
+    {
+        "id": "usr_007",
+        "title": "Comprador",
+        "description": "Usuario evaluando y seleccionando productos o servicios.",
+        "category": "Usuario",
+        "tags": [
+            "decision",
+            "comparacion",
+            "valor",
+            "experiencia"
+        ],
+        "domains": [
+            "retail",
+            "commerce",
+            "consumer"
+        ],
+        "level": "broad",
+        "weight": 0.8,
+        "color": "#7C3AED",
+        "icon": "shopping-bag"
+    },
+    {
+        "id": "usr_008",
+        "title": "Equipo creativo",
+        "description": "Grupo colaborativo generando ideas y soluciones.",
+        "category": "Usuario",
+        "tags": [
+            "colaboracion",
+            "creatividad",
+            "iteracion",
+            "brainstorming"
+        ],
+        "domains": [
+            "creative",
+            "team",
+            "design"
+        ],
+        "level": "specific",
+        "weight": 0.75,
+        "color": "#DB2777",
+        "icon": "users"
+    },
+    {
+        "id": "usr_009",
+        "title": "Docente",
+        "description": "Educador facilitando procesos de aprendizaje.",
+        "category": "Usuario",
+        "tags": [
+            "ensenanza",
+            "guiado",
+            "evaluacion",
+            "inspiracion"
+        ],
+        "domains": [
+            "education",
+            "teaching",
+            "mentorship"
+        ],
+        "level": "specific",
+        "weight": 0.7,
+        "color": "#EA580C",
+        "icon": "chalkboard"
+    },
+    {
+        "id": "usr_010",
+        "title": "Trabajador remoto",
+        "description": "Profesional operando desde ubicaciones no tradicionales.",
+        "category": "Usuario",
+        "tags": [
+            "remoto",
+            "digital",
+            "autogestion",
+            "conexion"
+        ],
+        "domains": [
+            "work",
+            "remote",
+            "digital"
+        ],
+        "level": "specific",
+        "weight": 0.9,
+        "color": "#0284C7",
+        "icon": "laptop"
+    },
+    {
+        "id": "usr_011",
+        "title": "Visitante ocasional",
+        "description": "Usuario esporádico sin familiaridad con el sistema.",
+        "category": "Usuario",
+        "tags": [
+            "novel",
+            "curiosidad",
+            "primera-vez",
+            "exploracion"
+        ],
+        "domains": [
+            "visitor",
+            "occasional",
+            "new"
+        ],
+        "level": "broad",
+        "weight": 0.65,
+        "color": "#64748B",
+        "icon": "eye"
+    },
+    {
+        "id": "usr_012",
+        "title": "Persona neurodivergente",
+        "description": "Usuario con procesamiento cognitivo atípico.",
+        "category": "Usuario",
+        "tags": [
+            "accesibilidad",
+            "sensorial",
+            "inclusion",
+            "adaptacion"
+        ],
+        "domains": [
+            "accessibility",
+            "neurodiversity",
+            "inclusive"
+        ],
+        "level": "specific",
+        "weight": 0.8,
+        "color": "#8B5CF6",
+        "icon": "brain"
+    },
+    {
+        "id": "usr_013",
+        "title": "Deportista amateur",
+        "description": "Practicante recreativo buscando mejora personal.",
+        "category": "Usuario",
+        "tags": [
+            "ejercicio",
+            "progreso",
+            "motivacion",
+            "salud"
+        ],
+        "domains": [
+            "fitness",
+            "sports",
+            "personal"
+        ],
+        "level": "specific",
+        "weight": 0.7,
+        "color": "#16A34A",
+        "icon": "trophy"
+    },
+    {
+        "id": "usr_014",
+        "title": "Familia",
+        "description": "Grupo doméstico tomando decisiones colectivas.",
+        "category": "Usuario",
+        "tags": [
+            "colectivo",
+            "convivencia",
+            "organizacion",
+            "cuidado"
+        ],
+        "domains": [
+            "family",
+            "home",
+            "shared"
+        ],
+        "level": "broad",
+        "weight": 0.85,
+        "color": "#DC2626",
+        "icon": "circle-help"
+    },
+    {
+        "id": "usr_015",
+        "title": "Usuario primerizo",
+        "description": "Persona sin experiencia previa en el dominio.",
+        "category": "Usuario",
+        "tags": [
+            "principiante",
+            "aprendizaje",
+            "guiado",
+            "paciencia"
+        ],
+        "domains": [
+            "beginner",
+            "learning",
+            "onboarding"
+        ],
+        "level": "broad",
+        "weight": 0.75,
+        "color": "#475569",
+        "icon": "user-plus"
+    },
+    {
+        "id": "int_001",
+        "title": "Buscar información",
+        "description": "Localizar datos específicos en un sistema o entorno.",
         "category": "Interacción",
-        "icon": "credit-card",
-        "tags": ["dinero", "trámite"],
-        "image": "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=300&q=80"
+        "tags": [
+            "busqueda",
+            "informacion",
+            "exploracion"
+        ],
+        "domains": [
+            "information",
+            "search",
+            "discovery"
+        ],
+        "level": "broad",
+        "weight": 0.9,
+        "color": "#047857",
+        "icon": "search"
     },
     {
-        "id": "i2",
-        "title": "Sincronizar Información",
-        "desc": "Transferir reportes, archivos u horas de desarrollo a plataformas compartidas.",
+        "id": "int_002",
+        "title": "Comparar opciones",
+        "description": "Evaluar alternativas antes de tomar una decisión.",
         "category": "Interacción",
-        "icon": "refresh-cw",
-        "tags": ["datos", "rutina"],
-        "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=300&q=80"
+        "tags": [
+            "decision",
+            "evaluacion",
+            "seleccion"
+        ],
+        "domains": [
+            "decision",
+            "comparison",
+            "choice"
+        ],
+        "level": "specific",
+        "weight": 0.85,
+        "color": "#047857",
+        "icon": "scale"
     },
     {
-        "id": "i3",
-        "title": "Consultar Historial Clínico",
-        "desc": "Revisar resultados, recetas y diagnósticos pasados de manera urgente.",
+        "id": "int_003",
+        "title": "Aprender contenido",
+        "description": "Adquirir nuevos conocimientos o habilidades.",
         "category": "Interacción",
-        "icon": "clipboard-list",
-        "tags": ["información", "privacidad"],
-        "image": "https://images.unsplash.com/photo-1504813184591-01557010c473?auto=format&fit=crop&w=300&q=80"
+        "tags": [
+            "aprendizaje",
+            "educacion",
+            "comprension"
+        ],
+        "domains": [
+            "education",
+            "learning",
+            "growth"
+        ],
+        "level": "broad",
+        "weight": 0.85,
+        "color": "#047857",
+        "icon": "book-open"
     },
     {
-        "id": "n1",
-        "title": "Reducir el Estrés Operativo",
-        "desc": "Lograr completar tareas sin experimentar frustración o culpa cognitiva.",
+        "id": "int_004",
+        "title": "Esperar atención",
+        "description": "Permanecer en estado de pausa hasta ser atendido.",
+        "category": "Interacción",
+        "tags": [
+            "espera",
+            "paciencia",
+            "incertidumbre"
+        ],
+        "domains": [
+            "waiting",
+            "service",
+            "patience"
+        ],
+        "level": "specific",
+        "weight": 0.8,
+        "color": "#047857",
+        "icon": "clock"
+    },
+    {
+        "id": "int_005",
+        "title": "Colaborar",
+        "description": "Trabajar conjuntamente con otros hacia un objetivo común.",
+        "category": "Interacción",
+        "tags": [
+            "colaboracion",
+            "equipo",
+            "coordinacion"
+        ],
+        "domains": [
+            "collaboration",
+            "teamwork",
+            "social"
+        ],
+        "level": "broad",
+        "weight": 0.8,
+        "color": "#047857",
+        "icon": "users"
+    },
+    {
+        "id": "int_006",
+        "title": "Explorar entorno",
+        "description": "Descubrir y navegar un espacio físico o digital.",
+        "category": "Interacción",
+        "tags": [
+            "exploracion",
+            "navegacion",
+            "descubrimiento"
+        ],
+        "domains": [
+            "exploration",
+            "navigation",
+            "discovery"
+        ],
+        "level": "broad",
+        "weight": 0.75,
+        "color": "#047857",
+        "icon": "compass"
+    },
+    {
+        "id": "int_007",
+        "title": "Organizar tareas",
+        "description": "Estructurar y priorizar actividades pendientes.",
+        "category": "Interacción",
+        "tags": [
+            "organizacion",
+            "planificacion",
+            "productividad"
+        ],
+        "domains": [
+            "organization",
+            "planning",
+            "productivity"
+        ],
+        "level": "specific",
+        "weight": 0.8,
+        "color": "#047857",
+        "icon": "list-checks"
+    },
+    {
+        "id": "int_008",
+        "title": "Compartir contenido",
+        "description": "Distribuir información o experiencias con otros.",
+        "category": "Interacción",
+        "tags": [
+            "compartir",
+            "social",
+            "difusion"
+        ],
+        "domains": [
+            "sharing",
+            "social",
+            "communication"
+        ],
+        "level": "broad",
+        "weight": 0.85,
+        "color": "#047857",
+        "icon": "share-2"
+    },
+    {
+        "id": "int_009",
+        "title": "Navegar espacio",
+        "description": "Desplazarse físicamente por un entorno.",
+        "category": "Interacción",
+        "tags": [
+            "movimiento",
+            "orientacion",
+            "trayecto"
+        ],
+        "domains": [
+            "navigation",
+            "movement",
+            "spatial"
+        ],
+        "level": "specific",
+        "weight": 0.75,
+        "color": "#047857",
+        "icon": "map"
+    },
+    {
+        "id": "int_010",
+        "title": "Resolver problema",
+        "description": "Encontrar solución a un obstáculo o desafío.",
+        "category": "Interacción",
+        "tags": [
+            "solucion",
+            "analisis",
+            "ingenio"
+        ],
+        "domains": [
+            "problem-solving",
+            "analytical",
+            "solution"
+        ],
+        "level": "broad",
+        "weight": 0.9,
+        "color": "#047857",
+        "icon": "lightbulb"
+    },
+    {
+        "id": "int_011",
+        "title": "Tomar decisiones",
+        "description": "Seleccionar entre múltiples cursos de acción.",
+        "category": "Interacción",
+        "tags": [
+            "decision",
+            "eleccion",
+            "criterio"
+        ],
+        "domains": [
+            "decision",
+            "choice",
+            "judgment"
+        ],
+        "level": "broad",
+        "weight": 0.85,
+        "color": "#047857",
+        "icon": "check-square"
+    },
+    {
+        "id": "int_012",
+        "title": "Seguir instrucciones",
+        "description": "Ejecutar pasos guiados por un sistema o persona.",
+        "category": "Interacción",
+        "tags": [
+            "guiado",
+            "ejecucion",
+            "secuencia"
+        ],
+        "domains": [
+            "instruction",
+            "guidance",
+            "execution"
+        ],
+        "level": "specific",
+        "weight": 0.75,
+        "color": "#047857",
+        "icon": "list-ordered"
+    },
+    {
+        "id": "need_001",
+        "title": "Reducir incertidumbre",
+        "description": "Disminuir la ansiedad por lo desconocido o impredecible.",
         "category": "Necesidad",
-        "icon": "heart",
-        "tags": ["paz-mental", "flujo"],
-        "image": "https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=300&q=80"
+        "tags": [
+            "certeza",
+            "prediccion",
+            "ansiedad",
+            "control"
+        ],
+        "domains": [
+            "psychological",
+            "emotional",
+            "cognitive"
+        ],
+        "level": "broad",
+        "weight": 0.95,
+        "color": "#DC2626",
+        "icon": "shield-check"
     },
     {
-        "id": "n2",
-        "title": "Optimizar Tiempos de Espera",
-        "desc": "Convertir los vacíos temporales del día a día en momentos productivos o de relax.",
+        "id": "need_002",
+        "title": "Ahorrar tiempo",
+        "description": "Optimizar procesos para maximizar eficiencia temporal.",
         "category": "Necesidad",
-        "icon": "hourglass",
-        "tags": ["eficiencia", "tiempo"],
-        "image": "https://images.unsplash.com/photo-1495364141860-b0d03eccd065?auto=format&fit=crop&w=300&q=80"
+        "tags": [
+            "eficiencia",
+            "rapidez",
+            "optimizacion",
+            "productividad"
+        ],
+        "domains": [
+            "efficiency",
+            "time",
+            "productivity"
+        ],
+        "level": "broad",
+        "weight": 0.9,
+        "color": "#EA580C",
+        "icon": "clock"
     },
     {
-        "id": "f1",
-        "title": "Interfaces Oscuras",
-        "desc": "Diseño que induce con trampas a contratar seguros o suscribirse por accidente.",
+        "id": "need_003",
+        "title": "Mantener concentración",
+        "description": "Sostener atención focalizada sin distracciones.",
+        "category": "Necesidad",
+        "tags": [
+            "atencion",
+            "foco",
+            "profundidad",
+            "flow"
+        ],
+        "domains": [
+            "cognitive",
+            "attention",
+            "performance"
+        ],
+        "level": "specific",
+        "weight": 0.85,
+        "color": "#7C3AED",
+        "icon": "focus"
+    },
+    {
+        "id": "need_004",
+        "title": "Comprender información",
+        "description": "Procesar y dar sentido a datos complejos.",
+        "category": "Necesidad",
+        "tags": [
+            "entendimiento",
+            "claridad",
+            "procesamiento",
+            "significado"
+        ],
+        "domains": [
+            "cognitive",
+            "information",
+            "learning"
+        ],
+        "level": "broad",
+        "weight": 0.9,
+        "color": "#2563EB",
+        "icon": "brain"
+    },
+    {
+        "id": "need_005",
+        "title": "Sentir motivación",
+        "description": "Experimentar impulso interno para actuar o continuar.",
+        "category": "Necesidad",
+        "tags": [
+            "impulso",
+            "energia",
+            "propósito",
+            "recompensa"
+        ],
+        "domains": [
+            "emotional",
+            "motivational",
+            "behavioral"
+        ],
+        "level": "broad",
+        "weight": 0.85,
+        "color": "#DB2777",
+        "icon": "zap"
+    },
+    {
+        "id": "need_006",
+        "title": "Tomar decisiones seguras",
+        "description": "Elegir con confianza minimizando riesgos percibidos.",
+        "category": "Necesidad",
+        "tags": [
+            "seguridad",
+            "confianza",
+            "riesgo",
+            "certeza"
+        ],
+        "domains": [
+            "decision",
+            "safety",
+            "confidence"
+        ],
+        "level": "specific",
+        "weight": 0.8,
+        "color": "#059669",
+        "icon": "check-circle"
+    },
+    {
+        "id": "need_007",
+        "title": "Sentirse orientado",
+        "description": "Tener claridad sobre ubicación, estado o próximo paso.",
+        "category": "Necesidad",
+        "tags": [
+            "ubicacion",
+            "direccion",
+            "progreso",
+            "mapeo"
+        ],
+        "domains": [
+            "navigation",
+            "spatial",
+            "orientation"
+        ],
+        "level": "specific",
+        "weight": 0.85,
+        "color": "#0891B2",
+        "icon": "compass"
+    },
+    {
+        "id": "need_008",
+        "title": "Recordar información",
+        "description": "Retener y recuperar datos relevantes cuando se necesitan.",
+        "category": "Necesidad",
+        "tags": [
+            "memoria",
+            "retencion",
+            "recuerdo",
+            "acceso"
+        ],
+        "domains": [
+            "memory",
+            "cognitive",
+            "information"
+        ],
+        "level": "specific",
+        "weight": 0.75,
+        "color": "#6D28D9",
+        "icon": "bookmark"
+    },
+    {
+        "id": "need_009",
+        "title": "Reducir ansiedad",
+        "description": "Disminuir estados de tensión o preocupación excesiva.",
+        "category": "Necesidad",
+        "tags": [
+            "calma",
+            "bienestar",
+            "estrés",
+            "relajacion"
+        ],
+        "domains": [
+            "emotional",
+            "wellness",
+            "mental-health"
+        ],
+        "level": "broad",
+        "weight": 0.9,
+        "color": "#EC4899",
+        "icon": "heart"
+    },
+    {
+        "id": "need_010",
+        "title": "Expresarse",
+        "description": "Comunicar identidad, ideas o emociones de forma auténtica.",
+        "category": "Necesidad",
+        "tags": [
+            "comunicacion",
+            "identidad",
+            "creatividad",
+            "autenticidad"
+        ],
+        "domains": [
+            "expression",
+            "creative",
+            "social"
+        ],
+        "level": "broad",
+        "weight": 0.8,
+        "color": "#F59E0B",
+        "icon": "message-circle"
+    },
+    {
+        "id": "need_011",
+        "title": "Participar activamente",
+        "description": "Involucrarse de manera significativa en procesos o comunidades.",
+        "category": "Necesidad",
+        "tags": [
+            "involucramiento",
+            "agencia",
+            "comunidad",
+            "impacto"
+        ],
+        "domains": [
+            "social",
+            "civic",
+            "engagement"
+        ],
+        "level": "broad",
+        "weight": 0.75,
+        "color": "#16A34A",
+        "icon": "users"
+    },
+    {
+        "id": "need_012",
+        "title": "Mantener continuidad",
+        "description": "Preservar coherencia y flujo a través del tiempo o experiencias.",
+        "category": "Necesidad",
+        "tags": [
+            "consistencia",
+            "flujo",
+            "persistencia",
+            "coherencia"
+        ],
+        "domains": [
+            "continuity",
+            "experience",
+            "temporal"
+        ],
+        "level": "specific",
+        "weight": 0.7,
+        "color": "#64748B",
+        "icon": "repeat"
+    },
+    {
+        "id": "fric_001",
+        "title": "Sobrecarga cognitiva",
+        "description": "Exceso de información que supera la capacidad de procesamiento.",
         "category": "Fricción",
-        "icon": "scale",
-        "tags": ["ética", "diseño-malo"],
-        "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=300&q=80"
+        "tags": [
+            "exceso",
+            "confusion",
+            "fatiga",
+            "complejidad"
+        ],
+        "domains": [
+            "cognitive",
+            "information",
+            "usability"
+        ],
+        "level": "broad",
+        "weight": 0.95,
+        "color": "#DC2626",
+        "icon": "alert-circle"
     },
     {
-        "id": "f2",
-        "title": "Saturación de Notificaciones",
-        "desc": "Avisos constantes de aplicaciones que compiten agresivamente por la atención.",
+        "id": "fric_002",
+        "title": "Interfaces confusas",
+        "description": "Elementos UI/UX que dificultan la comprensión o navegación.",
         "category": "Fricción",
-        "icon": "bell",
-        "tags": ["interrupción", "ruido"],
-        "image": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=300&q=80"
+        "tags": [
+            "usabilidad",
+            "navegacion",
+            "ambiguedad",
+            "error"
+        ],
+        "domains": [
+            "interface",
+            "ux",
+            "digital"
+        ],
+        "level": "specific",
+        "weight": 0.9,
+        "color": "#EA580C",
+        "icon": "x-circle"
     },
     {
-        "id": "co1",
-        "title": "Pérdida de Enfoque Profundo",
-        "desc": "Fragmentación crónica de la atención en periodos menores de 10 minutos.",
+        "id": "fric_003",
+        "title": "Exceso de opciones",
+        "description": "Paradoja de la elección: demasiadas alternativas generan parálisis.",
+        "category": "Fricción",
+        "tags": [
+            "paralisis",
+            "decision",
+            "abrumador",
+            "eleccion"
+        ],
+        "domains": [
+            "decision",
+            "choice",
+            "psychological"
+        ],
+        "level": "broad",
+        "weight": 0.85,
+        "color": "#F59E0B",
+        "icon": "grid"
+    },
+    {
+        "id": "fric_004",
+        "title": "Falta de feedback",
+        "description": "Ausencia de respuesta del sistema ante acciones del usuario.",
+        "category": "Fricción",
+        "tags": [
+            "silencio",
+            "incertidumbre",
+            "confirmacion",
+            "respuesta"
+        ],
+        "domains": [
+            "feedback",
+            "interaction",
+            "communication"
+        ],
+        "level": "specific",
+        "weight": 0.9,
+        "color": "#7C3AED",
+        "icon": "message-square-off"
+    },
+    {
+        "id": "fric_005",
+        "title": "Información fragmentada",
+        "description": "Datos dispersos en múltiples fuentes o formatos inconexos.",
+        "category": "Fricción",
+        "tags": [
+            "dispersion",
+            "fragmentacion",
+            "integracion",
+            "caos"
+        ],
+        "domains": [
+            "information",
+            "organization",
+            "systems"
+        ],
+        "level": "broad",
+        "weight": 0.85,
+        "color": "#2563EB",
+        "icon": "puzzle-off"
+    },
+    {
+        "id": "fric_006",
+        "title": "Procesos repetitivos",
+        "description": "Tareas monótonas que consumen tiempo y energía mental.",
+        "category": "Fricción",
+        "tags": [
+            "repeticion",
+            "tedio",
+            "automatizable",
+            "ineficiencia"
+        ],
+        "domains": [
+            "process",
+            "efficiency",
+            "automation"
+        ],
+        "level": "specific",
+        "weight": 0.8,
+        "color": "#64748B",
+        "icon": "refresh-cw"
+    },
+    {
+        "id": "fric_007",
+        "title": "Mala jerarquía visual",
+        "description": "Organización gráfica que no guía adecuadamente la atención.",
+        "category": "Fricción",
+        "tags": [
+            "visual",
+            "prioridad",
+            "organizacion",
+            "lectura"
+        ],
+        "domains": [
+            "visual",
+            "design",
+            "communication"
+        ],
+        "level": "specific",
+        "weight": 0.8,
+        "color": "#DB2777",
+        "icon": "eye-off"
+    },
+    {
+        "id": "fric_008",
+        "title": "Distracciones constantes",
+        "description": "Interrupciones frecuentes que rompen el foco y flujo.",
+        "category": "Fricción",
+        "tags": [
+            "interrupcion",
+            "atencion",
+            "notificaciones",
+            "ruido"
+        ],
+        "domains": [
+            "attention",
+            "environment",
+            "digital"
+        ],
+        "level": "broad",
+        "weight": 0.9,
+        "color": "#EC4899",
+        "icon": "bell-off"
+    },
+    {
+        "id": "fric_009",
+        "title": "Desorientación espacial",
+        "description": "Incapacidad de ubicarse o navegar en un entorno físico o digital.",
+        "category": "Fricción",
+        "tags": [
+            "perdido",
+            "navegacion",
+            "mapa",
+            "ubicacion"
+        ],
+        "domains": [
+            "spatial",
+            "navigation",
+            "wayfinding"
+        ],
+        "level": "specific",
+        "weight": 0.75,
+        "color": "#0891B2",
+        "icon": "map-pin-off"
+    },
+    {
+        "id": "fric_010",
+        "title": "Baja accesibilidad",
+        "description": "Barreras que excluyen usuarios con capacidades diversas.",
+        "category": "Fricción",
+        "tags": [
+            "exclusion",
+            "barrera",
+            "inclusividad",
+            "acceso"
+        ],
+        "domains": [
+            "accessibility",
+            "inclusive",
+            "equity"
+        ],
+        "level": "broad",
+        "weight": 0.95,
+        "color": "#DC2626",
+        "icon": "accessibility-off"
+    },
+    {
+        "id": "fric_011",
+        "title": "Tiempos de espera",
+        "description": "Demoras que generan frustración y pérdida de productividad.",
+        "category": "Fricción",
+        "tags": [
+            "demora",
+            "paciencia",
+            "latencia",
+            "cola"
+        ],
+        "domains": [
+            "time",
+            "service",
+            "experience"
+        ],
+        "level": "specific",
+        "weight": 0.85,
+        "color": "#EA580C",
+        "icon": "hourglass"
+    },
+    {
+        "id": "fric_012",
+        "title": "Lenguaje poco claro",
+        "description": "Comunicación ambigua, técnica o confusa para el usuario.",
+        "category": "Fricción",
+        "tags": [
+            "ambiguedad",
+            "tecnico",
+            "traduccion",
+            "comprension"
+        ],
+        "domains": [
+            "language",
+            "communication",
+            "clarity"
+        ],
+        "level": "broad",
+        "weight": 0.8,
+        "color": "#7C3AED",
+        "icon": "message-circle-off"
+    },
+    {
+        "id": "fric_013",
+        "title": "Saturación visual",
+        "description": "Exceso de estímulos visuales que dificultan la percepción.",
+        "category": "Fricción",
+        "tags": [
+            "exceso",
+            "ruido",
+            "limpieza",
+            "minimalismo"
+        ],
+        "domains": [
+            "visual",
+            "sensory",
+            "design"
+        ],
+        "level": "specific",
+        "weight": 0.75,
+        "color": "#DB2777",
+        "icon": "aperture-off"
+    },
+    {
+        "id": "fric_014",
+        "title": "Mala coordinación",
+        "description": "Falta de sincronía entre elementos, personas o sistemas.",
+        "category": "Fricción",
+        "tags": [
+            "desincronia",
+            "colision",
+            "organizacion",
+            "flujo"
+        ],
+        "domains": [
+            "coordination",
+            "teamwork",
+            "systems"
+        ],
+        "level": "broad",
+        "weight": 0.7,
+        "color": "#64748B",
+        "icon": "git-merge"
+    },
+    {
+        "id": "fric_015",
+        "title": "Falta de personalización",
+        "description": "Experiencias genéricas que no consideran necesidades individuales.",
+        "category": "Fricción",
+        "tags": [
+            "generico",
+            "individual",
+            "adaptacion",
+            "relevancia"
+        ],
+        "domains": [
+            "personalization",
+            "customization",
+            "user-centric"
+        ],
+        "level": "broad",
+        "weight": 0.8,
+        "color": "#059669",
+        "icon": "user-x"
+    },
+    {
+        "id": "cons_001",
+        "title": "Estrés",
+        "description": "Estado de tensión física y emocional sostenida.",
         "category": "Consecuencia",
-        "icon": "frown",
-        "tags": ["cognitivo", "productividad"],
-        "image": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=300&q=80"
+        "tags": [
+            "tension",
+            "presion",
+            "ansiedad",
+            "salud"
+        ],
+        "domains": [
+            "health",
+            "emotional",
+            "wellness"
+        ],
+        "level": "broad",
+        "weight": 0.95,
+        "color": "#DC2626",
+        "icon": "activity-off"
     },
     {
-        "id": "s1",
-        "title": "Aplicación Móvil Offline First",
-        "desc": "App de alto rendimiento que opera sin internet ni recargas obligatorias.",
-        "category": "Tipo solución",
-        "icon": "smartphone",
-        "tags": ["mobile", "ligero"],
-        "image": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=300&q=80"
+        "id": "cons_002",
+        "title": "Desmotivación",
+        "description": "Pérdida de interés o impulso para continuar una actividad.",
+        "category": "Consecuencia",
+        "tags": [
+            "apatia",
+            "abandono",
+            "interes",
+            "energia"
+        ],
+        "domains": [
+            "motivational",
+            "emotional",
+            "behavioral"
+        ],
+        "level": "broad",
+        "weight": 0.9,
+        "color": "#64748B",
+        "icon": "battery-low"
     },
     {
-        "id": "s2",
-        "title": "Dispositivo IoT de Mesa",
-        "desc": "Hardware minimalista e independiente con indicadores ambientales discretos.",
-        "category": "Tipo solución",
-        "icon": "cpu",
-        "tags": ["físico", "hardware"],
-        "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=300&q=80"
+        "id": "cons_003",
+        "title": "Pérdida de tiempo",
+        "description": "Ineficiencia que resulta en horas no productivas o desperdiciadas.",
+        "category": "Consecuencia",
+        "tags": [
+            "ineficiencia",
+            "retraso",
+            "productividad",
+            "oportunidad"
+        ],
+        "domains": [
+            "time",
+            "efficiency",
+            "resource"
+        ],
+        "level": "broad",
+        "weight": 0.85,
+        "color": "#EA580C",
+        "icon": "clock-alert"
     },
     {
-        "id": "m1",
-        "title": "Feedback Háptico Táctil",
-        "desc": "Alertas físicas por vibración progresiva para guiar sin requerir pantallas.",
+        "id": "cons_004",
+        "title": "Errores frecuentes",
+        "description": "Fallos recurrentes en la ejecución de tareas o procesos.",
+        "category": "Consecuencia",
+        "tags": [
+            "fallo",
+            "precision",
+            "calidad",
+            "confiabilidad"
+        ],
+        "domains": [
+            "quality",
+            "performance",
+            "reliability"
+        ],
+        "level": "specific",
+        "weight": 0.8,
+        "color": "#DC2626",
+        "icon": "alert-triangle"
+    },
+    {
+        "id": "cons_005",
+        "title": "Fatiga mental",
+        "description": "Agotamiento cognitivo por esfuerzo prolongado o intenso.",
+        "category": "Consecuencia",
+        "tags": [
+            "agotamiento",
+            "cognitivo",
+            "descanso",
+            "recuperacion"
+        ],
+        "domains": [
+            "cognitive",
+            "health",
+            "performance"
+        ],
+        "level": "specific",
+        "weight": 0.85,
+        "color": "#7C3AED",
+        "icon": "brain-circuit"
+    },
+    {
+        "id": "cons_006",
+        "title": "Desconexión emocional",
+        "description": "Falta de vínculo afectivo o significado en la experiencia.",
+        "category": "Consecuencia",
+        "tags": [
+            "apatia",
+            "vinculo",
+            "significado",
+            "empatia"
+        ],
+        "domains": [
+            "emotional",
+            "connection",
+            "experience"
+        ],
+        "level": "broad",
+        "weight": 0.8,
+        "color": "#EC4899",
+        "icon": "heart-off"
+    },
+    {
+        "id": "cons_007",
+        "title": "Abandono",
+        "description": "Decisión de dejar de usar un producto, servicio o proceso.",
+        "category": "Consecuencia",
+        "tags": [
+            "churn",
+            "retencion",
+            "salida",
+            "fracaso"
+        ],
+        "domains": [
+            "behavioral",
+            "business",
+            "engagement"
+        ],
+        "level": "broad",
+        "weight": 0.9,
+        "color": "#DC2626",
+        "icon": "log-out"
+    },
+    {
+        "id": "cons_008",
+        "title": "Frustración",
+        "description": "Sentimiento negativo por expectativas no cumplidas o bloqueos.",
+        "category": "Consecuencia",
+        "tags": [
+            "enojo",
+            "bloqueo",
+            "expectativa",
+            "impotencia"
+        ],
+        "domains": [
+            "emotional",
+            "psychological",
+            "experience"
+        ],
+        "level": "broad",
+        "weight": 0.95,
+        "color": "#DC2626",
+        "icon": "frown"
+    },
+    {
+        "id": "cons_009",
+        "title": "Baja participación",
+        "description": "Nivel reducido de involucramiento o contribución activa.",
+        "category": "Consecuencia",
+        "tags": [
+            "pasividad",
+            "observador",
+            "engagement",
+            "comunidad"
+        ],
+        "domains": [
+            "engagement",
+            "social",
+            "participation"
+        ],
+        "level": "specific",
+        "weight": 0.75,
+        "color": "#64748B",
+        "icon": "user-minus"
+    },
+    {
+        "id": "cons_010",
+        "title": "Mala experiencia",
+        "description": "Percepción global negativa de un producto, servicio o entorno.",
+        "category": "Consecuencia",
+        "tags": [
+            "satisfaccion",
+            "percepcion",
+            "calidad",
+            "valoracion"
+        ],
+        "domains": [
+            "experience",
+            "quality",
+            "perception"
+        ],
+        "level": "broad",
+        "weight": 0.9,
+        "color": "#DC2626",
+        "icon": "thumbs-down"
+    },
+    {
+        "id": "interv_001",
+        "title": "Sistema visual",
+        "description": "Conjunto de elementos gráficos organizados para comunicar.",
+        "category": "Tipo de Intervención",
+        "tags": [
+            "identidad",
+            "grafico",
+            "coherencia",
+            "comunicacion"
+        ],
+        "domains": [
+            "graphic",
+            "branding",
+            "communication"
+        ],
+        "level": "broad",
+        "weight": 0.9,
+        "color": "#2563EB",
+        "icon": "palette"
+    },
+    {
+        "id": "interv_002",
+        "title": "Objeto interactivo",
+        "description": "Producto físico que responde a la acción del usuario.",
+        "category": "Tipo de Intervención",
+        "tags": [
+            "tangible",
+            "respuesta",
+            "fisico",
+            "sensor"
+        ],
+        "domains": [
+            "industrial",
+            "interaction",
+            "physical"
+        ],
+        "level": "specific",
+        "weight": 0.8,
+        "color": "#059669",
+        "icon": "box"
+    },
+    {
+        "id": "interv_003",
+        "title": "Experiencia inmersiva",
+        "description": "Entorno que envuelve al usuario en una narrativa o atmósfera.",
+        "category": "Tipo de Intervención",
+        "tags": [
+            "inmersion",
+            "narrativa",
+            "atmosfera",
+            "envolvente"
+        ],
+        "domains": [
+            "spatial",
+            "audiovisual",
+            "experience"
+        ],
+        "level": "specific",
+        "weight": 0.75,
+        "color": "#7C3AED",
+        "icon": "vrpano"
+    },
+    {
+        "id": "interv_004",
+        "title": "Dispositivo físico",
+        "description": "Hardware diseñado para una función específica.",
+        "category": "Tipo de Intervención",
+        "tags": [
+            "hardware",
+            "producto",
+            "funcional",
+            "tecnologia"
+        ],
+        "domains": [
+            "industrial",
+            "technology",
+            "product"
+        ],
+        "level": "specific",
+        "weight": 0.8,
+        "color": "#EA580C",
+        "icon": "cpu"
+    },
+    {
+        "id": "interv_005",
+        "title": "Instalación espacial",
+        "description": "Intervención arquitectónica o ambiental en un lugar.",
+        "category": "Tipo de Intervención",
+        "tags": [
+            "espacio",
+            "arquitectura",
+            "ambiental",
+            "sitio"
+        ],
+        "domains": [
+            "spatial",
+            "architectural",
+            "environmental"
+        ],
+        "level": "specific",
+        "weight": 0.7,
+        "color": "#DC2626",
+        "icon": "building"
+    },
+    {
+        "id": "interv_006",
+        "title": "Plataforma digital",
+        "description": "Sistema software que conecta usuarios, datos o servicios.",
+        "category": "Tipo de Intervención",
+        "tags": [
+            "software",
+            "conexion",
+            "servicios",
+            "ecosistema"
+        ],
+        "domains": [
+            "digital",
+            "platform",
+            "software"
+        ],
+        "level": "broad",
+        "weight": 0.9,
+        "color": "#0891B2",
+        "icon": "globe"
+    },
+    {
+        "id": "interv_007",
+        "title": "Toolkit educativo",
+        "description": "Conjunto de herramientas para facilitar aprendizaje.",
+        "category": "Tipo de Intervención",
+        "tags": [
+            "educacion",
+            "herramientas",
+            "pedagogia",
+            "aprendizaje"
+        ],
+        "domains": [
+            "education",
+            "learning",
+            "tools"
+        ],
+        "level": "specific",
+        "weight": 0.75,
+        "color": "#F59E0B",
+        "icon": "tool-case"
+    },
+    {
+        "id": "interv_008",
+        "title": "Sistema modular",
+        "description": "Estructura compuesta por partes intercambiables y escalables.",
+        "category": "Tipo de Intervención",
+        "tags": [
+            "modularidad",
+            "escalabilidad",
+            "flexibilidad",
+            "componentes"
+        ],
+        "domains": [
+            "systems",
+            "modular",
+            "scalable"
+        ],
+        "level": "broad",
+        "weight": 0.8,
+        "color": "#6D28D9",
+        "icon": "grid-3x3"
+    },
+    {
+        "id": "interv_009",
+        "title": "Narrativa audiovisual",
+        "description": "Historia contada mediante imagen, sonido y tiempo.",
+        "category": "Tipo de Intervención",
+        "tags": [
+            "storytelling",
+            "video",
+            "sonido",
+            "tiempo"
+        ],
+        "domains": [
+            "audiovisual",
+            "narrative",
+            "media"
+        ],
+        "level": "specific",
+        "weight": 0.75,
+        "color": "#DB2777",
+        "icon": "film"
+    },
+    {
+        "id": "interv_010",
+        "title": "Servicio híbrido",
+        "description": "Propuesta que integra componentes físicos y digitales.",
+        "category": "Tipo de Intervención",
+        "tags": [
+            "hibrido",
+            "integracion",
+            "omnicanal",
+            "servicio"
+        ],
+        "domains": [
+            "service",
+            "hybrid",
+            "phygital"
+        ],
+        "level": "broad",
+        "weight": 0.85,
+        "color": "#16A34A",
+        "icon": "layers"
+    },
+    {
+        "id": "interv_011",
+        "title": "Señalética adaptativa",
+        "description": "Sistema de orientación que responde a contexto o usuario.",
+        "category": "Tipo de Intervención",
+        "tags": [
+            "wayfinding",
+            "adaptacion",
+            "orientacion",
+            "contexto"
+        ],
+        "domains": [
+            "spatial",
+            "navigation",
+            "adaptive"
+        ],
+        "level": "specific",
+        "weight": 0.7,
+        "color": "#0284C7",
+        "icon": "signpost"
+    },
+    {
+        "id": "interv_012",
+        "title": "Juego interactivo",
+        "description": "Experiencia lúdica con reglas y retroalimentación dinámica.",
+        "category": "Tipo de Intervención",
+        "tags": [
+            "gamificacion",
+            "ludico",
+            "reglas",
+            "diversion"
+        ],
+        "domains": [
+            "game",
+            "playful",
+            "interactive"
+        ],
+        "level": "specific",
+        "weight": 0.75,
+        "color": "#EC4899",
+        "icon": "gamepad-2"
+    },
+    {
+        "id": "interv_013",
+        "title": "Mobiliario funcional",
+        "description": "Elementos físicos que optimizan actividades espaciales.",
+        "category": "Tipo de Intervención",
+        "tags": [
+            "ergonomia",
+            "funcion",
+            "espacio",
+            "uso"
+        ],
+        "domains": [
+            "industrial",
+            "furniture",
+            "spatial"
+        ],
+        "level": "specific",
+        "weight": 0.65,
+        "color": "#7C2D12",
+        "icon": "chair"
+    },
+    {
+        "id": "interv_014",
+        "title": "Entorno responsivo",
+        "description": "Espacio que reacciona dinámicamente a estímulos externos.",
+        "category": "Tipo de Intervención",
+        "tags": [
+            "reactivo",
+            "sensores",
+            "dinamico",
+            "tiempo-real"
+        ],
+        "domains": [
+            "responsive",
+            "smart",
+            "environment"
+        ],
+        "level": "specific",
+        "weight": 0.7,
+        "color": "#059669",
+        "icon": "scan"
+    },
+    {
+        "id": "interv_015",
+        "title": "Publicación editorial",
+        "description": "Pieza gráfica o digital que organiza y difunde contenido.",
+        "category": "Tipo de Intervención",
+        "tags": [
+            "contenido",
+            "difusion",
+            "tipografia",
+            "estructura"
+        ],
+        "domains": [
+            "editorial",
+            "publishing",
+            "content"
+        ],
+        "level": "specific",
+        "weight": 0.7,
+        "color": "#BE185D",
+        "icon": "book-open"
+    },
+    {
+        "id": "mech_001",
+        "title": "Gamificación",
+        "description": "Aplicación de mecánicas de juego en contextos no lúdicos.",
         "category": "Mecanismo",
-        "icon": "activity",
-        "tags": ["sensorial", "tacto"],
-        "image": "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=300&q=80"
+        "tags": [
+            "puntos",
+            "niveles",
+            "recompensas",
+            "progreso"
+        ],
+        "domains": [
+            "game",
+            "motivation",
+            "engagement"
+        ],
+        "level": "broad",
+        "weight": 0.85,
+        "color": "#EC4899",
+        "icon": "trophy"
     },
     {
-        "id": "l1",
-        "title": "Minimalismo Funcional",
-        "desc": "Inspirado en Linear y Notion, centrado en alto contraste e iconos finos.",
+        "id": "mech_002",
+        "title": "Modularidad",
+        "description": "Diseño basado en componentes intercambiables y combinables.",
+        "category": "Mecanismo",
+        "tags": [
+            "componentes",
+            "combinacion",
+            "flexibilidad",
+            "escalabilidad"
+        ],
+        "domains": [
+            "systems",
+            "design",
+            "architecture"
+        ],
+        "level": "broad",
+        "weight": 0.8,
+        "color": "#6D28D9",
+        "icon": "blocks"
+    },
+    {
+        "id": "mech_003",
+        "title": "Automatización",
+        "description": "Ejecución autónoma de tareas repetitivas o predecibles.",
+        "category": "Mecanismo",
+        "tags": [
+            "autonomo",
+            "eficiencia",
+            "scripts",
+            "bots"
+        ],
+        "domains": [
+            "automation",
+            "technology",
+            "efficiency"
+        ],
+        "level": "broad",
+        "weight": 0.9,
+        "color": "#0284C7",
+        "icon": "bot"
+    },
+    {
+        "id": "mech_004",
+        "title": "Narrativa",
+        "description": "Estructura de historia que da sentido y secuencia.",
+        "category": "Mecanismo",
+        "tags": [
+            "storytelling",
+            "arco",
+            "personajes",
+            "significado"
+        ],
+        "domains": [
+            "narrative",
+            "story",
+            "meaning"
+        ],
+        "level": "broad",
+        "weight": 0.8,
+        "color": "#DB2777",
+        "icon": "book"
+    },
+    {
+        "id": "mech_005",
+        "title": "Feedback inmediato",
+        "description": "Respuesta instantánea ante acciones del usuario.",
+        "category": "Mecanismo",
+        "tags": [
+            "respuesta",
+            "tiempo-real",
+            "confirmacion",
+            "interaccion"
+        ],
+        "domains": [
+            "feedback",
+            "interaction",
+            "ux"
+        ],
+        "level": "specific",
+        "weight": 0.9,
+        "color": "#16A34A",
+        "icon": "message-circle"
+    },
+    {
+        "id": "mech_006",
+        "title": "Personalización",
+        "description": "Adaptación de la experiencia a preferencias individuales.",
+        "category": "Mecanismo",
+        "tags": [
+            "customizacion",
+            "preferencias",
+            "perfil",
+            "adaptacion"
+        ],
+        "domains": [
+            "personalization",
+            "user",
+            "adaptation"
+        ],
+        "level": "broad",
+        "weight": 0.85,
+        "color": "#F59E0B",
+        "icon": "sliders"
+    },
+    {
+        "id": "mech_007",
+        "title": "Visualización",
+        "description": "Representación gráfica de datos o conceptos abstractos.",
+        "category": "Mecanismo",
+        "tags": [
+            "datos",
+            "graficos",
+            "representacion",
+            "patrones"
+        ],
+        "domains": [
+            "visualization",
+            "data",
+            "information"
+        ],
+        "level": "broad",
+        "weight": 0.85,
+        "color": "#0891B2",
+        "icon": "bar-chart"
+    },
+    {
+        "id": "mech_008",
+        "title": "Colaboración",
+        "description": "Mecanismos que facilitan trabajo conjunto entre usuarios.",
+        "category": "Mecanismo",
+        "tags": [
+            "equipo",
+            "co-creacion",
+            "compartir",
+            "sinergia"
+        ],
+        "domains": [
+            "collaboration",
+            "social",
+            "teamwork"
+        ],
+        "level": "broad",
+        "weight": 0.8,
+        "color": "#2563EB",
+        "icon": "users"
+    },
+    {
+        "id": "mech_009",
+        "title": "Sensorialidad",
+        "description": "Estimulación de múltiples sentidos para enriquecer experiencia.",
+        "category": "Mecanismo",
+        "tags": [
+            "tacto",
+            "sonido",
+            "vista",
+            "inmersion"
+        ],
+        "domains": [
+            "sensory",
+            "experience",
+            "embodied"
+        ],
+        "level": "specific",
+        "weight": 0.7,
+        "color": "#DC2626",
+        "icon": "hand"
+    },
+    {
+        "id": "mech_010",
+        "title": "Adaptabilidad",
+        "description": "Capacidad de ajustarse a cambios de contexto o usuario.",
+        "category": "Mecanismo",
+        "tags": [
+            "flexibilidad",
+            "contexto",
+            "cambio",
+            "resiliencia"
+        ],
+        "domains": [
+            "adaptive",
+            "responsive",
+            "dynamic"
+        ],
+        "level": "broad",
+        "weight": 0.85,
+        "color": "#059669",
+        "icon": "shuffle"
+    },
+    {
+        "id": "mech_011",
+        "title": "Participación colectiva",
+        "description": "Involucramiento de grupos en creación o decisión compartida.",
+        "category": "Mecanismo",
+        "tags": [
+            "crowdsourcing",
+            "comunidad",
+            "votacion",
+            "colectivo"
+        ],
+        "domains": [
+            "collective",
+            "civic",
+            "community"
+        ],
+        "level": "broad",
+        "weight": 0.75,
+        "color": "#7C3AED",
+        "icon": "vote"
+    },
+    {
+        "id": "mech_012",
+        "title": "IA contextual",
+        "description": "Inteligencia artificial que interpreta y responde al contexto.",
+        "category": "Mecanismo",
+        "tags": [
+            "machine-learning",
+            "contexto",
+            "prediccion",
+            "personalizacion"
+        ],
+        "domains": [
+            "ai",
+            "ml",
+            "smart"
+        ],
+        "level": "specific",
+        "weight": 0.8,
+        "color": "#64748B",
+        "icon": "sparkles"
+    },
+    {
+        "id": "mech_013",
+        "title": "Reconocimiento visual",
+        "description": "Detección e interpretación de patrones visuales.",
+        "category": "Mecanismo",
+        "tags": [
+            "vision",
+            "patrones",
+            "imagen",
+            "deteccion"
+        ],
+        "domains": [
+            "computer-vision",
+            "ai",
+            "image"
+        ],
+        "level": "specific",
+        "weight": 0.7,
+        "color": "#EA580C",
+        "icon": "camera"
+    },
+    {
+        "id": "mech_014",
+        "title": "Recompensas progresivas",
+        "description": "Incentivos que escalan en valor según progreso del usuario.",
+        "category": "Mecanismo",
+        "tags": [
+            "progreso",
+            "incentivos",
+            "niveles",
+            "logros"
+        ],
+        "domains": [
+            "reward",
+            "progression",
+            "motivation"
+        ],
+        "level": "specific",
+        "weight": 0.75,
+        "color": "#CA8A04",
+        "icon": "star"
+    },
+    {
+        "id": "mech_015",
+        "title": "Interacción táctil",
+        "description": "Manipulación directa mediante contacto físico o gestos.",
+        "category": "Mecanismo",
+        "tags": [
+            "tacto",
+            "gestos",
+            "manipulacion",
+            "haptico"
+        ],
+        "domains": [
+            "tactile",
+            "haptic",
+            "gesture"
+        ],
+        "level": "specific",
+        "weight": 0.7,
+        "color": "#DB2777",
+        "icon": "finger-touch"
+    },
+    {
+        "id": "fmt_001",
+        "title": "Web app",
+        "description": "Aplicación accesible desde navegador web multiplataforma.",
+        "category": "Formato/Medio",
+        "tags": [
+            "browser",
+            "cross-platform",
+            "accesible",
+            "url"
+        ],
+        "domains": [
+            "web",
+            "digital",
+            "software"
+        ],
+        "level": "specific",
+        "weight": 0.9,
+        "color": "#0284C7",
+        "icon": "globe"
+    },
+    {
+        "id": "fmt_002",
+        "title": "App móvil",
+        "description": "Aplicación nativa o híbrida para dispositivos móviles.",
+        "category": "Formato/Medio",
+        "tags": [
+            "movil",
+            "touch",
+            "portatil",
+            "notificaciones"
+        ],
+        "domains": [
+            "mobile",
+            "app",
+            "digital"
+        ],
+        "level": "specific",
+        "weight": 0.9,
+        "color": "#7C3AED",
+        "icon": "smartphone"
+    },
+    {
+        "id": "fmt_003",
+        "title": "Instalación física",
+        "description": "Montaje espacial permanente o temporal en un lugar.",
+        "category": "Formato/Medio",
+        "tags": [
+            "espacio",
+            "montaje",
+            "site-specific",
+            "presencial"
+        ],
+        "domains": [
+            "spatial",
+            "installation",
+            "physical"
+        ],
+        "level": "specific",
+        "weight": 0.7,
+        "color": "#DC2626",
+        "icon": "box"
+    },
+    {
+        "id": "fmt_004",
+        "title": "Señalética",
+        "description": "Sistema gráfico de orientación e información espacial.",
+        "category": "Formato/Medio",
+        "tags": [
+            "wayfinding",
+            "orientacion",
+            "iconos",
+            "mapas"
+        ],
+        "domains": [
+            "graphic",
+            "spatial",
+            "navigation"
+        ],
+        "level": "specific",
+        "weight": 0.75,
+        "color": "#EA580C",
+        "icon": "signpost"
+    },
+    {
+        "id": "fmt_005",
+        "title": "Pantalla interactiva",
+        "description": "Display táctil o con sensores para interacción directa.",
+        "category": "Formato/Medio",
+        "tags": [
+            "tactil",
+            "display",
+            "kiosk",
+            "publico"
+        ],
+        "domains": [
+            "interactive",
+            "display",
+            "public"
+        ],
+        "level": "specific",
+        "weight": 0.7,
+        "color": "#0891B2",
+        "icon": "monitor-touch"
+    },
+    {
+        "id": "fmt_006",
+        "title": "Objeto portátil",
+        "description": "Producto físico diseñado para ser llevado consigo.",
+        "category": "Formato/Medio",
+        "tags": [
+            "wearable",
+            "transporte",
+            "personal",
+            "compacto"
+        ],
+        "domains": [
+            "product",
+            "portable",
+            "industrial"
+        ],
+        "level": "specific",
+        "weight": 0.75,
+        "color": "#16A34A",
+        "icon": "package"
+    },
+    {
+        "id": "fmt_007",
+        "title": "Kit tangible",
+        "description": "Conjunto de elementos físicos para manipulación y uso.",
+        "category": "Formato/Medio",
+        "tags": [
+            "componentes",
+            "manual",
+            "ensamblaje",
+            "herramientas"
+        ],
+        "domains": [
+            "tangible",
+            "kit",
+            "physical"
+        ],
+        "level": "specific",
+        "weight": 0.65,
+        "color": "#F59E0B",
+        "icon": "tool-case"
+    },
+    {
+        "id": "fmt_008",
+        "title": "Sistema editorial",
+        "description": "Publicación impresa o digital con estructura secuencial.",
+        "category": "Formato/Medio",
+        "tags": [
+            "impreso",
+            "paginas",
+            "tipografia",
+            "secuencia"
+        ],
+        "domains": [
+            "editorial",
+            "print",
+            "publishing"
+        ],
+        "level": "specific",
+        "weight": 0.7,
+        "color": "#BE185D",
+        "icon": "book"
+    },
+    {
+        "id": "fmt_009",
+        "title": "Video interactivo",
+        "description": "Contenido audiovisual con puntos de decisión o interacción.",
+        "category": "Formato/Medio",
+        "tags": [
+            "branching",
+            "decision",
+            "audiovisual",
+            "no-lineal"
+        ],
+        "domains": [
+            "video",
+            "interactive",
+            "media"
+        ],
+        "level": "specific",
+        "weight": 0.65,
+        "color": "#DB2777",
+        "icon": "video"
+    },
+    {
+        "id": "fmt_010",
+        "title": "Experiencia urbana",
+        "description": "Intervención en espacio público de escala ciudad.",
+        "category": "Formato/Medio",
+        "tags": [
+            "ciudad",
+            "publico",
+            "escala",
+            "contexto"
+        ],
+        "domains": [
+            "urban",
+            "public",
+            "spatial"
+        ],
+        "level": "broad",
+        "weight": 0.7,
+        "color": "#64748B",
+        "icon": "city"
+    },
+    {
+        "id": "fmt_011",
+        "title": "Espacio expositivo",
+        "description": "Entorno diseñado para mostrar contenidos o colecciones.",
+        "category": "Formato/Medio",
+        "tags": [
+            "exhibicion",
+            "curaduria",
+            "recorrido",
+            "museografia"
+        ],
+        "domains": [
+            "exhibition",
+            "museum",
+            "spatial"
+        ],
+        "level": "specific",
+        "weight": 0.65,
+        "color": "#7C2D12",
+        "icon": "gallery-vertical"
+    },
+    {
+        "id": "fmt_012",
+        "title": "Packaging",
+        "description": "Envase que protege, comunica y mejora experiencia de producto.",
+        "category": "Formato/Medio",
+        "tags": [
+            "envase",
+            "proteccion",
+            "marca",
+            "unboxing"
+        ],
+        "domains": [
+            "packaging",
+            "product",
+            "branding"
+        ],
+        "level": "specific",
+        "weight": 0.75,
+        "color": "#059669",
+        "icon": "package-check"
+    },
+    {
+        "id": "fmt_013",
+        "title": "Superficie proyectada",
+        "description": "Mapping o proyección sobre superficies físicas.",
+        "category": "Formato/Medio",
+        "tags": [
+            "projection",
+            "mapping",
+            "lumínico",
+            "transformacion"
+        ],
+        "domains": [
+            "projection",
+            "audiovisual",
+            "spatial"
+        ],
+        "level": "specific",
+        "weight": 0.6,
+        "color": "#6D28D9",
+        "icon": "projector"
+    },
+    {
+        "id": "fmt_014",
+        "title": "Entorno modular",
+        "description": "Espacio configurable mediante elementos recombinables.",
+        "category": "Formato/Medio",
+        "tags": [
+            "configurable",
+            "flexible",
+            "recombinable",
+            "adaptable"
+        ],
+        "domains": [
+            "modular",
+            "spatial",
+            "adaptive"
+        ],
+        "level": "specific",
+        "weight": 0.65,
+        "color": "#2563EB",
+        "icon": "grid-3x3"
+    },
+    {
+        "id": "fmt_015",
+        "title": "Wearable",
+        "description": "Dispositivo tecnológico integrado en vestimenta o accesorios.",
+        "category": "Formato/Medio",
+        "tags": [
+            "vestible",
+            "sensor",
+            "cuerpo",
+            "datos"
+        ],
+        "domains": [
+            "wearable",
+            "technology",
+            "body"
+        ],
+        "level": "specific",
+        "weight": 0.7,
+        "color": "#EC4899",
+        "icon": "watch"
+    },
+    {
+        "id": "lang_001",
+        "title": "Editorial suizo",
+        "description": "Estilo basado en grillas, tipografía clara y minimalismo.",
         "category": "Lenguaje",
-        "icon": "grid",
-        "tags": ["diseño", "limpio"],
-        "image": "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=300&q=80"
+        "tags": [
+            "grilla",
+            "tipografia",
+            "orden",
+            "neutralidad"
+        ],
+        "domains": [
+            "graphic",
+            "typography",
+            "modernism"
+        ],
+        "level": "specific",
+        "weight": 0.7,
+        "color": "#2563EB",
+        "icon": "layout-grid"
     },
     {
-        "id": "fo1",
-        "title": "Extensión de Navegador Silenciosa",
-        "desc": "Complemento web invisible que actúa de filtro purificador en segundo plano.",
-        "category": "Formato",
-        "icon": "toy-brick",
-        "tags": ["navegador", "utilidad"],
-        "image": "https://images.unsplash.com/photo-1618401471353-b98aedd07871?auto=format&fit=crop&w=300&q=80"
+        "id": "lang_002",
+        "title": "Brutalista",
+        "description": "Estética cruda, estructural y anti-decorativa.",
+        "category": "Lenguaje",
+        "tags": [
+            "crudo",
+            "estructura",
+            "honestidad",
+            "material"
+        ],
+        "domains": [
+            "brutalism",
+            "architecture",
+            "raw"
+        ],
+        "level": "specific",
+        "weight": 0.65,
+        "color": "#64748B",
+        "icon": "hard-hat"
     },
     {
-        "id": "v1",
-        "title": "Paz Mental y Enfoque Activo",
-        "desc": "Espacio mental libre de ruidos corporativos que optimiza la tranquilidad diaria.",
-        "category": "Valor",
-        "icon": "leaf",
-        "tags": ["bienestar", "salud"],
-        "image": "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=300&q=80"
+        "id": "lang_003",
+        "title": "Orgánico",
+        "description": "Formas naturales, fluidas y biomórficas.",
+        "category": "Lenguaje",
+        "tags": [
+            "natural",
+            "fluido",
+            "biomorfico",
+            "suave"
+        ],
+        "domains": [
+            "organic",
+            "nature",
+            "biomorphic"
+        ],
+        "level": "specific",
+        "weight": 0.7,
+        "color": "#16A34A",
+        "icon": "leaf"
+    },
+    {
+        "id": "lang_004",
+        "title": "Retro tecnológico",
+        "description": "Estética inspirada en tecnologías pasadas (80s-90s).",
+        "category": "Lenguaje",
+        "tags": [
+            "nostalgia",
+            "pixel",
+            "neon",
+            "vintage"
+        ],
+        "domains": [
+            "retro",
+            "tech",
+            "nostalgia"
+        ],
+        "level": "specific",
+        "weight": 0.65,
+        "color": "#DB2777",
+        "icon": "radio"
+    },
+    {
+        "id": "lang_005",
+        "title": "Minimalista",
+        "description": "Reducción esencial eliminando elementos superfluos.",
+        "category": "Lenguaje",
+        "tags": [
+            "esencial",
+            "simplicidad",
+            "menos",
+            "pureza"
+        ],
+        "domains": [
+            "minimalism",
+            "essential",
+            "clean"
+        ],
+        "level": "broad",
+        "weight": 0.8,
+        "color": "#0891B2",
+        "icon": "minus"
+    },
+    {
+        "id": "lang_006",
+        "title": "Táctico futurista",
+        "description": "Estética militar/tech con visión de futuro cercano.",
+        "category": "Lenguaje",
+        "tags": [
+            "tactical",
+            "utilitario",
+            "futuro",
+            "supervivencia"
+        ],
+        "domains": [
+            "tactical",
+            "futurism",
+            "utility"
+        ],
+        "level": "specific",
+        "weight": 0.6,
+        "color": "#1E40AF",
+        "icon": "shield"
+    },
+    {
+        "id": "lang_007",
+        "title": "Lúdico experimental",
+        "description": "Enfoque juguetón que explora límites y posibilidades.",
+        "category": "Lenguaje",
+        "tags": [
+            "juego",
+            "experimentacion",
+            "exploracion",
+            "diversion"
+        ],
+        "domains": [
+            "playful",
+            "experimental",
+            "creative"
+        ],
+        "level": "specific",
+        "weight": 0.7,
+        "color": "#EC4899",
+        "icon": "dice"
+    },
+    {
+        "id": "lang_008",
+        "title": "Institucional",
+        "description": "Lenguaje formal, serio y corporativo.",
+        "category": "Lenguaje",
+        "tags": [
+            "formal",
+            "serio",
+            "corporativo",
+            "confianza"
+        ],
+        "domains": [
+            "corporate",
+            "institutional",
+            "formal"
+        ],
+        "level": "broad",
+        "weight": 0.75,
+        "color": "#1E40AF",
+        "icon": "building-2"
+    },
+    {
+        "id": "lang_009",
+        "title": "Sensorial",
+        "description": "Prioriza experiencia multisensorial y embodied.",
+        "category": "Lenguaje",
+        "tags": [
+            "sentidos",
+            "cuerpo",
+            "experiencia",
+            "inmersion"
+        ],
+        "domains": [
+            "sensory",
+            "embodied",
+            "experiential"
+        ],
+        "level": "specific",
+        "weight": 0.7,
+        "color": "#DC2626",
+        "icon": "hand"
+    },
+    {
+        "id": "lang_010",
+        "title": "Modular geométrico",
+        "description": "Composición basada en formas geométricas repetibles.",
+        "category": "Lenguaje",
+        "tags": [
+            "geometria",
+            "patron",
+            "repeticion",
+            "sistematico"
+        ],
+        "domains": [
+            "geometric",
+            "modular",
+            "pattern"
+        ],
+        "level": "specific",
+        "weight": 0.7,
+        "color": "#7C3AED",
+        "icon": "hexagon"
+    },
+    {
+        "id": "lang_011",
+        "title": "Industrial funcional",
+        "description": "Estética centrada en función, eficiencia y durabilidad.",
+        "category": "Lenguaje",
+        "tags": [
+            "funcion",
+            "eficiencia",
+            "durabilidad",
+            "practico"
+        ],
+        "domains": [
+            "industrial",
+            "functional",
+            "utilitarian"
+        ],
+        "level": "specific",
+        "weight": 0.75,
+        "color": "#EA580C",
+        "icon": "settings"
+    },
+    {
+        "id": "lang_012",
+        "title": "Cinemático",
+        "description": "Lenguaje visual inspirado en narrativa fílmica.",
+        "category": "Lenguaje",
+        "tags": [
+            "cine",
+            "narrativa",
+            "iluminacion",
+            "dramatico"
+        ],
+        "domains": [
+            "cinematic",
+            "film",
+            "narrative"
+        ],
+        "level": "specific",
+        "weight": 0.65,
+        "color": "#DB2777",
+        "icon": "film"
+    },
+    {
+        "id": "lang_013",
+        "title": "Escenográfico",
+        "description": "Enfoque teatral que construye atmósferas y escenarios.",
+        "category": "Lenguaje",
+        "tags": [
+            "teatro",
+            "escenario",
+            "atmosfera",
+            "puesta-en-escena"
+        ],
+        "domains": [
+            "scenographic",
+            "theater",
+            "atmosphere"
+        ],
+        "level": "specific",
+        "weight": 0.65,
+        "color": "#BE185D",
+        "icon": "theater"
+    },
+    {
+        "id": "lang_014",
+        "title": "Artefacto científico",
+        "description": "Estética de instrumentación y visualización científica.",
+        "category": "Lenguaje",
+        "tags": [
+            "ciencia",
+            "instrumento",
+            "precision",
+            "datos"
+        ],
+        "domains": [
+            "scientific",
+            "technical",
+            "instrumentation"
+        ],
+        "level": "specific",
+        "weight": 0.6,
+        "color": "#0284C7",
+        "icon": "microscope"
+    },
+    {
+        "id": "lang_015",
+        "title": "Digital artesanal",
+        "description": "Fusión de técnicas digitales con sensibilidad handmade.",
+        "category": "Lenguaje",
+        "tags": [
+            "handmade",
+            "digital",
+            "hibrido",
+            "textura"
+        ],
+        "domains": [
+            "craft",
+            "digital",
+            "hybrid"
+        ],
+        "level": "specific",
+        "weight": 0.65,
+        "color": "#CA8A04",
+        "icon": "paintbrush"
+    },
+    {
+        "id": "val_001",
+        "title": "Claridad",
+        "description": "Comprensión inmediata sin ambigüedad ni confusión.",
+        "category": "Valor Generado",
+        "tags": [
+            "entendimiento",
+            "transparencia",
+            "simplicidad",
+            "lucidez"
+        ],
+        "domains": [
+            "communication",
+            "cognitive",
+            "ux"
+        ],
+        "level": "broad",
+        "weight": 0.95,
+        "color": "#0284C7",
+        "icon": "lightbulb"
+    },
+    {
+        "id": "val_002",
+        "title": "Eficiencia",
+        "description": "Logro de objetivos con mínimo esfuerzo y tiempo.",
+        "category": "Valor Generado",
+        "tags": [
+            "optimizacion",
+            "rapidez",
+            "productividad",
+            "economia"
+        ],
+        "domains": [
+            "performance",
+            "time",
+            "resource"
+        ],
+        "level": "broad",
+        "weight": 0.9,
+        "color": "#16A34A",
+        "icon": "zap"
+    },
+    {
+        "id": "val_003",
+        "title": "Accesibilidad",
+        "description": "Inclusión de usuarios con diversas capacidades y contextos.",
+        "category": "Valor Generado",
+        "tags": [
+            "inclusion",
+            "equidad",
+            "universal",
+            "acceso"
+        ],
+        "domains": [
+            "accessibility",
+            "inclusive",
+            "equity"
+        ],
+        "level": "broad",
+        "weight": 0.95,
+        "color": "#DC2626",
+        "icon": "accessibility"
+    },
+    {
+        "id": "val_004",
+        "title": "Motivación",
+        "description": "Impulso emocional para iniciar o mantener acciones.",
+        "category": "Valor Generado",
+        "tags": [
+            "inspiracion",
+            "energia",
+            "accion",
+            "deseo"
+        ],
+        "domains": [
+            "motivational",
+            "emotional",
+            "behavioral"
+        ],
+        "level": "broad",
+        "weight": 0.85,
+        "color": "#EC4899",
+        "icon": "flame"
+    },
+    {
+        "id": "val_005",
+        "title": "Participación",
+        "description": "Involucramiento activo y significativo del usuario.",
+        "category": "Valor Generado",
+        "tags": [
+            "engagement",
+            "activo",
+            "contribucion",
+            "agencia"
+        ],
+        "domains": [
+            "engagement",
+            "social",
+            "civic"
+        ],
+        "level": "broad",
+        "weight": 0.8,
+        "color": "#7C3AED",
+        "icon": "users"
+    },
+    {
+        "id": "val_006",
+        "title": "Comprensión",
+        "description": "Captación profunda de significados y relaciones.",
+        "category": "Valor Generado",
+        "tags": [
+            "entendimiento",
+            "profundidad",
+            "insight",
+            "aprendizaje"
+        ],
+        "domains": [
+            "cognitive",
+            "learning",
+            "meaning"
+        ],
+        "level": "broad",
+        "weight": 0.9,
+        "color": "#2563EB",
+        "icon": "brain"
+    },
+    {
+        "id": "val_007",
+        "title": "Seguridad",
+        "description": "Confianza y protección frente a riesgos o incertidumbre.",
+        "category": "Valor Generado",
+        "tags": [
+            "confianza",
+            "proteccion",
+            "estabilidad",
+            "certeza"
+        ],
+        "domains": [
+            "safety",
+            "security",
+            "confidence"
+        ],
+        "level": "broad",
+        "weight": 0.9,
+        "color": "#059669",
+        "icon": "shield-check"
+    },
+    {
+        "id": "val_008",
+        "title": "Autonomía",
+        "description": "Capacidad de actuar independientemente sin dependencia externa.",
+        "category": "Valor Generado",
+        "tags": [
+            "independencia",
+            "auto-gestion",
+            "empoderamiento",
+            "libertad"
+        ],
+        "domains": [
+            "autonomy",
+            "empowerment",
+            "independence"
+        ],
+        "level": "broad",
+        "weight": 0.85,
+        "color": "#EA580C",
+        "icon": "user-check"
+    },
+    {
+        "id": "val_009",
+        "title": "Conexión emocional",
+        "description": "Vínculo afectivo significativo entre usuario y experiencia.",
+        "category": "Valor Generado",
+        "tags": [
+            "emocion",
+            "vinculo",
+            "empatia",
+            "significado"
+        ],
+        "domains": [
+            "emotional",
+            "connection",
+            "experience"
+        ],
+        "level": "broad",
+        "weight": 0.85,
+        "color": "#DB2777",
+        "icon": "heart"
+    },
+    {
+        "id": "val_010",
+        "title": "Continuidad",
+        "description": "Flujo coherente y sin interrupciones a través del tiempo.",
+        "category": "Valor Generado",
+        "tags": [
+            "flujo",
+            "coherencia",
+            "persistencia",
+            "integridad"
+        ],
+        "domains": [
+            "continuity",
+            "temporal",
+            "experience"
+        ],
+        "level": "specific",
+        "weight": 0.75,
+        "color": "#64748B",
+        "icon": "arrow-right-from-line"
+    },
+    {
+        "id": "val_011",
+        "title": "Exploración",
+        "description": "Posibilidad de descubrir, experimentar y aprender activamente.",
+        "category": "Valor Generado",
+        "tags": [
+            "descubrimiento",
+            "curiosidad",
+            "experimentacion",
+            "aprendizaje"
+        ],
+        "domains": [
+            "exploration",
+            "discovery",
+            "learning"
+        ],
+        "level": "broad",
+        "weight": 0.8,
+        "color": "#F59E0B",
+        "icon": "compass"
     }
 ]
