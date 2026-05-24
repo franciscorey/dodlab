@@ -22,7 +22,8 @@ let appState = {
     panOffset: { x: -1000, y: -1000 },
     dragStart: { x: 0, y: 0 },
     graphViewMode: "cards", // 'cards' | 'concepts' | 'hybrid'
-    selectedConceptFilter: null
+    selectedConceptFilter: null,
+    networkGraph: null // Instancia de Vis.js Network
 };
 
 // Categorías actualizadas según deck-data.json
@@ -1570,4 +1571,285 @@ function exportCanvasState() {
     dlAnchorElem.setAttribute("download", "ideationdeck_canvas_export.json");
     dlAnchorElem.click();
     showToast("Lienzo exportado como JSON");
+}
+
+// ============================================
+// GRAPH VIEW - MOTOR DE VISUALIZACIÓN SEMÁNTICA
+// Usa Vis.js Network para mostrar relaciones
+// ============================================
+
+/**
+ * Inicializa la vista de grafo semántico
+ */
+function initGraph() {
+    const container = document.getElementById('graph-container');
+    if (!container) return;
+
+    // Construir nodos y aristas
+    const { nodes, edges } = buildGraphData();
+
+    const data = { nodes, edges };
+    
+    const options = {
+        nodes: {
+            shape: 'dot',
+            size: 20,
+            font: {
+                color: '#f8fafc',
+                face: 'Inter',
+                size: 14
+            },
+            borderWidth: 2,
+            shadow: true
+        },
+        edges: {
+            width: 1.5,
+            color: { color: '#475569', highlight: '#38bdf8' },
+            smooth: { type: 'continuous' },
+            arrows: { to: { enabled: false } },
+            dashes: false
+        },
+        groups: {
+            card: {
+                color: { background: '#3b82f6', border: '#1d4ed8' },
+                size: 25,
+                shape: 'dot'
+            },
+            concept: {
+                color: { background: '#a855f7', border: '#7e22ce' },
+                size: 15,
+                shape: 'dot'
+            }
+        },
+        physics: {
+            enabled: true,
+            barnesHut: {
+                gravitationalConstant: -3000,
+                centralGravity: 0.3,
+                springLength: 150,
+                springConstant: 0.04,
+                damping: 0.09
+            },
+            stabilization: { iterations: 150 }
+        },
+        interaction: {
+            hover: true,
+            tooltipDelay: 200,
+            hideEdgesOnDrag: false
+        }
+    };
+
+    appState.networkGraph = new vis.Network(container, data, options);
+
+    // Event Listeners
+    appState.networkGraph.on("click", function(params) {
+        handleGraphNodeClick(params);
+    });
+
+    appState.networkGraph.on("doubleClick", function(params) {
+        handleGraphDoubleClick(params);
+    });
+
+    // Populate category filter
+    populateGraphCategoryFilter();
+
+    // Slider depth listener
+    document.getElementById('graph-depth').addEventListener('input', function() {
+        refreshGraphWithDepth(parseInt(this.value));
+    });
+
+    document.getElementById('graph-category-filter').addEventListener('change', function() {
+        refreshGraphWithFilter(this.value);
+    });
+
+    console.log("Graph initialized with", nodes.length, "nodes and", edges.length, "edges");
+}
+
+/**
+ * Construye los datos de nodos y aristas para el grafo
+ */
+function buildGraphData(depth = 2, categoryFilter = 'all') {
+    const nodes = new vis.DataSet([]);
+    const edges = new vis.DataSet([]);
+    
+    const addedNodes = new Set();
+    const conceptUsageCount = {};
+
+    // Filtrar cartas por categoría si es necesario
+    let filteredCards = appState.cards;
+    if (categoryFilter !== 'all') {
+        filteredCards = appState.cards.filter(c => c.category === categoryFilter);
+    }
+
+    // Agregar nodos de cartas
+    filteredCards.forEach(card => {
+        nodes.add({
+            id: card.id,
+            label: card.title,
+            group: 'card',
+            title: `${card.category}\n\n${card.description || ''}`,
+            value: 25,
+            data: { type: 'card', card: card }
+        });
+        addedNodes.add(card.id);
+    });
+
+    // Agregar conceptos y conexiones
+    filteredCards.forEach(card => {
+        if (card.relations && Array.isArray(card.relations)) {
+            card.relations.forEach(relId => {
+                const concept = getConceptById(relId);
+                if (concept) {
+                    // Contar uso del concepto para tamaño
+                    conceptUsageCount[relId] = (conceptUsageCount[relId] || 0) + 1;
+
+                    // Agregar nodo concepto si no existe
+                    if (!addedNodes.has(`concept_${relId}`)) {
+                        nodes.add({
+                            id: `concept_${relId}`,
+                            label: concept.label,
+                            group: 'concept',
+                            title: `Concepto: ${concept.description || ''}`,
+                            value: 15,
+                            data: { type: 'concept', concept: concept }
+                        });
+                        addedNodes.add(`concept_${relId}`);
+                    }
+
+                    // Agregar arista carta -> concepto
+                    edges.add({
+                        from: card.id,
+                        to: `concept_${relId}`,
+                        color: { color: 'rgba(139, 92, 246, 0.4)' }
+                    });
+                }
+            });
+        }
+    });
+
+    // Ajustar tamaño de nodos concepto según popularidad
+    const maxUsage = Math.max(...Object.values(conceptUsageCount), 1);
+    Object.entries(conceptUsageCount).forEach(([relId, count]) => {
+        const nodeId = `concept_${relId}`;
+        if (addedNodes.has(nodeId)) {
+            const baseSize = 15;
+            const scaleFactor = 1 + (count / maxUsage) * 1.5;
+            nodes.update({ id: nodeId, value: baseSize * scaleFactor });
+        }
+    });
+
+    return { nodes, edges };
+}
+
+/**
+ * Maneja click en nodo del grafo
+ */
+function handleGraphNodeClick(params) {
+    const detailsPanel = document.getElementById('node-details');
+    const noSelectionMsg = document.getElementById('no-node-selected');
+
+    if (params.nodes.length > 0) {
+        const nodeId = params.nodes[0];
+        const nodeData = appState.networkGraph.getNodeById(nodeId);
+        
+        if (nodeData && nodeData.data) {
+            noSelectionMsg.classList.add('hidden');
+            detailsPanel.classList.remove('hidden');
+
+            if (nodeData.data.type === 'card') {
+                const card = nodeData.data.card;
+                document.getElementById('selected-node-title').textContent = card.title;
+                document.getElementById('selected-node-type').textContent = `${card.category} • Carta`;
+                document.getElementById('selected-node-desc').textContent = card.description || 'Sin descripción';
+                
+                // Contar conexiones
+                const connectedEdges = appState.networkGraph.getConnectedEdges(nodeId);
+                document.getElementById('selected-node-connections').textContent = 
+                    `${connectedEdges.length} conceptos relacionados`;
+            
+            } else if (nodeData.data.type === 'concept') {
+                const concept = nodeData.data.concept;
+                document.getElementById('selected-node-title').textContent = concept.label;
+                document.getElementById('selected-node-type').textContent = `Concepto Semántico`;
+                document.getElementById('selected-node-desc').textContent = concept.description || 'Nexo relacional';
+                
+                const connectedEdges = appState.networkGraph.getConnectedEdges(nodeId);
+                const numCards = connectedEdges.length;
+                document.getElementById('selected-node-connections').textContent = 
+                    `Conecta ${numCards} cartas`;
+            }
+        }
+    } else {
+        detailsPanel.classList.add('hidden');
+        noSelectionMsg.classList.remove('hidden');
+    }
+}
+
+/**
+ * Maneja double click para expandir/colapsar
+ */
+function handleGraphDoubleClick(params) {
+    if (params.nodes.length > 0) {
+        const nodeId = params.nodes[0];
+        const nodeData = appState.networkGraph.getNodeById(nodeId);
+        
+        if (nodeData && nodeData.data && nodeData.data.type === 'concept') {
+            // En futuro: expandir para mostrar más cartas relacionadas
+            showToast(`Expandiendo red desde: ${nodeData.label}`, "info");
+        }
+    }
+}
+
+/**
+ * Refresca el grafo con nueva profundidad
+ */
+function refreshGraphWithDepth(depth) {
+    const { nodes, edges } = buildGraphData(depth, document.getElementById('graph-category-filter').value);
+    appState.networkGraph.setData({ nodes, edges });
+    appState.networkGraph.fit({ animation: { duration: 300 } });
+}
+
+/**
+ * Refresca el grafo con filtro de categoría
+ */
+function refreshGraphWithFilter(category) {
+    const depth = parseInt(document.getElementById('graph-depth').value);
+    const { nodes, edges } = buildGraphData(depth, category);
+    appState.networkGraph.setData({ nodes, edges });
+    appState.networkGraph.fit({ animation: { duration: 300 } });
+}
+
+/**
+ * Popula el dropdown de filtro de categorías
+ */
+function populateGraphCategoryFilter() {
+    const select = document.getElementById('graph-category-filter');
+    if (!select) return;
+
+    // Limpiar opciones excepto "all"
+    select.innerHTML = '<option value="all">Todas las categorías</option>';
+
+    Object.keys(CATEGORIES).forEach(catKey => {
+        const option = document.createElement('option');
+        option.value = catKey;
+        option.textContent = catKey;
+        select.appendChild(option);
+    });
+}
+
+/**
+ * Exportar grafo como imagen
+ */
+function exportGraphAsImage() {
+    if (!appState.networkGraph) return;
+    
+    const canvas = document.querySelector('#graph-container canvas');
+    if (canvas) {
+        const dataUrl = canvas.toDataURL('image/png');
+        const dlAnchorElem = document.createElement('a');
+        dlAnchorElem.setAttribute("href", dataUrl);
+        dlAnchorElem.setAttribute("download", "dodlab_semantic_graph.png");
+        dlAnchorElem.click();
+        showToast("Grafo exportado como PNG");
+    }
 }
