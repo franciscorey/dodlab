@@ -15,6 +15,8 @@
         rel="stylesheet" />
     <!-- Iconos Lineales Lucide -->
     <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Vis.js para Graph View -->
+    <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
 
     <script id="tailwind-config">
         tailwind.config = {
@@ -140,6 +142,11 @@
                 class="nav-link text-neutral-500 font-bold text-xs tracking-wider uppercase hover:text-primary dark:hover:text-white transition-all flex items-center gap-1.5"
                 id="btn-nav-projects">
                 <i data-lucide="folder-open" class="w-4 h-4"></i> Proyectos
+            </button>
+            <button onclick="switchView('graph')"
+                class="nav-link text-neutral-500 font-bold text-xs tracking-wider uppercase hover:text-primary dark:hover:text-white transition-all flex items-center gap-1.5"
+                id="btn-nav-graph">
+                <i data-lucide="network" class="w-4 h-4"></i> Relaciones
             </button>
         </div>
 
@@ -748,6 +755,93 @@
             </div>
         </section>
 
+        <!-- VISTA 6: GRAPH VIEW / RELACIONES SEMÁNTICAS -->
+        <section id="view-graph" class="view-section py-8 px-6 md:px-12 max-w-[1920px] mx-auto w-full h-[calc(100vh-8rem)] hidden">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-4">
+                <div>
+                    <h1 class="text-3xl font-extrabold tracking-tight flex items-center gap-2.5">
+                        <i data-lucide="network" class="w-8 h-8 text-violet-600"></i> Ontología de Relaciones
+                    </h1>
+                    <p class="text-sm text-neutral-500 mt-1">Explora la red semántica de conceptos y cartas. Los nodos conectados comparten relaciones.</p>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                    <button onclick="toggleGraphFilters()"
+                        class="px-4 py-2 bg-neutral-100 text-neutral-700 font-bold text-xs tracking-wider uppercase rounded-xl hover:bg-neutral-200 transition-all flex items-center justify-center gap-2 dark:bg-zinc-800 dark:text-zinc-200 dark:hover:bg-zinc-700">
+                        <i data-lucide="filter" class="w-4 h-4"></i> Filtros
+                    </button>
+                    <button onclick="resetGraphView()"
+                        class="px-4 py-2 bg-indigo-600/10 text-indigo-600 font-bold text-xs tracking-wider uppercase rounded-xl hover:bg-indigo-600/20 transition-all flex items-center justify-center gap-2 dark:bg-indigo-500/10 dark:text-indigo-400">
+                        <i data-lucide="refresh-cw" class="w-4 h-4"></i> Reset
+                    </button>
+                    <button onclick="exportGraphAsPNG()"
+                        class="px-4 py-2 bg-emerald-600/10 text-emerald-600 font-bold text-xs tracking-wider uppercase rounded-xl hover:bg-emerald-600/20 transition-all flex items-center justify-center gap-2 dark:bg-emerald-500/10 dark:text-emerald-400">
+                        <i data-lucide="image" class="w-4 h-4"></i> Exportar PNG
+                    </button>
+                </div>
+            </div>
+
+            <!-- Panel de Filtros -->
+            <div id="graph-filters-panel" class="hidden mb-4 p-4 bg-neutral-50 dark:bg-zinc-900/50 rounded-2xl border border-neutral-200 dark:border-zinc-800">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div>
+                        <label class="text-xs font-bold text-neutral-500 uppercase tracking-wider">Categorías de Cartas</label>
+                        <select id="graph-category-filter" onchange="applyGraphFilters()" class="mt-1 w-full px-3 py-2 bg-white dark:bg-zinc-900 border border-neutral-200 dark:border-zinc-700 rounded-lg text-sm">
+                            <option value="all">Todas las categorías</option>
+                            <option value="Contexto">Contexto</option>
+                            <option value="Usuario">Usuario</option>
+                            <option value="Interacción">Interacción</option>
+                            <option value="Necesidad">Necesidad</option>
+                            <option value="Fricción">Fricción</option>
+                            <option value="Consecuencia">Consecuencia</option>
+                            <option value="Tipo de Intervención">Tipo de Intervención</option>
+                            <option value="Mecanismo">Mecanismo</option>
+                            <option value="Lenguaje">Lenguaje</option>
+                            <option value="Formato/Medio">Formato/Medio</option>
+                            <option value="Valor Generado">Valor Generado</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold text-neutral-500 uppercase tracking-wider">Profundidad de Conexión</label>
+                        <input type="range" id="graph-depth-slider" min="1" max="3" value="2" onchange="applyGraphFilters()" class="mt-3 w-full" />
+                        <div class="flex justify-between text-xs text-neutral-500 mt-1">
+                            <span>Direc-to</span>
+                            <span>+2 saltos</span>
+                            <span>+3 saltos</span>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold text-neutral-500 uppercase tracking-wider">Buscar Concepto/Carta</label>
+                        <input type="text" id="graph-search-input" placeholder="Ej: orientación, hospital..." onkeyup="searchInGraph()" class="mt-1 w-full px-3 py-2 bg-white dark:bg-zinc-900 border border-neutral-200 dark:border-zinc-700 rounded-lg text-sm" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contenedor del Grafo -->
+            <div id="graph-container" class="w-full h-[calc(100%-10rem)] bg-white dark:bg-zinc-950 rounded-2xl border border-neutral-200 dark:border-zinc-800 shadow-inner relative overflow-hidden">
+                <div id="graph-loading" class="absolute inset-0 flex items-center justify-center bg-white/80 dark:bg-zinc-950/80 z-10">
+                    <div class="text-center">
+                        <i data-lucide="loader-2" class="w-12 h-12 text-indigo-600 animate-spin mx-auto"></i>
+                        <p class="text-sm font-bold text-neutral-500 mt-2">Construyendo red semántica...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Panel de Detalles -->
+            <div id="graph-details-panel" class="hidden mt-4 p-4 bg-violet-50 dark:bg-violet-950/20 rounded-2xl border border-violet-200 dark:border-violet-800">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h3 id="graph-detail-title" class="text-lg font-extrabold text-violet-900 dark:text-violet-100"></h3>
+                        <p id="graph-detail-type" class="text-xs font-bold text-violet-600 dark:text-violet-400 uppercase tracking-wider"></p>
+                        <p id="graph-detail-description" class="text-sm text-neutral-600 dark:text-neutral-300 mt-2"></p>
+                        <div id="graph-detail-relations" class="flex flex-wrap gap-1.5 mt-3"></div>
+                    </div>
+                    <button onclick="closeGraphDetails()" class="text-neutral-400 hover:text-neutral-600">
+                        <i data-lucide="x" class="w-5 h-5"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <!-- BottomNavBar Mobile -->
@@ -782,6 +876,12 @@
             id="btn-mobile-projects">
             <i data-lucide="folder-open" class="w-4 h-4"></i>
             <span>Proyectos</span>
+        </button>
+        <button onclick="switchView('graph')"
+            class="flex flex-col items-center justify-center text-xs font-bold text-neutral-500 transition-colors gap-0.5"
+            id="btn-mobile-graph">
+            <i data-lucide="network" class="w-4 h-4"></i>
+            <span>Red</span>
         </button>
     </nav>
 

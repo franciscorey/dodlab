@@ -484,6 +484,8 @@ function switchView(targetView) {
         renderProjectsArchive();
     } else if (targetView === 'canvas') {
         setTimeout(drawConnections, 100);
+    } else if (targetView === 'graph') {
+        initializeGraphView();
     }
     triggerLucide();
 }
@@ -1581,6 +1583,97 @@ function exportCanvasState() {
 /**
  * Inicializa la vista de grafo semántico
  */
+function initializeGraphView() {
+    const container = document.getElementById('graph-container');
+    if (!container) return;
+    
+    // Mostrar loading
+    document.getElementById('graph-loading').classList.remove('hidden');
+    
+    // Si ya existe el grafo, solo ajustarlo
+    if (appState.networkGraph) {
+        appState.networkGraph.fit({ animation: { duration: 300 } });
+        document.getElementById('graph-loading').classList.add('hidden');
+        return;
+    }
+    
+    // Construir nodos y aristas
+    const { nodes, edges } = buildGraphData();
+    
+    const data = { nodes, edges };
+    
+    const options = {
+        nodes: {
+            shape: 'dot',
+            size: 20,
+            font: {
+                color: '#1e293b',
+                face: 'Plus Jakarta Sans',
+                size: 14
+            },
+            borderWidth: 2,
+            shadow: true
+        },
+        edges: {
+            width: 1.5,
+            color: { color: '#cbd5e1', highlight: '#8b5cf6' },
+            smooth: { type: 'continuous' },
+            arrows: { to: { enabled: false } },
+            dashes: false
+        },
+        groups: {
+            card: {
+                color: { background: '#3b82f6', border: '#1d4ed8' },
+                size: 25,
+                shape: 'dot',
+                font: { color: '#ffffff' }
+            },
+            concept: {
+                color: { background: '#a855f7', border: '#7e22ce' },
+                size: 15,
+                shape: 'dot',
+                font: { color: '#ffffff' }
+            }
+        },
+        physics: {
+            enabled: true,
+            barnesHut: {
+                gravitationalConstant: -3000,
+                centralGravity: 0.3,
+                springLength: 150,
+                springConstant: 0.04,
+                damping: 0.09
+            },
+            stabilization: { iterations: 150 }
+        },
+        interaction: {
+            hover: true,
+            tooltipDelay: 200,
+            hideEdgesOnDrag: false,
+            zoomView: true,
+            dragView: true
+        }
+    };
+    
+    appState.networkGraph = new vis.Network(container, data, options);
+    
+    // Event Listeners
+    appState.networkGraph.on("click", function(params) {
+        handleGraphNodeClick(params);
+    });
+    
+    appState.networkGraph.on("doubleClick", function(params) {
+        handleGraphDoubleClick(params);
+    });
+    
+    // Ocultar loading cuando esté estabilizado
+    appState.networkGraph.once("stabilized", function() {
+        document.getElementById('graph-loading').classList.add('hidden');
+    });
+    
+    console.log("Graph View initialized with", nodes.length, "nodes and", edges.length, "edges");
+}
+
 function initGraph() {
     const container = document.getElementById('graph-container');
     if (!container) return;
@@ -1851,5 +1944,155 @@ function exportGraphAsImage() {
         dlAnchorElem.setAttribute("download", "dodlab_semantic_graph.png");
         dlAnchorElem.click();
         showToast("Grafo exportado como PNG");
+    }
+}
+
+/**
+ * Toggle panel de filtros
+ */
+function toggleGraphFilters() {
+    const panel = document.getElementById('graph-filters-panel');
+    panel.classList.toggle('hidden');
+}
+
+/**
+ * Resetear vista del grafo
+ */
+function resetGraphView() {
+    document.getElementById('graph-category-filter').value = 'all';
+    document.getElementById('graph-depth-slider').value = '2';
+    document.getElementById('graph-search-input').value = '';
+    
+    if (appState.networkGraph) {
+        appState.networkGraph.destroy();
+        appState.networkGraph = null;
+    }
+    initializeGraphView();
+    showToast("Vista reiniciada");
+}
+
+/**
+ * Aplicar filtros al grafo
+ */
+function applyGraphFilters() {
+    const depth = parseInt(document.getElementById('graph-depth-slider').value);
+    const category = document.getElementById('graph-category-filter').value;
+    const { nodes, edges } = buildGraphData(depth, category);
+    
+    if (appState.networkGraph) {
+        appState.networkGraph.setData({ nodes, edges });
+        appState.networkGraph.fit({ animation: { duration: 300 } });
+    }
+}
+
+/**
+ * Buscar en el grafo
+ */
+function searchInGraph() {
+    const query = document.getElementById('graph-search-input').value.toLowerCase().trim();
+    if (!query || !appState.networkGraph) return;
+    
+    const allNodes = appState.networkGraph.body.nodes;
+    let foundNodeId = null;
+    
+    for (const nodeId in allNodes) {
+        const node = allNodes[nodeId];
+        if (node.options.label.toLowerCase().includes(query)) {
+            foundNodeId = nodeId;
+            break;
+        }
+    }
+    
+    if (foundNodeId) {
+        appState.networkGraph.focus(foundNodeId, {
+            scale: 1.5,
+            animation: { duration: 500, easingFunction: 'easeInOutQuad' }
+        });
+        handleGraphNodeClick({ nodes: [foundNodeId], event: {} });
+    }
+}
+
+/**
+ * Cerrar panel de detalles
+ */
+function closeGraphDetails() {
+    document.getElementById('graph-details-panel').classList.add('hidden');
+}
+
+/**
+ * Exportar grafo como PNG
+ */
+function exportGraphAsPNG() {
+    if (!appState.networkGraph) return;
+    
+    const canvas = document.querySelector('#graph-container canvas');
+    if (canvas) {
+        const dataUrl = canvas.toDataURL('image/png');
+        const dlAnchorElem = document.createElement('a');
+        dlAnchorElem.setAttribute("href", dataUrl);
+        dlAnchorElem.setAttribute("download", "dodlab_semantic_graph.png");
+        dlAnchorElem.click();
+        showToast("Grafo exportado como PNG");
+    }
+}
+
+/**
+ * Manejar click en nodo - Actualizado para Graph View
+ */
+function handleGraphNodeClick(params) {
+    const detailsPanel = document.getElementById('graph-details-panel');
+    
+    if (params.nodes.length > 0 && appState.networkGraph) {
+        const nodeId = params.nodes[0];
+        const nodeData = appState.networkGraph.getNodeById(nodeId);
+        
+        if (nodeData && nodeData.data) {
+            document.getElementById('graph-detail-title').textContent = nodeData.label;
+            document.getElementById('graph-detail-type').textContent = nodeData.data.type === 'card' 
+                ? `${nodeData.data.card.category} • Carta` 
+                : 'Concepto Semántico';
+            
+            if (nodeData.data.type === 'card') {
+                const card = nodeData.data.card;
+                document.getElementById('graph-detail-description').textContent = card.description || 'Sin descripción';
+                
+                const relationsContainer = document.getElementById('graph-detail-relations');
+                relationsContainer.innerHTML = '';
+                card.relations?.forEach(relId => {
+                    const concept = getConceptById(relId);
+                    if (concept) {
+                        const pill = document.createElement('span');
+                        pill.className = 'px-2 py-1 bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 rounded-full text-xs font-bold';
+                        pill.textContent = concept.label;
+                        relationsContainer.appendChild(pill);
+                    }
+                });
+            } else if (nodeData.data.type === 'concept') {
+                const concept = nodeData.data.concept;
+                document.getElementById('graph-detail-description').textContent = concept.description || 'Nexo relacional';
+                
+                const connectedEdges = appState.networkGraph.getConnectedEdges(nodeId);
+                const relationsContainer = document.getElementById('graph-detail-relations');
+                relationsContainer.innerHTML = `<span class="text-xs text-neutral-500">Conecta ${connectedEdges.length} cartas</span>`;
+            }
+            
+            detailsPanel.classList.remove('hidden');
+        }
+    } else {
+        detailsPanel.classList.add('hidden');
+    }
+}
+
+/**
+ * Manejar double click en nodo
+ */
+function handleGraphDoubleClick(params) {
+    if (params.nodes.length > 0) {
+        const nodeId = params.nodes[0];
+        const nodeData = appState.networkGraph.getNodeById(nodeId);
+        
+        if (nodeData && nodeData.data && nodeData.data.type === 'concept') {
+            showToast(`Expandiendo red desde: ${nodeData.label}`, "info");
+        }
     }
 }
