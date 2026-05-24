@@ -1,56 +1,16 @@
-// 12 Categorías del Deck Modular con sus Colores, Íconos y Metadata Base
-const CATEGORIES = {
-    "Contexto": { id: "Contexto", color: "#1d4ed8", icon: "map-pin", num: "01", desc: "Dónde y en qué entorno ocurre la situación proyectual." },
-    "Usuario": { id: "Usuario", color: "#6d28d9", icon: "user", num: "02", desc: "Quién vive la situación directamente." },
-    "Interacción": { id: "Interacción", color: "#047857", icon: "activity", num: "03", desc: "Qué acción o actividad ejecuta el usuario." },
-    "Necesidad": { id: "Necesidad", color: "#b45309", icon: "heart", num: "04", desc: "Qué objetivo de fondo busca satisfacer." },
-    "Fricción": { id: "Fricción", color: "#b91c1c", icon: "alert-triangle", num: "05", desc: "Qué obstáculo, barrera o bloqueo encuentra." },
-    "Consecuencia": { id: "Consecuencia", color: "#c2410c", icon: "trending-down", num: "06", desc: "Qué impacto secundario indeseado provoca la fricción." },
-    "Tipo solución": { id: "Tipo solución", color: "#0369a1", icon: "rocket", num: "07", desc: "Qué tipo de artefacto, sistema o canal se diseña." },
-    "Mecanismo": { id: "Mecanismo", color: "#0f766e", icon: "settings", num: "08", desc: "Cómo resuelve el problema el sistema." },
-    "Lenguaje": { id: "Lenguaje", color: "#be185d", icon: "palette", num: "09", desc: "Cómo se expresa estéticamente el sistema." },
-    "Formato": { id: "Formato", color: "#7e22ce", icon: "layers", num: "10", desc: "Medio o materialidad final de la solución." },
-    "Valor": { id: "Valor", color: "#a16207", icon: "gem", num: "11", desc: "Impacto positivo generado para las personas." },
-    "Problema clave": { id: "Problema clave", color: "#4f46e5", icon: "alert-circle", num: "12", desc: "Síntesis crítica del problema detectado." }
-};
-
-// Fallback robusto para evitar errores de CORS si el archivo se abre mediante file:// sin servidor
-const FALLBACK_DECK = [
-    { id: "c1", title: "Transporte Público Urbano", desc: "Sistemas de buses, trenes y estaciones congestionadas en horas pico.", category: "Contexto", icon: "bus", tags: ["ciudad", "movilidad", "ruido"], image: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=300&q=80" },
-    { id: "c2", title: "Entornos de Teletrabajo", desc: "Oficinas domésticas propensas a interrupciones e hibridación laboral.", category: "Contexto", icon: "laptop", tags: ["hogar", "remoto", "digital"], image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=300&q=80" },
-    { id: "c3", title: "Clínicas y Consultorios", desc: "Salas de espera saturadas y espacios con altos niveles de estrés clínico.", category: "Contexto", icon: "hospital", tags: ["salud", "espera", "ansiedad"], image: "https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=300&q=80" },
-    { id: "u1", title: "Adultos Mayores (65+)", desc: "Personas con baja alfabetización digital pero necesidades activas de autonomía.", category: "Usuario", icon: "accessibility", tags: ["inclusión", "salud", "edad"], image: "https://images.unsplash.com/photo-1501139083538-0139883ac06c?auto=format&fit=crop&w=300&q=80" },
-    { id: "u2", title: "Estudiantes Universitarios", desc: "Jóvenes sobreestimulados gestionando múltiples entregas bajo fatiga académica.", category: "Usuario", icon: "graduation-cap", tags: ["academia", "estrés", "joven"], image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=300&q=80" },
-    { id: "u3", title: "Trabajadores Gig Economy", desc: "Repartidores y conductores que dependen enteramente de algoritmos de apps.", category: "Usuario", icon: "bike", tags: ["precariedad", "móvil", "calle"], image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=300&q=80" },
-    { id: "i1", title: "Realizar Pago de Servicios", desc: "Completar transacciones obligatorias mediante portales virtuales o presenciales.", category: "Interacción", icon: "credit-card", tags: ["dinero", "trámite"], image: "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=300&q=80" },
-    { id: "i2", title: "Sincronizar Información", desc: "Transferir reportes, archivos u horas de desarrollo a plataformas compartidas.", category: "Interacción", icon: "refresh-cw", tags: ["datos", "rutina"], image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=300&q=80" },
-    { id: "i3", title: "Consultar Historial Clínico", desc: "Revisar resultados, recetas y diagnósticos pasados de manera urgente.", category: "Interacción", icon: "clipboard-list", tags: ["información", "privacidad"], image: "https://images.unsplash.com/photo-1504813184591-01557010c473?auto=format&fit=crop&w=300&q=80" },
-    { id: "n1", title: "Reducir el Estrés Operativo", desc: "Lograr completar tareas sin experimentar frustración o culpa cognitiva.", category: "Necesidad", icon: "heart", tags: ["paz-mental", "flujo"], image: "https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=300&q=80" },
-    { id: "n2", title: "Optimizar Tiempos de Espera", desc: "Convertir los vacíos temporales del día a día en momentos productivos o de relax.", category: "Necesidad", icon: "hourglass", tags: ["eficiencia", "tiempo"], image: "https://images.unsplash.com/photo-1495364141860-b0d03eccd065?auto=format&fit=crop&w=300&q=80" },
-    { id: "f1", title: "Interfaces Oscuras", desc: "Diseño que induce con trampas a contratar seguros o suscribirse por accidente.", category: "Fricción", icon: "scale", tags: ["ética", "diseño-malo"], image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=300&q=80" },
-    { id: "f2", title: "Saturación de Notificaciones", desc: "Avisos constantes de aplicaciones que compiten agresivamente por la atención.", category: "Fricción", icon: "bell", tags: ["interrupción", "ruido"], image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=300&q=80" },
-    { id: "co1", title: "Pérdida de Enfoque Profundo", desc: "Fragmentación crónica de la atención en periodos menores de 10 minutos.", category: "Consecuencia", icon: "frown", tags: ["cognitivo", "productividad"], image: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=300&q=80" },
-    { id: "s1", title: "Aplicación Móvil Offline First", desc: "App de alto rendimiento que opera sin internet ni recargas obligatorias.", category: "Tipo solución", icon: "smartphone", tags: ["mobile", "ligero"], image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=300&q=80" },
-    { id: "s2", title: "Dispositivo IoT de Mesa", desc: "Hardware minimalista e independiente con indicadores ambientales discretos.", category: "Tipo solución", icon: "cpu", tags: ["físico", "hardware"], image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=300&q=80" },
-    { id: "m1", title: "Feedback Háptico Táctil", desc: "Alertas físicas por vibración progresiva para guiar sin requerir pantallas.", category: "Mecanismo", icon: "activity", tags: ["sensorial", "tacto"], image: "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=300&q=80" },
-    { id: "l1", title: "Minimalismo Funcional", desc: "Inspirado en Linear y Notion, centrado en alto contraste e iconos finos.", category: "Lenguaje", icon: "grid", tags: ["diseño", "limpio"], image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=300&q=80" },
-    { id: "fo1", title: "Extensión de Navegador Silenciosa", desc: "Complemento web invisible que actúa de filtro purificador en segundo plano.", category: "Formato", icon: "toy-brick", tags: ["navegador", "utilidad"], image: "https://images.unsplash.com/photo-1618401471353-b98aedd07871?auto=format&fit=crop&w=300&q=80" },
-    { id: "v1", title: "Paz Mental y Enfoque Activo", desc: "Espacio mental libre de ruidos corporativos que optimiza la tranquilidad diaria.", category: "Valor", icon: "leaf", tags: ["bienestar", "salud"], image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=300&q=80" }
-];
+// ============================================
+// DOD LAB v3.0 - MOTOR RELACIONAL SEMÁNTICO
+// Arquitectura basada en nodos conceptuales compartidos
+// ============================================
 
 // Estado Global de la App
 let appState = {
     view: "home",
     cards: [],
     projects: [],
-    locks: {
-        "Contexto": false, "Usuario": false, "Interacción": false, "Necesidad": false, "Fricción": false,
-        "Consecuencia": false, "Tipo solución": false, "Mecanismo": false, "Lenguaje": false, "Formato": false, "Valor": false
-    },
-    currentGeneration: {
-        "Contexto": null, "Usuario": null, "Interacción": null, "Necesidad": null, "Fricción": null,
-        "Consecuencia": null, "Tipo solución": null, "Mecanismo": null, "Lenguaje": null, "Formato": null, "Valor": null
-    },
+    locks: {},
+    currentGeneration: {},
+    conceptsRegistry: [], // Registry global de conceptos/nodos semánticos
     deckSearch: "",
     deckCategory: "All",
     deckSort: "recent",
@@ -60,8 +20,256 @@ let appState = {
     activeConnectorSource: null,
     isCanvasPanning: false,
     panOffset: { x: -1000, y: -1000 },
-    dragStart: { x: 0, y: 0 }
+    dragStart: { x: 0, y: 0 },
+    graphViewMode: "cards", // 'cards' | 'concepts' | 'hybrid'
+    selectedConceptFilter: null
 };
+
+// Categorías actualizadas según deck-data.json
+const CATEGORIES = {
+    "Contexto": { id: "Contexto", color: "#1d4ed8", icon: "map-pin", num: "01", desc: "Dónde y en qué entorno ocurre la situación proyectual." },
+    "Usuario": { id: "Usuario", color: "#6d28d9", icon: "user", num: "02", desc: "Quién vive la situación directamente." },
+    "Interacción": { id: "Interacción", color: "#047857", icon: "activity", num: "03", desc: "Qué acción o actividad ejecuta el usuario." },
+    "Necesidad": { id: "Necesidad", color: "#b45309", icon: "heart", num: "04", desc: "Qué objetivo de fondo busca satisfacer." },
+    "Fricción": { id: "Fricción", color: "#b91c1c", icon: "alert-triangle", num: "05", desc: "Qué obstáculo, barrera o bloqueo encuentra." },
+    "Consecuencia": { id: "Consecuencia", color: "#c2410c", icon: "trending-down", num: "06", desc: "Qué impacto secundario indeseado provoca la fricción." },
+    "Tipo de Intervención": { id: "Tipo de Intervención", color: "#0369a1", icon: "rocket", num: "07", desc: "Qué tipo de artefacto, sistema o canal se diseña." },
+    "Mecanismo": { id: "Mecanismo", color: "#0f766e", icon: "settings", num: "08", desc: "Cómo resuelve el problema el sistema." },
+    "Lenguaje": { id: "Lenguaje", color: "#be185d", icon: "palette", num: "09", desc: "Cómo se expresa estéticamente el sistema." },
+    "Formato/Medio": { id: "Formato/Medio", color: "#7e22ce", icon: "layers", num: "10", desc: "Medio o materialidad final de la solución." },
+    "Valor Generado": { id: "Valor Generado", color: "#a16207", icon: "gem", num: "11", desc: "Impacto positivo generado para las personas." }
+};
+
+// ============================================
+// MOTOR DE RELACIONES SEMÁNTICAS v3.0
+// Basado en nodos conceptuales compartidos
+// ============================================
+
+/**
+ * Obtiene el concepto por su ID desde el registry global
+ */
+function getConceptById(conceptId) {
+    return appState.conceptsRegistry.find(c => c.id === conceptId);
+}
+
+/**
+ * Calcula la afinidad entre dos cartas basada en conceptos compartidos
+ * Usa Jaccard similarity sobre el array de relations
+ */
+function calculateConceptAffinity(card1, card2) {
+    const relations1 = card1.relations || [];
+    const relations2 = card2.relations || [];
+    
+    if (relations1.length === 0 || relations2.length === 0) {
+        return 0;
+    }
+    
+    const set1 = new Set(relations1.map(r => r.toLowerCase()));
+    const set2 = new Set(relations2.map(r => r.toLowerCase()));
+    
+    let intersection = 0;
+    set1.forEach(rel => {
+        if (set2.has(rel)) intersection++;
+    });
+    
+    const union = set1.size + set2.size - intersection;
+    return union > 0 ? intersection / union : 0;
+}
+
+/**
+ * Obtiene los conceptos compartidos entre dos cartas
+ * @returns {Array} Array de objetos concept con label, color, description
+ */
+function getSharedConcepts(card1, card2) {
+    const relations1 = new Set((card1.relations || []).map(r => r.toLowerCase()));
+    const sharedIds = (card2.relations || []).filter(r => relations1.has(r.toLowerCase()));
+    
+    return sharedIds.map(id => {
+        const concept = getConceptById(id);
+        return concept || { id, label: id, color: "#94a3b8", description: "" };
+    });
+}
+
+/**
+ * Calcula el overlap de dominios entre dos cartas
+ */
+function calculateDomainOverlap(card1, card2) {
+    if (!card1.domains || !card2.domains || card1.domains.length === 0 || card2.domains.length === 0) {
+        return 0;
+    }
+    
+    const domains1 = new Set(card1.domains.map(d => d.toLowerCase()));
+    const domains2 = new Set(card2.domains.map(d => d.toLowerCase()));
+    
+    let intersection = 0;
+    domains1.forEach(domain => {
+        if (domains2.has(domain)) intersection++;
+    });
+    
+    const minDomains = Math.min(domains1.size, domains2.size);
+    return minDomains > 0 ? intersection / minDomains : 0;
+}
+
+/**
+ * Evalúa compatibilidad de niveles de abstracción
+ * Levels: specific, broad, abstract
+ */
+function calculateLevelCompatibility(card1, card2) {
+    const levelOrder = { "specific": 1, "broad": 2, "abstract": 3 };
+    const level1 = levelOrder[card1.level] || 2;
+    const level2 = levelOrder[card2.level] || 2;
+    
+    const diff = Math.abs(level1 - level2);
+    if (diff === 0) return 1.0;
+    if (diff === 1) return 0.7;
+    return 0.4;
+}
+
+/**
+ * Calcula balance de weights
+ */
+function calculateWeightBalance(card1, card2) {
+    const w1 = card1.weight || 0.5;
+    const w2 = card2.weight || 0.5;
+    const diff = Math.abs(w1 - w2);
+    return 1 - diff;
+}
+
+/**
+ * Score semántico total entre dos cartas (v3.0: prioriza conceptos)
+ */
+function calculateSemanticScore(card1, card2) {
+    const conceptAffinity = calculateConceptAffinity(card1, card2);
+    const domainOverlap = calculateDomainOverlap(card1, card2);
+    const levelCompat = calculateLevelCompatibility(card1, card2);
+    const weightBal = calculateWeightBalance(card1, card2);
+    
+    // Nuevos pesos: 50% conceptos, 30% dominios, 12% nivel, 8% weight
+    return (
+        conceptAffinity * 0.50 +
+        domainOverlap * 0.30 +
+        levelCompat * 0.12 +
+        weightBal * 0.08
+    );
+}
+
+/**
+ * Obtiene cartas compatibles semánticamente con una carta base
+ */
+function getSemanticallyCompatibleCards(baseCard, targetCategory, minScore = 0.15) {
+    const candidates = appState.cards.filter(c => c.category === targetCategory);
+    
+    const scored = candidates.map(card => ({
+        card,
+        score: calculateSemanticScore(baseCard, card),
+        sharedConcepts: getSharedConcepts(baseCard, card)
+    }));
+    
+    const filtered = scored.filter(s => s.score >= minScore);
+    filtered.sort((a, b) => b.score - a.score);
+    
+    return filtered;
+}
+
+/**
+ * Selección ponderada con temperatura
+ */
+function selectWeightedRandom(scoredCards, temperature = 0.8) {
+    if (scoredCards.length === 0) return null;
+    if (scoredCards.length === 1) return scoredCards[0].card;
+    
+    const scores = scoredCards.map(s => Math.pow(s.score, 1/temperature));
+    const totalScore = scores.reduce((sum, s) => sum + s, 0);
+    
+    let random = Math.random() * totalScore;
+    for (let i = 0; i < scoredCards.length; i++) {
+        random -= scores[i];
+        if (random <= 0) {
+            return scoredCards[i].card;
+        }
+    }
+    
+    return scoredCards[scoredCards.length - 1].card;
+}
+
+/**
+ * Genera combinación semánticamente coherente
+ * Flujo: Contexto → Usuario → Interacción → Necesidad → Fricción → Consecuencia → Solución
+ */
+function generateSemanticCombination(options = {}) {
+    const { 
+        startFromLocked = true, 
+        coherenceLevel = 'high', // 'low', 'medium', 'high'
+        includeNarrative = true 
+    } = options;
+    
+    const minScores = { 'low': 0.1, 'medium': 0.2, 'high': 0.3 };
+    const minScore = minScores[coherenceLevel] || 0.2;
+    
+    // Orden de generación semántica lógica
+    const generationOrder = [
+        "Contexto", "Usuario", "Interacción", "Necesidad", 
+        "Fricción", "Consecuencia", "Tipo de Intervención", 
+        "Mecanismo", "Lenguaje", "Formato/Medio", "Valor Generado"
+    ];
+    
+    const result = {};
+    let lastCard = null;
+    let anchorCard = null; // Carta ancla para mantener coherencia global
+    
+    // Primero, respetar locks
+    if (startFromLocked) {
+        Object.keys(appState.locks).forEach(cat => {
+            if (appState.locks[cat] && appState.currentGeneration[cat]) {
+                result[cat] = appState.currentGeneration[cat];
+                if (!anchorCard) anchorCard = result[cat];
+                lastCard = result[cat];
+            }
+        });
+    }
+    
+    // Generar cada categoría no bloqueada
+    for (const category of generationOrder) {
+        if (result[category]) continue; // Ya está locked
+        if (appState.locks[category]) continue;
+        
+        const candidates = appState.cards.filter(c => c.category === category);
+        if (candidates.length === 0) {
+            result[category] = null;
+            continue;
+        }
+        
+        // Si hay una carta ancla, usar matching semántico
+        if (anchorCard) {
+            const compatible = getSemanticallyCompatibleCards(anchorCard, category, minScore);
+            
+            if (compatible.length > 0) {
+                // Combinar influencia de última carta y ancla
+                const scoredWithLast = lastCard ? 
+                    compatible.map(s => ({
+                        card: s.card,
+                        score: s.score * 0.6 + calculateSemanticScore(lastCard, s.card) * 0.4
+                    })).sort((a, b) => b.score - a.score) : compatible;
+                
+                result[category] = selectWeightedRandom(scoredWithLast, 0.8);
+            } else {
+                // Fallback: seleccionar aleatoriamente si no hay compatibilidad
+                result[category] = candidates[Math.floor(Math.random() * candidates.length)];
+            }
+        } else {
+            // Sin ancla: selección aleatoria ponderada por weight
+            const weighted = candidates.map(c => ({ card: c, score: c.weight || 0.5 }));
+            result[category] = selectWeightedRandom(weighted, 1.0);
+        }
+        
+        if (result[category]) {
+            if (!anchorCard) anchorCard = result[category];
+            lastCard = result[category];
+        }
+    }
+    
+    return result;
+}
 
 // Sistema de Toasts para prescindir de alert()
 function showToast(message, type = "success") {
@@ -119,6 +327,23 @@ function triggerLucide() {
 // Carga Inicial
 window.onload = async function () {
     const savedCards = localStorage.getItem("ideation_deck_cards");
+    
+    // Cargar concepts registry primero
+    try {
+        const conceptsResponse = await fetch('concepts-registry.json');
+        if (conceptsResponse.ok) {
+            const conceptsData = await conceptsResponse.json();
+            appState.conceptsRegistry = conceptsData.concepts || [];
+            console.log(`Registry de conceptos cargado: ${appState.conceptsRegistry.length} conceptos`);
+        } else {
+            console.warn("No se pudo cargar concepts-registry.json, usando registry vacío");
+            appState.conceptsRegistry = [];
+        }
+    } catch (error) {
+        console.error("Error al cargar concepts-registry.json:", error);
+        appState.conceptsRegistry = [];
+    }
+    
     if (savedCards) {
         appState.cards = JSON.parse(savedCards);
     } else {
@@ -127,13 +352,19 @@ window.onload = async function () {
             const response = await fetch('deck-data.json');
             if (!response.ok) throw new Error('Error al cargar deck-data.json');
             appState.cards = await response.json();
-            console.log("Mazo inicial cargado desde deck-data.json de forma dinámica.");
+            console.log(`Mazo inicial cargado desde deck-data.json: ${appState.cards.length} cartas`);
         } catch (error) {
-            console.warn("No se pudo cargar deck-data.json (probablemente CORS o protocolo local file://). Cargando fallback integrado.", error);
-            appState.cards = [...FALLBACK_DECK];
+            console.warn("No se pudo cargar deck-data.json (probablemente CORS o protocolo local file://). Usando deck-data.json embebido o generando error.", error);
+            appState.cards = [];
         }
         localStorage.setItem("ideation_deck_cards", JSON.stringify(appState.cards));
     }
+
+    // Normalizar categorías legacy en las cartas cargadas
+    normalizeLegacyCategories();
+
+    // Inicializar locks y currentGeneration dinámicamente según categorías presentes
+    initializeDynamicCategories();
 
     const savedProjects = localStorage.getItem("ideation_deck_projects");
     if (savedProjects) {
@@ -149,11 +380,62 @@ window.onload = async function () {
 
     populateCategorySelects();
     updateDashboardStats();
-    shuffleGeneratorDeck(true);
+    shuffleGeneratorDeck(true, true); // Usar matching semántico por defecto
     renderAllViews();
     setupCanvasWorkspace();
     triggerLucide();
+    
+    console.log("DOD Lab v3.0 - Motor Relacional Semántico inicializado");
 };
+
+// Mapeo de categorías legacy para compatibilidad
+const CATEGORY_LEGACY_MAP = {
+    "Tipo solución": "Tipo de Intervención",
+    "Formato": "Formato/Medio",
+    "Valor": "Valor Generado"
+};
+
+/**
+ * Normaliza categorías legacy a los nombres actuales del deck-data.json
+ */
+function normalizeLegacyCategories() {
+    appState.cards.forEach(card => {
+        if (CATEGORY_LEGACY_MAP[card.category]) {
+            card.category = CATEGORY_LEGACY_MAP[card.category];
+        }
+        // Asegurar que description exista (fallback a desc o title)
+        if (!card.description && card.desc) {
+            card.description = card.desc;
+        }
+        if (!card.description) {
+            card.description = `Carta de ${card.category}: ${card.title}`;
+        }
+        // Asegurar que relations exista (fallback a tags si existe)
+        if (!card.relations && card.tags) {
+            console.warn(`Carta ${card.id} tiene tags pero no relations. Debería haber sido migrada.`);
+        }
+        if (!card.relations) {
+            card.relations = [];
+        }
+    });
+}
+
+/**
+ * Inicializa dinámicamente locks y currentGeneration según las categorías presentes en el deck
+ */
+function initializeDynamicCategories() {
+    const presentCategories = new Set(appState.cards.map(c => c.category));
+    
+    appState.locks = {};
+    appState.currentGeneration = {};
+    
+    presentCategories.forEach(cat => {
+        appState.locks[cat] = false;
+        appState.currentGeneration[cat] = null;
+    });
+    
+    console.log(`Categorías inicializadas: ${Array.from(presentCategories).join(', ')}`);
+}
 
 function switchView(targetView) {
     appState.view = targetView;
@@ -565,28 +847,58 @@ function toggleSlotLock(category) {
     triggerLucide();
 }
 
-function shuffleGeneratorDeck(silent = false) {
-    const categoriesToShuffle = Object.keys(appState.locks).filter(cat => !appState.locks[cat]);
-
-    categoriesToShuffle.forEach(cat => {
-        const candidates = appState.cards.filter(c => c.category === cat);
-        if (candidates.length > 0) {
-            const randomCard = candidates[Math.floor(Math.random() * candidates.length)];
-            appState.currentGeneration[cat] = randomCard;
-        } else {
-            appState.currentGeneration[cat] = null;
-        }
-    });
+function shuffleGeneratorDeck(silent = false, useSemantic = true) {
+    // Si useSemantic es true, usar el motor semántico; de lo contrario, random puro
+    let newGeneration;
+    
+    if (useSemantic) {
+        // Usar motor semántico para generación coherente
+        newGeneration = generateSemanticCombination({
+            startFromLocked: true,
+            coherenceLevel: 'medium',
+            includeNarrative: true
+        });
+    } else {
+        // Fallback a random puro (comportamiento legacy)
+        const categoriesToShuffle = Object.keys(appState.locks).filter(cat => !appState.locks[cat]);
+        newGeneration = {};
+        
+        // Primero copiar locked
+        Object.keys(appState.locks).forEach(cat => {
+            if (appState.locks[cat] && appState.currentGeneration[cat]) {
+                newGeneration[cat] = appState.currentGeneration[cat];
+            }
+        });
+        
+        // Luego random para no-locked
+        categoriesToShuffle.forEach(cat => {
+            const candidates = appState.cards.filter(c => c.category === cat);
+            if (candidates.length > 0) {
+                newGeneration[cat] = candidates[Math.floor(Math.random() * candidates.length)];
+            } else {
+                newGeneration[cat] = null;
+            }
+        });
+    }
+    
+    // Actualizar estado
+    appState.currentGeneration = newGeneration;
 
     if (!silent) {
-        categoriesToShuffle.forEach(cat => {
+        const updatedCats = Object.keys(newGeneration).filter(cat => 
+            !appState.locks[cat] && newGeneration[cat] !== null
+        );
+        
+        updatedCats.forEach(cat => {
             const slot = document.getElementById(`slot-${cat}`);
             if (slot) {
                 slot.classList.add('animate-deal');
                 setTimeout(() => slot.classList.remove('animate-deal'), 450);
             }
         });
-        showToast("Mazo barajado");
+        
+        const message = useSemantic ? "Combinación semántica generada" : "Mazo barajado (random)";
+        showToast(message);
     }
 
     renderGeneratorUI();
@@ -620,7 +932,8 @@ function renderGeneratorUI() {
                     </div>
                     <div class="h-[55%] p-2.5 bg-white dark:bg-zinc-900 flex flex-col justify-between">
                         <p class="font-extrabold text-[9px] leading-tight text-zinc-900 dark:text-zinc-100 line-clamp-2">${card.title}</p>
-                        <p class="text-[8px] text-neutral-400 line-clamp-2 mt-0.5">${card.desc}</p>
+                        <p class="text-[7px] text-neutral-500 dark:text-neutral-400 line-clamp-2 mt-0.5 italic">${card.description || card.desc || 'Sin descripción'}</p>
+                        ${renderRelationsPills(card)}
                     </div>
                 </div>
             `;
@@ -643,6 +956,7 @@ function updateNarrativeFormulas() {
     const oText = document.getElementById('narrative-opportunity');
     if (!pText || !oText) return;
 
+    // Usar nombres de categorías actualizados del deck-data.json
     const u = gen["Usuario"] ? `<strong class="text-purple-600 dark:text-purple-400">[${gen["Usuario"].title}]</strong>` : "[Usuario]";
     const c = gen["Contexto"] ? `en <strong class="text-blue-600 dark:text-blue-400">[${gen["Contexto"].title}]</strong>` : "en [Contexto]";
     const i = gen["Interacción"] ? `realiza la acción de <strong class="text-emerald-600 dark:text-emerald-400">[${gen["Interacción"].title}]</strong>` : "realiza [Interacción]";
@@ -652,13 +966,91 @@ function updateNarrativeFormulas() {
 
     pText.innerHTML = `El usuario ${u} ${c} ${i} ${n}, ${f} ${co}`;
 
-    const ts = gen["Tipo solución"] ? `<strong class="text-blue-600 dark:text-blue-400">[${gen["Tipo solución"].title}]</strong>` : "[Tipo de Solución]";
+    // Actualizado a nombres de categorías del deck-data.json
+    const ts = gen["Tipo de Intervención"] ? `<strong class="text-blue-600 dark:text-blue-400">[${gen["Tipo de Intervención"].title}]</strong>` : "[Tipo de Intervención]";
     const m = gen["Mecanismo"] ? `mediante el mecanismo de <strong class="text-teal-600 dark:text-teal-400">[${gen["Mecanismo"].title}]</strong>` : "mediante [Mecanismo]";
     const l = gen["Lenguaje"] ? `con un lenguaje de expresión <strong class="text-pink-600 dark:text-pink-400">[${gen["Lenguaje"].title}]</strong>` : "con lenguaje [Lenguaje]";
-    const fo = gen["Formato"] ? `<strong class="text-violet-600 dark:text-violet-400">[${gen["Formato"].title}]</strong>` : `<strong class="text-violet-600 dark:text-violet-400">[${gen["Formato"]?.title || "Mazo Físico/Digital"}]</strong>`;
-    const v = gen["Valor"] ? `para generar el impacto de valor de <strong class="text-yellow-600 dark:text-yellow-400">[${gen["Valor"].title}]</strong>.` : "para generar [Valor].";
+    const fo = gen["Formato/Medio"] ? `<strong class="text-violet-600 dark:text-violet-400">[${gen["Formato/Medio"].title}]</strong>` : "[Formato/Medio]";
+    const v = gen["Valor Generado"] ? `para generar el impacto de valor de <strong class="text-yellow-600 dark:text-yellow-400">[${gen["Valor Generado"].title}]</strong>.` : "para generar [Valor Generado].";
 
     oText.innerHTML = `Oportunidad: Diseñar un ${ts} ${m} ${l} en el formato de ${fo} ${v}`;
+    
+    // Calcular y mostrar score de coherencia semántica
+    updateSemanticCoherenceIndicator();
+}
+
+/**
+ * Renderiza las relaciones/conceptos de una carta como pills de color
+ */
+function renderRelationsPills(card) {
+    const relations = card.relations || [];
+    if (relations.length === 0) return '';
+    
+    // Mostrar máximo 4 relations para no saturar la UI
+    const visibleRelations = relations.slice(0, 4);
+    const extraCount = relations.length - visibleRelations.length;
+    
+    const pillsHTML = visibleRelations.map(relId => {
+        const concept = getConceptById(relId);
+        const label = concept ? concept.label : relId;
+        const color = concept ? concept.color : '#94a3b8';
+        return `<span class="inline-block text-[6px] font-medium px-1.5 py-0.5 rounded-full mr-1 mb-1" style="background-color: ${color}20; color: ${color}; border: 1px solid ${color}40">${label}</span>`;
+    }).join('');
+    
+    const extraHTML = extraCount > 0 ? 
+        `<span class="inline-block text-[6px] font-medium px-1.5 py-0.5 rounded-full bg-neutral-200 dark:bg-neutral-700 text-neutral-600 dark:text-neutral-300">+${extraCount}</span>` : '';
+    
+    return `<div class="flex flex-wrap mt-1">${pillsHTML}${extraHTML}</div>`;
+}
+
+/**
+ * Calcula y muestra el score de coherencia semántica de la combinación actual
+ */
+function updateSemanticCoherenceIndicator() {
+    const gen = appState.currentGeneration;
+    const cards = Object.values(gen).filter(c => c !== null);
+    
+    if (cards.length < 2) return;
+    
+    let totalScore = 0;
+    let comparisons = 0;
+    let sharedConceptsCount = 0;
+    
+    // Comparar cada par de cartas adyacentes en el flujo lógico
+    const flowOrder = ["Contexto", "Usuario", "Interacción", "Necesidad", "Fricción", "Consecuencia", "Tipo de Intervención", "Mecanismo", "Lenguaje", "Formato/Medio", "Valor Generado"];
+    
+    for (let i = 0; i < flowOrder.length - 1; i++) {
+        const card1 = gen[flowOrder[i]];
+        const card2 = gen[flowOrder[i + 1]];
+        
+        if (card1 && card2) {
+            totalScore += calculateSemanticScore(card1, card2);
+            comparisons++;
+            
+            // Contar conceptos compartidos
+            const shared = getSharedConcepts(card1, card2);
+            sharedConceptsCount += shared.length;
+        }
+    }
+    
+    const avgScore = comparisons > 0 ? totalScore / comparisons : 0;
+    const coherenceLevel = avgScore >= 0.5 ? 'high' : avgScore >= 0.3 ? 'medium' : 'low';
+    
+    // Actualizar indicador visual si existe
+    const indicator = document.getElementById('semantic-coherence-indicator');
+    if (indicator) {
+        const color = avgScore >= 0.5 ? '#10b981' : avgScore >= 0.3 ? '#f59e0b' : '#ef4444';
+        const label = avgScore >= 0.5 ? 'Alta coherencia' : avgScore >= 0.3 ? 'Coherencia media' : 'Baja coherencia';
+        const conceptsInfo = sharedConceptsCount > 0 ? `• ${sharedConceptsCount} conceptos compartidos` : '';
+        indicator.innerHTML = `
+            <div class="flex items-center gap-2 text-xs">
+                <span class="font-bold" style="color: ${color}">●</span>
+                <span class="text-neutral-500">${label}: ${(avgScore * 100).toFixed(0)}% ${conceptsInfo}</span>
+            </div>
+        `;
+    }
+    
+    console.log(`Coherencia semántica: ${(avgScore * 100).toFixed(1)}% (${coherenceLevel}) • ${sharedConceptsCount} conceptos compartidos`);
 }
 
 function saveCurrentGeneration() {

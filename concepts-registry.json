@@ -1,0 +1,2153 @@
+{
+  "concepts": [
+    {
+      "id": "orientation",
+      "label": "Orientación",
+      "type": "semantic",
+      "color": "#facc15",
+      "description": "Navegación, dirección y guía en espacios físicos o digitales"
+    },
+    {
+      "id": "waiting",
+      "label": "Espera",
+      "type": "semantic",
+      "color": "#f97316",
+      "description": "Tiempo de inactividad, demoras y paciencia requerida"
+    },
+    {
+      "id": "information",
+      "label": "Información",
+      "type": "semantic",
+      "color": "#3b82f6",
+      "description": "Datos, contenido y conocimiento accesible"
+    },
+    {
+      "id": "uncertainty",
+      "label": "Incertidumbre",
+      "type": "semantic",
+      "color": "#64748b",
+      "description": "Falta de claridad, dudas y desconocimiento"
+    },
+    {
+      "id": "accessibility",
+      "label": "Accesibilidad",
+      "type": "semantic",
+      "color": "#22c55e",
+      "description": "Inclusión, adaptación y eliminación de barreras"
+    },
+    {
+      "id": "clarity",
+      "label": "Claridad",
+      "type": "semantic",
+      "color": "#06b6d4",
+      "description": "Comprensión inmediata, transparencia y legibilidad"
+    },
+    {
+      "id": "comprehension",
+      "label": "Comprensión",
+      "type": "semantic",
+      "color": "#8b5cf6",
+      "description": "Entendimiento profundo y procesamiento cognitivo"
+    },
+    {
+      "id": "health",
+      "label": "Salud",
+      "type": "domain",
+      "color": "#ef4444",
+      "description": "Bienestar físico, mental y cuidado médico"
+    },
+    {
+      "id": "mobility",
+      "label": "Movilidad",
+      "type": "domain",
+      "color": "#059669",
+      "description": "Desplazamiento, transporte y movimiento urbano"
+    },
+    {
+      "id": "learning",
+      "label": "Aprendizaje",
+      "type": "semantic",
+      "color": "#7c3aed",
+      "description": "Adquisición de conocimiento y desarrollo de habilidades"
+    },
+    {
+      "id": "collaboration",
+      "label": "Colaboración",
+      "type": "semantic",
+      "color": "#ec4899",
+      "description": "Trabajo conjunto, cooperación y co-creación"
+    },
+    {
+      "id": "attention",
+      "label": "Atención",
+      "type": "semantic",
+      "color": "#f59e0b",
+      "description": "Foco cognitivo, concentración y engagement"
+    },
+    {
+      "id": "motivation",
+      "label": "Motivación",
+      "type": "semantic",
+      "color": "#eab308",
+      "description": "Impulso interno, deseo de actuar y persistencia"
+    },
+    {
+      "id": "trust",
+      "label": "Confianza",
+      "type": "semantic",
+      "color": "#14b8a6",
+      "description": "Seguridad, credibilidad y relación positiva"
+    },
+    {
+      "id": "efficiency",
+      "label": "Eficiencia",
+      "type": "semantic",
+      "color": "#10b981",
+      "description": "Optimización de tiempo, recursos y esfuerzo"
+    },
+    {
+      "id": "connection",
+      "label": "Conexión",
+      "type": "semantic",
+      "color": "#8b5cf6",
+      "description": "Vínculo interpersonal, red y comunicación"
+    },
+    {
+      "id": "exploration",
+      "label": "Exploración",
+      "type": "semantic",
+      "color": "#f97316",
+      "description": "Descubrimiento, curiosidad y experimentación"
+    },
+    {
+      "id": "safety",
+      "label": "Seguridad",
+      "type": "semantic",
+      "color": "#22c55e",
+      "description": "Protección, estabilidad y ausencia de riesgo"
+    },
+    {
+      "id": "autonomy",
+      "label": "Autonomía",
+      "type": "semantic",
+      "color": "#ea580c",
+      "description": "Independencia, auto-gestión y libertad de acción"
+    },
+    {
+      "id": "comfort",
+      "label": "Comodidad",
+      "type": "semantic",
+      "color": "#14b8a6",
+      "description": "Bienestar físico, ergonomía y facilidad de uso"
+    },
+    {
+      "id": "engagement",
+      "label": "Engagement",
+      "type": "semantic",
+      "color": "#ec4899",
+      "description": "Participación activa, involucramiento e interés sostenido"
+    },
+    {
+      "id": "personalization",
+      "label": "Personalización",
+      "type": "semantic",
+      "color": "#a855f7",
+      "description": "Adaptación individual, customización y relevancia personal"
+    },
+    {
+      "id": "feedback",
+      "label": "Feedback",
+      "type": "semantic",
+      "color": "#3b82f6",
+      "description": "Retroalimentación, respuesta del sistema y ciclo de información"
+    },
+    {
+      "id": "progress",
+      "label": "Progreso",
+      "type": "semantic",
+      "color": "#22c55e",
+      "description": "Avance, mejora continua y logro de metas"
+    },
+    {
+      "id": "routine",
+      "label": "Rutina",
+      "type": "semantic",
+      "color": "#64748b",
+      "description": "Patrones repetitivos, hábitos y estructura cotidiana"
+    },
+    {
+      "id": "decision",
+      "label": "Decisión",
+      "type": "semantic",
+      "color": "#f59e0b",
+      "description": "Elección, juicio y selección entre alternativas"
+    },
+    {
+      "id": "stress",
+      "label": "Estrés",
+      "type": "emotional",
+      "color": "#dc2626",
+      "description": "Presión psicológica, ansiedad y sobrecarga"
+    },
+    {
+      "id": "frustration",
+      "label": "Frustración",
+      "type": "emotional",
+      "color": "#b91c1c",
+      "description": "Insatisfacción, bloqueo emocional y decepción"
+    },
+    {
+      "id": "joy",
+      "label": "Alegría",
+      "type": "emotional",
+      "color": "#fbbf24",
+      "description": "Placer, satisfacción y emoción positiva"
+    },
+    {
+      "id": "belonging",
+      "label": "Pertenencia",
+      "type": "emotional",
+      "color": "#ec4899",
+      "description": "Sentimiento de comunidad, inclusión y aceptación"
+    },
+    {
+      "id": "empowerment",
+      "label": "Empoderamiento",
+      "type": "semantic",
+      "color": "#7c3aed",
+      "description": "Capacitación, fortalecimiento y adquisición de control"
+    },
+    {
+      "id": "discovery",
+      "label": "Descubrimiento",
+      "type": "semantic",
+      "color": "#f97316",
+      "description": "Hallazgo, revelación y encuentro de algo nuevo"
+    },
+    {
+      "id": "navigation",
+      "label": "Navegación",
+      "type": "semantic",
+      "color": "#0ea5e9",
+      "description": "Movimiento guiado a través de sistemas o espacios"
+    },
+    {
+      "id": "communication",
+      "label": "Comunicación",
+      "type": "semantic",
+      "color": "#3b82f6",
+      "description": "Intercambio de información, diálogo y transmisión"
+    },
+    {
+      "id": "organization",
+      "label": "Organización",
+      "type": "semantic",
+      "color": "#64748b",
+      "description": "Estructura, orden y sistematización"
+    },
+    {
+      "id": "adaptation",
+      "label": "Adaptación",
+      "type": "semantic",
+      "color": "#14b8a6",
+      "description": "Ajuste, flexibilidad y respuesta al contexto"
+    },
+    {
+      "id": "memory",
+      "label": "Memoria",
+      "type": "semantic",
+      "color": "#8b5cf6",
+      "description": "Recordatorio, retención y evocación de información"
+    },
+    {
+      "id": "anticipation",
+      "label": "Anticipación",
+      "type": "semantic",
+      "color": "#f59e0b",
+      "description": "Previsión, preparación y expectativa futura"
+    },
+    {
+      "id": "reflection",
+      "label": "Reflexión",
+      "type": "semantic",
+      "color": "#6366f1",
+      "description": "Contemplación, análisis introspectivo y pensamiento profundo"
+    },
+    {
+      "id": "play",
+      "label": "Juego",
+      "type": "semantic",
+      "color": "#fbbf24",
+      "description": "Diversión, exploración lúdica y actividad recreativa"
+    },
+    {
+      "id": "rest",
+      "label": "Descanso",
+      "type": "semantic",
+      "color": "#22c55e",
+      "description": "Recuperación, pausa y regeneración de energía"
+    },
+    {
+      "id": "transformation",
+      "label": "Transformación",
+      "type": "semantic",
+      "color": "#a855f7",
+      "description": "Cambio profundo, evolución y metamorfosis"
+    },
+    {
+      "id": "identity",
+      "label": "Identidad",
+      "type": "semantic",
+      "color": "#ec4899",
+      "description": "Expresión personal, autodefinición y reconocimiento"
+    },
+    {
+      "id": "community",
+      "label": "Comunidad",
+      "type": "domain",
+      "color": "#14b8a6",
+      "description": "Grupo social, colectividad y redes de apoyo"
+    },
+    {
+      "id": "environment",
+      "label": "Entorno",
+      "type": "domain",
+      "color": "#22c55e",
+      "description": "Contexto físico, espacio y medio ambiente"
+    },
+    {
+      "id": "technology",
+      "label": "Tecnología",
+      "type": "domain",
+      "color": "#3b82f6",
+      "description": "Herramientas digitales, innovación y sistemas técnicos"
+    },
+    {
+      "id": "culture",
+      "label": "Cultura",
+      "type": "domain",
+      "color": "#ec4899",
+      "description": "Valores compartidos, tradiciones y expresiones sociales"
+    },
+    {
+      "id": "time",
+      "label": "Tiempo",
+      "type": "semantic",
+      "color": "#64748b",
+      "description": "Duración, ritmo y gestión temporal"
+    },
+    {
+      "id": "space",
+      "label": "Espacio",
+      "type": "semantic",
+      "color": "#0ea5e9",
+      "description": "Dimensión física, distribución y ocupación"
+    },
+    {
+      "id": "abandono",
+      "label": "Abandono",
+      "type": "emotional",
+      "color": "#f472b6",
+      "description": "Concepto semántico: Abandono"
+    },
+    {
+      "id": "abrumador",
+      "label": "Abrumador",
+      "type": "semantic",
+      "color": "#a78bfa",
+      "description": "Concepto semántico: Abrumador"
+    },
+    {
+      "id": "accesible",
+      "label": "Accesible",
+      "type": "semantic",
+      "color": "#fb923c",
+      "description": "Concepto semántico: Accesible"
+    },
+    {
+      "id": "acceso",
+      "label": "Acceso",
+      "type": "semantic",
+      "color": "#34d399",
+      "description": "Concepto semántico: Acceso"
+    },
+    {
+      "id": "accion",
+      "label": "Accion",
+      "type": "semantic",
+      "color": "#60a5fa",
+      "description": "Concepto semántico: Accion"
+    },
+    {
+      "id": "activo",
+      "label": "Activo",
+      "type": "semantic",
+      "color": "#f87171",
+      "description": "Concepto semántico: Activo"
+    },
+    {
+      "id": "adaptable",
+      "label": "Adaptable",
+      "type": "semantic",
+      "color": "#a3e635",
+      "description": "Concepto semántico: Adaptable"
+    },
+    {
+      "id": "agencia",
+      "label": "Agencia",
+      "type": "semantic",
+      "color": "#2dd4bf",
+      "description": "Concepto semántico: Agencia"
+    },
+    {
+      "id": "agotamiento",
+      "label": "Agotamiento",
+      "type": "emotional",
+      "color": "#facc15",
+      "description": "Concepto semántico: Agotamiento"
+    },
+    {
+      "id": "ambiental",
+      "label": "Ambiental",
+      "type": "semantic",
+      "color": "#c084fc",
+      "description": "Concepto semántico: Ambiental"
+    },
+    {
+      "id": "ambiguedad",
+      "label": "Ambiguedad",
+      "type": "semantic",
+      "color": "#818cf8",
+      "description": "Concepto semántico: Ambiguedad"
+    },
+    {
+      "id": "apatia",
+      "label": "Apatia",
+      "type": "emotional",
+      "color": "#fb7185",
+      "description": "Concepto semántico: Apatia"
+    },
+    {
+      "id": "arco",
+      "label": "Arco",
+      "type": "semantic",
+      "color": "#4ade80",
+      "description": "Concepto semántico: Arco"
+    },
+    {
+      "id": "arquitectura",
+      "label": "Arquitectura",
+      "type": "domain",
+      "color": "#22d3ee",
+      "description": "Concepto semántico: Arquitectura"
+    },
+    {
+      "id": "atmosfera",
+      "label": "Atmosfera",
+      "type": "semantic",
+      "color": "#e879f9",
+      "description": "Concepto semántico: Atmosfera"
+    },
+    {
+      "id": "audiovisual",
+      "label": "Audiovisual",
+      "type": "semantic",
+      "color": "#f472b6",
+      "description": "Concepto semántico: Audiovisual"
+    },
+    {
+      "id": "autenticidad",
+      "label": "Autenticidad",
+      "type": "semantic",
+      "color": "#a78bfa",
+      "description": "Concepto semántico: Autenticidad"
+    },
+    {
+      "id": "autogestion",
+      "label": "Autogestion",
+      "type": "semantic",
+      "color": "#fb923c",
+      "description": "Concepto semántico: Autogestion"
+    },
+    {
+      "id": "automatizable",
+      "label": "Automatizable",
+      "type": "semantic",
+      "color": "#34d399",
+      "description": "Concepto semántico: Automatizable"
+    },
+    {
+      "id": "autonomo",
+      "label": "Autonomo",
+      "type": "semantic",
+      "color": "#60a5fa",
+      "description": "Concepto semántico: Autonomo"
+    },
+    {
+      "id": "biomorfico",
+      "label": "Biomorfico",
+      "type": "semantic",
+      "color": "#f87171",
+      "description": "Concepto semántico: Biomorfico"
+    },
+    {
+      "id": "bloqueo",
+      "label": "Bloqueo",
+      "type": "semantic",
+      "color": "#a3e635",
+      "description": "Concepto semántico: Bloqueo"
+    },
+    {
+      "id": "bots",
+      "label": "Bots",
+      "type": "semantic",
+      "color": "#2dd4bf",
+      "description": "Concepto semántico: Bots"
+    },
+    {
+      "id": "branching",
+      "label": "Branching",
+      "type": "semantic",
+      "color": "#facc15",
+      "description": "Concepto semántico: Branching"
+    },
+    {
+      "id": "browser",
+      "label": "Browser",
+      "type": "semantic",
+      "color": "#c084fc",
+      "description": "Concepto semántico: Browser"
+    },
+    {
+      "id": "busqueda",
+      "label": "Busqueda",
+      "type": "semantic",
+      "color": "#818cf8",
+      "description": "Concepto semántico: Busqueda"
+    },
+    {
+      "id": "calma",
+      "label": "Calma",
+      "type": "semantic",
+      "color": "#fb7185",
+      "description": "Concepto semántico: Calma"
+    },
+    {
+      "id": "caos",
+      "label": "Caos",
+      "type": "semantic",
+      "color": "#4ade80",
+      "description": "Concepto semántico: Caos"
+    },
+    {
+      "id": "certeza",
+      "label": "Certeza",
+      "type": "semantic",
+      "color": "#22d3ee",
+      "description": "Concepto semántico: Certeza"
+    },
+    {
+      "id": "churn",
+      "label": "Churn",
+      "type": "semantic",
+      "color": "#e879f9",
+      "description": "Concepto semántico: Churn"
+    },
+    {
+      "id": "cine",
+      "label": "Cine",
+      "type": "semantic",
+      "color": "#f472b6",
+      "description": "Concepto semántico: Cine"
+    },
+    {
+      "id": "co-creacion",
+      "label": "Co Creacion",
+      "type": "semantic",
+      "color": "#a78bfa",
+      "description": "Concepto semántico: Co Creacion"
+    },
+    {
+      "id": "cognitivo",
+      "label": "Cognitivo",
+      "type": "semantic",
+      "color": "#fb923c",
+      "description": "Concepto semántico: Cognitivo"
+    },
+    {
+      "id": "coherencia",
+      "label": "Coherencia",
+      "type": "semantic",
+      "color": "#34d399",
+      "description": "Concepto semántico: Coherencia"
+    },
+    {
+      "id": "colision",
+      "label": "Colision",
+      "type": "semantic",
+      "color": "#60a5fa",
+      "description": "Concepto semántico: Colision"
+    },
+    {
+      "id": "combinacion",
+      "label": "Combinacion",
+      "type": "semantic",
+      "color": "#f87171",
+      "description": "Concepto semántico: Combinacion"
+    },
+    {
+      "id": "compacto",
+      "label": "Compacto",
+      "type": "semantic",
+      "color": "#a3e635",
+      "description": "Concepto semántico: Compacto"
+    },
+    {
+      "id": "compartir",
+      "label": "Compartir",
+      "type": "semantic",
+      "color": "#2dd4bf",
+      "description": "Concepto semántico: Compartir"
+    },
+    {
+      "id": "complejidad",
+      "label": "Complejidad",
+      "type": "semantic",
+      "color": "#facc15",
+      "description": "Concepto semántico: Complejidad"
+    },
+    {
+      "id": "componentes",
+      "label": "Componentes",
+      "type": "semantic",
+      "color": "#c084fc",
+      "description": "Concepto semántico: Componentes"
+    },
+    {
+      "id": "confiabilidad",
+      "label": "Confiabilidad",
+      "type": "semantic",
+      "color": "#818cf8",
+      "description": "Concepto semántico: Confiabilidad"
+    },
+    {
+      "id": "configurable",
+      "label": "Configurable",
+      "type": "semantic",
+      "color": "#fb7185",
+      "description": "Concepto semántico: Configurable"
+    },
+    {
+      "id": "confirmacion",
+      "label": "Confirmacion",
+      "type": "semantic",
+      "color": "#4ade80",
+      "description": "Concepto semántico: Confirmacion"
+    },
+    {
+      "id": "consistencia",
+      "label": "Consistencia",
+      "type": "semantic",
+      "color": "#22d3ee",
+      "description": "Concepto semántico: Consistencia"
+    },
+    {
+      "id": "contribucion",
+      "label": "Contribucion",
+      "type": "semantic",
+      "color": "#e879f9",
+      "description": "Concepto semántico: Contribucion"
+    },
+    {
+      "id": "control",
+      "label": "Control",
+      "type": "semantic",
+      "color": "#f472b6",
+      "description": "Concepto semántico: Control"
+    },
+    {
+      "id": "corporativo",
+      "label": "Corporativo",
+      "type": "semantic",
+      "color": "#a78bfa",
+      "description": "Concepto semántico: Corporativo"
+    },
+    {
+      "id": "criterio",
+      "label": "Criterio",
+      "type": "semantic",
+      "color": "#fb923c",
+      "description": "Concepto semántico: Criterio"
+    },
+    {
+      "id": "cross-platform",
+      "label": "Cross Platform",
+      "type": "semantic",
+      "color": "#34d399",
+      "description": "Concepto semántico: Cross Platform"
+    },
+    {
+      "id": "crowdsourcing",
+      "label": "Crowdsourcing",
+      "type": "semantic",
+      "color": "#60a5fa",
+      "description": "Concepto semántico: Crowdsourcing"
+    },
+    {
+      "id": "crudo",
+      "label": "Crudo",
+      "type": "semantic",
+      "color": "#f87171",
+      "description": "Concepto semántico: Crudo"
+    },
+    {
+      "id": "cuerpo",
+      "label": "Cuerpo",
+      "type": "semantic",
+      "color": "#a3e635",
+      "description": "Concepto semántico: Cuerpo"
+    },
+    {
+      "id": "curaduria",
+      "label": "Curaduria",
+      "type": "semantic",
+      "color": "#2dd4bf",
+      "description": "Concepto semántico: Curaduria"
+    },
+    {
+      "id": "datos",
+      "label": "Datos",
+      "type": "semantic",
+      "color": "#facc15",
+      "description": "Concepto semántico: Datos"
+    },
+    {
+      "id": "desarrollo",
+      "label": "Desarrollo",
+      "type": "semantic",
+      "color": "#c084fc",
+      "description": "Concepto semántico: Desarrollo"
+    },
+    {
+      "id": "deseo",
+      "label": "Deseo",
+      "type": "semantic",
+      "color": "#818cf8",
+      "description": "Concepto semántico: Deseo"
+    },
+    {
+      "id": "desincronia",
+      "label": "Desincronia",
+      "type": "semantic",
+      "color": "#fb7185",
+      "description": "Concepto semántico: Desincronia"
+    },
+    {
+      "id": "deteccion",
+      "label": "Deteccion",
+      "type": "semantic",
+      "color": "#4ade80",
+      "description": "Concepto semántico: Deteccion"
+    },
+    {
+      "id": "difusion",
+      "label": "Difusion",
+      "type": "semantic",
+      "color": "#22d3ee",
+      "description": "Concepto semántico: Difusion"
+    },
+    {
+      "id": "dinamico",
+      "label": "Dinamico",
+      "type": "semantic",
+      "color": "#e879f9",
+      "description": "Concepto semántico: Dinamico"
+    },
+    {
+      "id": "dispersion",
+      "label": "Dispersion",
+      "type": "semantic",
+      "color": "#f472b6",
+      "description": "Concepto semántico: Dispersion"
+    },
+    {
+      "id": "display",
+      "label": "Display",
+      "type": "semantic",
+      "color": "#a78bfa",
+      "description": "Concepto semántico: Display"
+    },
+    {
+      "id": "diversidad",
+      "label": "Diversidad",
+      "type": "semantic",
+      "color": "#fb923c",
+      "description": "Concepto semántico: Diversidad"
+    },
+    {
+      "id": "dramatico",
+      "label": "Dramatico",
+      "type": "semantic",
+      "color": "#34d399",
+      "description": "Concepto semántico: Dramatico"
+    },
+    {
+      "id": "durabilidad",
+      "label": "Durabilidad",
+      "type": "semantic",
+      "color": "#60a5fa",
+      "description": "Concepto semántico: Durabilidad"
+    },
+    {
+      "id": "economia",
+      "label": "Economia",
+      "type": "semantic",
+      "color": "#f87171",
+      "description": "Concepto semántico: Economia"
+    },
+    {
+      "id": "ecosistema",
+      "label": "Ecosistema",
+      "type": "semantic",
+      "color": "#a3e635",
+      "description": "Concepto semántico: Ecosistema"
+    },
+    {
+      "id": "educacion",
+      "label": "Educacion",
+      "type": "semantic",
+      "color": "#2dd4bf",
+      "description": "Concepto semántico: Educacion"
+    },
+    {
+      "id": "ejecucion",
+      "label": "Ejecucion",
+      "type": "semantic",
+      "color": "#facc15",
+      "description": "Concepto semántico: Ejecucion"
+    },
+    {
+      "id": "emocion",
+      "label": "Emocion",
+      "type": "semantic",
+      "color": "#c084fc",
+      "description": "Concepto semántico: Emocion"
+    },
+    {
+      "id": "encuentro",
+      "label": "Encuentro",
+      "type": "semantic",
+      "color": "#818cf8",
+      "description": "Concepto semántico: Encuentro"
+    },
+    {
+      "id": "enojo",
+      "label": "Enojo",
+      "type": "semantic",
+      "color": "#fb7185",
+      "description": "Concepto semántico: Enojo"
+    },
+    {
+      "id": "ensamblaje",
+      "label": "Ensamblaje",
+      "type": "semantic",
+      "color": "#4ade80",
+      "description": "Concepto semántico: Ensamblaje"
+    },
+    {
+      "id": "entendimiento",
+      "label": "Entendimiento",
+      "type": "semantic",
+      "color": "#22d3ee",
+      "description": "Concepto semántico: Entendimiento"
+    },
+    {
+      "id": "envase",
+      "label": "Envase",
+      "type": "semantic",
+      "color": "#e879f9",
+      "description": "Concepto semántico: Envase"
+    },
+    {
+      "id": "envolvente",
+      "label": "Envolvente",
+      "type": "semantic",
+      "color": "#f472b6",
+      "description": "Concepto semántico: Envolvente"
+    },
+    {
+      "id": "equidad",
+      "label": "Equidad",
+      "type": "semantic",
+      "color": "#a78bfa",
+      "description": "Concepto semántico: Equidad"
+    },
+    {
+      "id": "equipo",
+      "label": "Equipo",
+      "type": "semantic",
+      "color": "#fb923c",
+      "description": "Concepto semántico: Equipo"
+    },
+    {
+      "id": "error",
+      "label": "Error",
+      "type": "semantic",
+      "color": "#34d399",
+      "description": "Concepto semántico: Error"
+    },
+    {
+      "id": "escala",
+      "label": "Escala",
+      "type": "semantic",
+      "color": "#60a5fa",
+      "description": "Concepto semántico: Escala"
+    },
+    {
+      "id": "escalabilidad",
+      "label": "Escalabilidad",
+      "type": "semantic",
+      "color": "#f87171",
+      "description": "Concepto semántico: Escalabilidad"
+    },
+    {
+      "id": "escenario",
+      "label": "Escenario",
+      "type": "semantic",
+      "color": "#a3e635",
+      "description": "Concepto semántico: Escenario"
+    },
+    {
+      "id": "esencial",
+      "label": "Esencial",
+      "type": "semantic",
+      "color": "#2dd4bf",
+      "description": "Concepto semántico: Esencial"
+    },
+    {
+      "id": "estres",
+      "label": "Estres",
+      "type": "emotional",
+      "color": "#facc15",
+      "description": "Concepto semántico: Estres"
+    },
+    {
+      "id": "exceso",
+      "label": "Exceso",
+      "type": "semantic",
+      "color": "#c084fc",
+      "description": "Concepto semántico: Exceso"
+    },
+    {
+      "id": "exclusion",
+      "label": "Exclusion",
+      "type": "semantic",
+      "color": "#818cf8",
+      "description": "Concepto semántico: Exclusion"
+    },
+    {
+      "id": "exhibicion",
+      "label": "Exhibicion",
+      "type": "semantic",
+      "color": "#fb7185",
+      "description": "Concepto semántico: Exhibicion"
+    },
+    {
+      "id": "fallo",
+      "label": "Fallo",
+      "type": "semantic",
+      "color": "#4ade80",
+      "description": "Concepto semántico: Fallo"
+    },
+    {
+      "id": "fatiga",
+      "label": "Fatiga",
+      "type": "semantic",
+      "color": "#22d3ee",
+      "description": "Concepto semántico: Fatiga"
+    },
+    {
+      "id": "fisico",
+      "label": "Fisico",
+      "type": "domain",
+      "color": "#e879f9",
+      "description": "Concepto semántico: Fisico"
+    },
+    {
+      "id": "flexibilidad",
+      "label": "Flexibilidad",
+      "type": "semantic",
+      "color": "#f472b6",
+      "description": "Concepto semántico: Flexibilidad"
+    },
+    {
+      "id": "flexible",
+      "label": "Flexible",
+      "type": "semantic",
+      "color": "#a78bfa",
+      "description": "Concepto semántico: Flexible"
+    },
+    {
+      "id": "flow",
+      "label": "Flow",
+      "type": "semantic",
+      "color": "#fb923c",
+      "description": "Concepto semántico: Flow"
+    },
+    {
+      "id": "fluido",
+      "label": "Fluido",
+      "type": "semantic",
+      "color": "#34d399",
+      "description": "Concepto semántico: Fluido"
+    },
+    {
+      "id": "flujo",
+      "label": "Flujo",
+      "type": "semantic",
+      "color": "#60a5fa",
+      "description": "Concepto semántico: Flujo"
+    },
+    {
+      "id": "formal",
+      "label": "Formal",
+      "type": "semantic",
+      "color": "#f87171",
+      "description": "Concepto semántico: Formal"
+    },
+    {
+      "id": "fracaso",
+      "label": "Fracaso",
+      "type": "semantic",
+      "color": "#a3e635",
+      "description": "Concepto semántico: Fracaso"
+    },
+    {
+      "id": "fragmentacion",
+      "label": "Fragmentacion",
+      "type": "semantic",
+      "color": "#2dd4bf",
+      "description": "Concepto semántico: Fragmentacion"
+    },
+    {
+      "id": "funcion",
+      "label": "Funcion",
+      "type": "semantic",
+      "color": "#facc15",
+      "description": "Concepto semántico: Funcion"
+    },
+    {
+      "id": "funcional",
+      "label": "Funcional",
+      "type": "semantic",
+      "color": "#c084fc",
+      "description": "Concepto semántico: Funcional"
+    },
+    {
+      "id": "futuro",
+      "label": "Futuro",
+      "type": "semantic",
+      "color": "#818cf8",
+      "description": "Concepto semántico: Futuro"
+    },
+    {
+      "id": "gamificacion",
+      "label": "Gamificacion",
+      "type": "semantic",
+      "color": "#fb7185",
+      "description": "Concepto semántico: Gamificacion"
+    },
+    {
+      "id": "generico",
+      "label": "Generico",
+      "type": "semantic",
+      "color": "#4ade80",
+      "description": "Concepto semántico: Generico"
+    },
+    {
+      "id": "geometria",
+      "label": "Geometria",
+      "type": "semantic",
+      "color": "#22d3ee",
+      "description": "Concepto semántico: Geometria"
+    },
+    {
+      "id": "gestos",
+      "label": "Gestos",
+      "type": "semantic",
+      "color": "#e879f9",
+      "description": "Concepto semántico: Gestos"
+    },
+    {
+      "id": "grafico",
+      "label": "Grafico",
+      "type": "semantic",
+      "color": "#f472b6",
+      "description": "Concepto semántico: Grafico"
+    },
+    {
+      "id": "graficos",
+      "label": "Graficos",
+      "type": "semantic",
+      "color": "#a78bfa",
+      "description": "Concepto semántico: Graficos"
+    },
+    {
+      "id": "grilla",
+      "label": "Grilla",
+      "type": "semantic",
+      "color": "#fb923c",
+      "description": "Concepto semántico: Grilla"
+    },
+    {
+      "id": "handmade",
+      "label": "Handmade",
+      "type": "semantic",
+      "color": "#34d399",
+      "description": "Concepto semántico: Handmade"
+    },
+    {
+      "id": "haptico",
+      "label": "Haptico",
+      "type": "semantic",
+      "color": "#60a5fa",
+      "description": "Concepto semántico: Haptico"
+    },
+    {
+      "id": "hardware",
+      "label": "Hardware",
+      "type": "semantic",
+      "color": "#f87171",
+      "description": "Concepto semántico: Hardware"
+    },
+    {
+      "id": "herramientas",
+      "label": "Herramientas",
+      "type": "semantic",
+      "color": "#a3e635",
+      "description": "Concepto semántico: Herramientas"
+    },
+    {
+      "id": "honestidad",
+      "label": "Honestidad",
+      "type": "semantic",
+      "color": "#2dd4bf",
+      "description": "Concepto semántico: Honestidad"
+    },
+    {
+      "id": "iconos",
+      "label": "Iconos",
+      "type": "semantic",
+      "color": "#facc15",
+      "description": "Concepto semántico: Iconos"
+    },
+    {
+      "id": "iluminacion",
+      "label": "Iluminacion",
+      "type": "semantic",
+      "color": "#c084fc",
+      "description": "Concepto semántico: Iluminacion"
+    },
+    {
+      "id": "imagen",
+      "label": "Imagen",
+      "type": "semantic",
+      "color": "#818cf8",
+      "description": "Concepto semántico: Imagen"
+    },
+    {
+      "id": "impacto",
+      "label": "Impacto",
+      "type": "semantic",
+      "color": "#fb7185",
+      "description": "Concepto semántico: Impacto"
+    },
+    {
+      "id": "impotencia",
+      "label": "Impotencia",
+      "type": "semantic",
+      "color": "#4ade80",
+      "description": "Concepto semántico: Impotencia"
+    },
+    {
+      "id": "impreso",
+      "label": "Impreso",
+      "type": "semantic",
+      "color": "#22d3ee",
+      "description": "Concepto semántico: Impreso"
+    },
+    {
+      "id": "incentivos",
+      "label": "Incentivos",
+      "type": "semantic",
+      "color": "#e879f9",
+      "description": "Concepto semántico: Incentivos"
+    },
+    {
+      "id": "inclusividad",
+      "label": "Inclusividad",
+      "type": "semantic",
+      "color": "#f472b6",
+      "description": "Concepto semántico: Inclusividad"
+    },
+    {
+      "id": "individual",
+      "label": "Individual",
+      "type": "semantic",
+      "color": "#a78bfa",
+      "description": "Concepto semántico: Individual"
+    },
+    {
+      "id": "ingenio",
+      "label": "Ingenio",
+      "type": "semantic",
+      "color": "#fb923c",
+      "description": "Concepto semántico: Ingenio"
+    },
+    {
+      "id": "inmersion",
+      "label": "Inmersion",
+      "type": "semantic",
+      "color": "#34d399",
+      "description": "Concepto semántico: Inmersion"
+    },
+    {
+      "id": "insight",
+      "label": "Insight",
+      "type": "semantic",
+      "color": "#60a5fa",
+      "description": "Concepto semántico: Insight"
+    },
+    {
+      "id": "inspiracion",
+      "label": "Inspiracion",
+      "type": "semantic",
+      "color": "#f87171",
+      "description": "Concepto semántico: Inspiracion"
+    },
+    {
+      "id": "instrumento",
+      "label": "Instrumento",
+      "type": "semantic",
+      "color": "#a3e635",
+      "description": "Concepto semántico: Instrumento"
+    },
+    {
+      "id": "integracion",
+      "label": "Integracion",
+      "type": "semantic",
+      "color": "#2dd4bf",
+      "description": "Concepto semántico: Integracion"
+    },
+    {
+      "id": "integridad",
+      "label": "Integridad",
+      "type": "semantic",
+      "color": "#facc15",
+      "description": "Concepto semántico: Integridad"
+    },
+    {
+      "id": "interaccion",
+      "label": "Interaccion",
+      "type": "semantic",
+      "color": "#c084fc",
+      "description": "Concepto semántico: Interaccion"
+    },
+    {
+      "id": "interes",
+      "label": "Interes",
+      "type": "semantic",
+      "color": "#818cf8",
+      "description": "Concepto semántico: Interes"
+    },
+    {
+      "id": "interrupcion",
+      "label": "Interrupcion",
+      "type": "semantic",
+      "color": "#fb7185",
+      "description": "Concepto semántico: Interrupcion"
+    },
+    {
+      "id": "intimidad",
+      "label": "Intimidad",
+      "type": "semantic",
+      "color": "#4ade80",
+      "description": "Concepto semántico: Intimidad"
+    },
+    {
+      "id": "jerarquia",
+      "label": "Jerarquia",
+      "type": "semantic",
+      "color": "#22d3ee",
+      "description": "Concepto semántico: Jerarquia"
+    },
+    {
+      "id": "kiosk",
+      "label": "Kiosk",
+      "type": "semantic",
+      "color": "#e879f9",
+      "description": "Concepto semántico: Kiosk"
+    },
+    {
+      "id": "latencia",
+      "label": "Latencia",
+      "type": "semantic",
+      "color": "#f472b6",
+      "description": "Concepto semántico: Latencia"
+    },
+    {
+      "id": "lectura",
+      "label": "Lectura",
+      "type": "semantic",
+      "color": "#a78bfa",
+      "description": "Concepto semántico: Lectura"
+    },
+    {
+      "id": "limpieza",
+      "label": "Limpieza",
+      "type": "semantic",
+      "color": "#fb923c",
+      "description": "Concepto semántico: Limpieza"
+    },
+    {
+      "id": "logros",
+      "label": "Logros",
+      "type": "semantic",
+      "color": "#34d399",
+      "description": "Concepto semántico: Logros"
+    },
+    {
+      "id": "lucidez",
+      "label": "Lucidez",
+      "type": "semantic",
+      "color": "#60a5fa",
+      "description": "Concepto semántico: Lucidez"
+    },
+    {
+      "id": "luminico",
+      "label": "Luminico",
+      "type": "semantic",
+      "color": "#f87171",
+      "description": "Concepto semántico: Luminico"
+    },
+    {
+      "id": "machine-learning",
+      "label": "Machine Learning",
+      "type": "semantic",
+      "color": "#a3e635",
+      "description": "Concepto semántico: Machine Learning"
+    },
+    {
+      "id": "manipulacion",
+      "label": "Manipulacion",
+      "type": "semantic",
+      "color": "#2dd4bf",
+      "description": "Concepto semántico: Manipulacion"
+    },
+    {
+      "id": "manual",
+      "label": "Manual",
+      "type": "semantic",
+      "color": "#facc15",
+      "description": "Concepto semántico: Manual"
+    },
+    {
+      "id": "mapa",
+      "label": "Mapa",
+      "type": "semantic",
+      "color": "#c084fc",
+      "description": "Concepto semántico: Mapa"
+    },
+    {
+      "id": "mapas",
+      "label": "Mapas",
+      "type": "semantic",
+      "color": "#818cf8",
+      "description": "Concepto semántico: Mapas"
+    },
+    {
+      "id": "mapeo",
+      "label": "Mapeo",
+      "type": "semantic",
+      "color": "#fb7185",
+      "description": "Concepto semántico: Mapeo"
+    },
+    {
+      "id": "mapping",
+      "label": "Mapping",
+      "type": "semantic",
+      "color": "#4ade80",
+      "description": "Concepto semántico: Mapping"
+    },
+    {
+      "id": "marca",
+      "label": "Marca",
+      "type": "semantic",
+      "color": "#22d3ee",
+      "description": "Concepto semántico: Marca"
+    },
+    {
+      "id": "material",
+      "label": "Material",
+      "type": "domain",
+      "color": "#e879f9",
+      "description": "Concepto semántico: Material"
+    },
+    {
+      "id": "menos",
+      "label": "Menos",
+      "type": "semantic",
+      "color": "#f472b6",
+      "description": "Concepto semántico: Menos"
+    },
+    {
+      "id": "minimalismo",
+      "label": "Minimalismo",
+      "type": "semantic",
+      "color": "#a78bfa",
+      "description": "Concepto semántico: Minimalismo"
+    },
+    {
+      "id": "modularidad",
+      "label": "Modularidad",
+      "type": "semantic",
+      "color": "#fb923c",
+      "description": "Concepto semántico: Modularidad"
+    },
+    {
+      "id": "montaje",
+      "label": "Montaje",
+      "type": "semantic",
+      "color": "#34d399",
+      "description": "Concepto semántico: Montaje"
+    },
+    {
+      "id": "movimiento",
+      "label": "Movimiento",
+      "type": "semantic",
+      "color": "#60a5fa",
+      "description": "Concepto semántico: Movimiento"
+    },
+    {
+      "id": "museografia",
+      "label": "Museografia",
+      "type": "semantic",
+      "color": "#f87171",
+      "description": "Concepto semántico: Museografia"
+    },
+    {
+      "id": "natural",
+      "label": "Natural",
+      "type": "semantic",
+      "color": "#a3e635",
+      "description": "Concepto semántico: Natural"
+    },
+    {
+      "id": "neon",
+      "label": "Neon",
+      "type": "semantic",
+      "color": "#2dd4bf",
+      "description": "Concepto semántico: Neon"
+    },
+    {
+      "id": "neutralidad",
+      "label": "Neutralidad",
+      "type": "semantic",
+      "color": "#facc15",
+      "description": "Concepto semántico: Neutralidad"
+    },
+    {
+      "id": "niveles",
+      "label": "Niveles",
+      "type": "semantic",
+      "color": "#c084fc",
+      "description": "Concepto semántico: Niveles"
+    },
+    {
+      "id": "no-lineal",
+      "label": "No Lineal",
+      "type": "semantic",
+      "color": "#818cf8",
+      "description": "Concepto semántico: No Lineal"
+    },
+    {
+      "id": "nostalgia",
+      "label": "Nostalgia",
+      "type": "semantic",
+      "color": "#fb7185",
+      "description": "Concepto semántico: Nostalgia"
+    },
+    {
+      "id": "notificaciones",
+      "label": "Notificaciones",
+      "type": "semantic",
+      "color": "#4ade80",
+      "description": "Concepto semántico: Notificaciones"
+    },
+    {
+      "id": "observador",
+      "label": "Observador",
+      "type": "semantic",
+      "color": "#22d3ee",
+      "description": "Concepto semántico: Observador"
+    },
+    {
+      "id": "omnicanal",
+      "label": "Omnicanal",
+      "type": "semantic",
+      "color": "#e879f9",
+      "description": "Concepto semántico: Omnicanal"
+    },
+    {
+      "id": "oportunidad",
+      "label": "Oportunidad",
+      "type": "semantic",
+      "color": "#f472b6",
+      "description": "Concepto semántico: Oportunidad"
+    },
+    {
+      "id": "paciencia",
+      "label": "Paciencia",
+      "type": "semantic",
+      "color": "#a78bfa",
+      "description": "Concepto semántico: Paciencia"
+    },
+    {
+      "id": "paginas",
+      "label": "Paginas",
+      "type": "semantic",
+      "color": "#fb923c",
+      "description": "Concepto semántico: Paginas"
+    },
+    {
+      "id": "paralisis",
+      "label": "Paralisis",
+      "type": "semantic",
+      "color": "#34d399",
+      "description": "Concepto semántico: Paralisis"
+    },
+    {
+      "id": "pasividad",
+      "label": "Pasividad",
+      "type": "semantic",
+      "color": "#60a5fa",
+      "description": "Concepto semántico: Pasividad"
+    },
+    {
+      "id": "patron",
+      "label": "Patron",
+      "type": "semantic",
+      "color": "#f87171",
+      "description": "Concepto semántico: Patron"
+    },
+    {
+      "id": "patrones",
+      "label": "Patrones",
+      "type": "semantic",
+      "color": "#a3e635",
+      "description": "Concepto semántico: Patrones"
+    },
+    {
+      "id": "pedagogia",
+      "label": "Pedagogia",
+      "type": "semantic",
+      "color": "#2dd4bf",
+      "description": "Concepto semántico: Pedagogia"
+    },
+    {
+      "id": "percepcion",
+      "label": "Percepcion",
+      "type": "semantic",
+      "color": "#facc15",
+      "description": "Concepto semántico: Percepcion"
+    },
+    {
+      "id": "perdido",
+      "label": "Perdido",
+      "type": "semantic",
+      "color": "#c084fc",
+      "description": "Concepto semántico: Perdido"
+    },
+    {
+      "id": "perfil",
+      "label": "Perfil",
+      "type": "semantic",
+      "color": "#818cf8",
+      "description": "Concepto semántico: Perfil"
+    },
+    {
+      "id": "persistencia",
+      "label": "Persistencia",
+      "type": "semantic",
+      "color": "#fb7185",
+      "description": "Concepto semántico: Persistencia"
+    },
+    {
+      "id": "personajes",
+      "label": "Personajes",
+      "type": "semantic",
+      "color": "#4ade80",
+      "description": "Concepto semántico: Personajes"
+    },
+    {
+      "id": "pixel",
+      "label": "Pixel",
+      "type": "semantic",
+      "color": "#22d3ee",
+      "description": "Concepto semántico: Pixel"
+    },
+    {
+      "id": "planificacion",
+      "label": "Planificacion",
+      "type": "semantic",
+      "color": "#e879f9",
+      "description": "Concepto semántico: Planificacion"
+    },
+    {
+      "id": "portatil",
+      "label": "Portatil",
+      "type": "semantic",
+      "color": "#f472b6",
+      "description": "Concepto semántico: Portatil"
+    },
+    {
+      "id": "practico",
+      "label": "Practico",
+      "type": "semantic",
+      "color": "#a78bfa",
+      "description": "Concepto semántico: Practico"
+    },
+    {
+      "id": "precision",
+      "label": "Precision",
+      "type": "semantic",
+      "color": "#fb923c",
+      "description": "Concepto semántico: Precision"
+    },
+    {
+      "id": "preferencias",
+      "label": "Preferencias",
+      "type": "semantic",
+      "color": "#34d399",
+      "description": "Concepto semántico: Preferencias"
+    },
+    {
+      "id": "presencial",
+      "label": "Presencial",
+      "type": "semantic",
+      "color": "#60a5fa",
+      "description": "Concepto semántico: Presencial"
+    },
+    {
+      "id": "presupuesto",
+      "label": "Presupuesto",
+      "type": "semantic",
+      "color": "#f87171",
+      "description": "Concepto semántico: Presupuesto"
+    },
+    {
+      "id": "prioridad",
+      "label": "Prioridad",
+      "type": "semantic",
+      "color": "#a3e635",
+      "description": "Concepto semántico: Prioridad"
+    },
+    {
+      "id": "procesamiento",
+      "label": "Procesamiento",
+      "type": "semantic",
+      "color": "#2dd4bf",
+      "description": "Concepto semántico: Procesamiento"
+    },
+    {
+      "id": "productividad",
+      "label": "Productividad",
+      "type": "semantic",
+      "color": "#facc15",
+      "description": "Concepto semántico: Productividad"
+    },
+    {
+      "id": "profundidad",
+      "label": "Profundidad",
+      "type": "semantic",
+      "color": "#c084fc",
+      "description": "Concepto semántico: Profundidad"
+    },
+    {
+      "id": "projection",
+      "label": "Projection",
+      "type": "semantic",
+      "color": "#818cf8",
+      "description": "Concepto semántico: Projection"
+    },
+    {
+      "id": "proposito",
+      "label": "Proposito",
+      "type": "semantic",
+      "color": "#fb7185",
+      "description": "Concepto semántico: Proposito"
+    },
+    {
+      "id": "puesta-en-escena",
+      "label": "Puesta En Escena",
+      "type": "semantic",
+      "color": "#4ade80",
+      "description": "Concepto semántico: Puesta En Escena"
+    },
+    {
+      "id": "puntos",
+      "label": "Puntos",
+      "type": "semantic",
+      "color": "#22d3ee",
+      "description": "Concepto semántico: Puntos"
+    },
+    {
+      "id": "pureza",
+      "label": "Pureza",
+      "type": "semantic",
+      "color": "#e879f9",
+      "description": "Concepto semántico: Pureza"
+    },
+    {
+      "id": "rapidez",
+      "label": "Rapidez",
+      "type": "semantic",
+      "color": "#f472b6",
+      "description": "Concepto semántico: Rapidez"
+    },
+    {
+      "id": "reactivo",
+      "label": "Reactivo",
+      "type": "semantic",
+      "color": "#a78bfa",
+      "description": "Concepto semántico: Reactivo"
+    },
+    {
+      "id": "recombinable",
+      "label": "Recombinable",
+      "type": "semantic",
+      "color": "#fb923c",
+      "description": "Concepto semántico: Recombinable"
+    },
+    {
+      "id": "recompensa",
+      "label": "Recompensa",
+      "type": "semantic",
+      "color": "#34d399",
+      "description": "Concepto semántico: Recompensa"
+    },
+    {
+      "id": "recompensas",
+      "label": "Recompensas",
+      "type": "semantic",
+      "color": "#60a5fa",
+      "description": "Concepto semántico: Recompensas"
+    },
+    {
+      "id": "recorrido",
+      "label": "Recorrido",
+      "type": "semantic",
+      "color": "#f87171",
+      "description": "Concepto semántico: Recorrido"
+    },
+    {
+      "id": "recuerdo",
+      "label": "Recuerdo",
+      "type": "semantic",
+      "color": "#a3e635",
+      "description": "Concepto semántico: Recuerdo"
+    },
+    {
+      "id": "reglas",
+      "label": "Reglas",
+      "type": "semantic",
+      "color": "#2dd4bf",
+      "description": "Concepto semántico: Reglas"
+    },
+    {
+      "id": "relajacion",
+      "label": "Relajacion",
+      "type": "semantic",
+      "color": "#facc15",
+      "description": "Concepto semántico: Relajacion"
+    },
+    {
+      "id": "repeticion",
+      "label": "Repeticion",
+      "type": "semantic",
+      "color": "#c084fc",
+      "description": "Concepto semántico: Repeticion"
+    },
+    {
+      "id": "representacion",
+      "label": "Representacion",
+      "type": "semantic",
+      "color": "#818cf8",
+      "description": "Concepto semántico: Representacion"
+    },
+    {
+      "id": "resiliencia",
+      "label": "Resiliencia",
+      "type": "semantic",
+      "color": "#fb7185",
+      "description": "Concepto semántico: Resiliencia"
+    },
+    {
+      "id": "retencion",
+      "label": "Retencion",
+      "type": "semantic",
+      "color": "#4ade80",
+      "description": "Concepto semántico: Retencion"
+    },
+    {
+      "id": "retraso",
+      "label": "Retraso",
+      "type": "semantic",
+      "color": "#22d3ee",
+      "description": "Concepto semántico: Retraso"
+    },
+    {
+      "id": "riesgo",
+      "label": "Riesgo",
+      "type": "semantic",
+      "color": "#e879f9",
+      "description": "Concepto semántico: Riesgo"
+    },
+    {
+      "id": "salida",
+      "label": "Salida",
+      "type": "semantic",
+      "color": "#f472b6",
+      "description": "Concepto semántico: Salida"
+    },
+    {
+      "id": "satisfaccion",
+      "label": "Satisfaccion",
+      "type": "semantic",
+      "color": "#a78bfa",
+      "description": "Concepto semántico: Satisfaccion"
+    },
+    {
+      "id": "scripts",
+      "label": "Scripts",
+      "type": "semantic",
+      "color": "#fb923c",
+      "description": "Concepto semántico: Scripts"
+    },
+    {
+      "id": "secuencia",
+      "label": "Secuencia",
+      "type": "semantic",
+      "color": "#34d399",
+      "description": "Concepto semántico: Secuencia"
+    },
+    {
+      "id": "sensores",
+      "label": "Sensores",
+      "type": "semantic",
+      "color": "#60a5fa",
+      "description": "Concepto semántico: Sensores"
+    },
+    {
+      "id": "sentidos",
+      "label": "Sentidos",
+      "type": "semantic",
+      "color": "#f87171",
+      "description": "Concepto semántico: Sentidos"
+    },
+    {
+      "id": "serio",
+      "label": "Serio",
+      "type": "semantic",
+      "color": "#a3e635",
+      "description": "Concepto semántico: Serio"
+    },
+    {
+      "id": "significado",
+      "label": "Significado",
+      "type": "semantic",
+      "color": "#2dd4bf",
+      "description": "Concepto semántico: Significado"
+    },
+    {
+      "id": "simplicidad",
+      "label": "Simplicidad",
+      "type": "semantic",
+      "color": "#facc15",
+      "description": "Concepto semántico: Simplicidad"
+    },
+    {
+      "id": "sinergia",
+      "label": "Sinergia",
+      "type": "semantic",
+      "color": "#c084fc",
+      "description": "Concepto semántico: Sinergia"
+    },
+    {
+      "id": "sistematico",
+      "label": "Sistematico",
+      "type": "semantic",
+      "color": "#818cf8",
+      "description": "Concepto semántico: Sistematico"
+    },
+    {
+      "id": "site-specific",
+      "label": "Site Specific",
+      "type": "semantic",
+      "color": "#fb7185",
+      "description": "Concepto semántico: Site Specific"
+    },
+    {
+      "id": "sitio",
+      "label": "Sitio",
+      "type": "semantic",
+      "color": "#4ade80",
+      "description": "Concepto semántico: Sitio"
+    },
+    {
+      "id": "software",
+      "label": "Software",
+      "type": "semantic",
+      "color": "#22d3ee",
+      "description": "Concepto semántico: Software"
+    },
+    {
+      "id": "solucion",
+      "label": "Solucion",
+      "type": "semantic",
+      "color": "#e879f9",
+      "description": "Concepto semántico: Solucion"
+    },
+    {
+      "id": "sonido",
+      "label": "Sonido",
+      "type": "semantic",
+      "color": "#f472b6",
+      "description": "Concepto semántico: Sonido"
+    },
+    {
+      "id": "storytelling",
+      "label": "Storytelling",
+      "type": "semantic",
+      "color": "#a78bfa",
+      "description": "Concepto semántico: Storytelling"
+    },
+    {
+      "id": "suave",
+      "label": "Suave",
+      "type": "semantic",
+      "color": "#fb923c",
+      "description": "Concepto semántico: Suave"
+    },
+    {
+      "id": "tactical",
+      "label": "Tactical",
+      "type": "semantic",
+      "color": "#34d399",
+      "description": "Concepto semántico: Tactical"
+    },
+    {
+      "id": "tactil",
+      "label": "Tactil",
+      "type": "domain",
+      "color": "#60a5fa",
+      "description": "Concepto semántico: Tactil"
+    },
+    {
+      "id": "tacto",
+      "label": "Tacto",
+      "type": "semantic",
+      "color": "#f87171",
+      "description": "Concepto semántico: Tacto"
+    },
+    {
+      "id": "tangible",
+      "label": "Tangible",
+      "type": "semantic",
+      "color": "#a3e635",
+      "description": "Concepto semántico: Tangible"
+    },
+    {
+      "id": "teatro",
+      "label": "Teatro",
+      "type": "semantic",
+      "color": "#2dd4bf",
+      "description": "Concepto semántico: Teatro"
+    },
+    {
+      "id": "tecnico",
+      "label": "Tecnico",
+      "type": "semantic",
+      "color": "#facc15",
+      "description": "Concepto semántico: Tecnico"
+    },
+    {
+      "id": "tedio",
+      "label": "Tedio",
+      "type": "semantic",
+      "color": "#c084fc",
+      "description": "Concepto semántico: Tedio"
+    },
+    {
+      "id": "tension",
+      "label": "Tension",
+      "type": "semantic",
+      "color": "#818cf8",
+      "description": "Concepto semántico: Tension"
+    },
+    {
+      "id": "textura",
+      "label": "Textura",
+      "type": "semantic",
+      "color": "#fb7185",
+      "description": "Concepto semántico: Textura"
+    },
+    {
+      "id": "tipografia",
+      "label": "Tipografia",
+      "type": "semantic",
+      "color": "#4ade80",
+      "description": "Concepto semántico: Tipografia"
+    },
+    {
+      "id": "touch",
+      "label": "Touch",
+      "type": "semantic",
+      "color": "#22d3ee",
+      "description": "Concepto semántico: Touch"
+    },
+    {
+      "id": "traduccion",
+      "label": "Traduccion",
+      "type": "semantic",
+      "color": "#e879f9",
+      "description": "Concepto semántico: Traduccion"
+    },
+    {
+      "id": "transparencia",
+      "label": "Transparencia",
+      "type": "semantic",
+      "color": "#f472b6",
+      "description": "Concepto semántico: Transparencia"
+    },
+    {
+      "id": "trayecto",
+      "label": "Trayecto",
+      "type": "semantic",
+      "color": "#a78bfa",
+      "description": "Concepto semántico: Trayecto"
+    },
+    {
+      "id": "ubicacion",
+      "label": "Ubicacion",
+      "type": "semantic",
+      "color": "#fb923c",
+      "description": "Concepto semántico: Ubicacion"
+    },
+    {
+      "id": "unboxing",
+      "label": "Unboxing",
+      "type": "semantic",
+      "color": "#34d399",
+      "description": "Concepto semántico: Unboxing"
+    },
+    {
+      "id": "universal",
+      "label": "Universal",
+      "type": "semantic",
+      "color": "#60a5fa",
+      "description": "Concepto semántico: Universal"
+    },
+    {
+      "id": "url",
+      "label": "Url",
+      "type": "semantic",
+      "color": "#f87171",
+      "description": "Concepto semántico: Url"
+    },
+    {
+      "id": "usabilidad",
+      "label": "Usabilidad",
+      "type": "semantic",
+      "color": "#a3e635",
+      "description": "Concepto semántico: Usabilidad"
+    },
+    {
+      "id": "uso",
+      "label": "Uso",
+      "type": "semantic",
+      "color": "#2dd4bf",
+      "description": "Concepto semántico: Uso"
+    },
+    {
+      "id": "utilitario",
+      "label": "Utilitario",
+      "type": "semantic",
+      "color": "#facc15",
+      "description": "Concepto semántico: Utilitario"
+    },
+    {
+      "id": "vestible",
+      "label": "Vestible",
+      "type": "semantic",
+      "color": "#c084fc",
+      "description": "Concepto semántico: Vestible"
+    },
+    {
+      "id": "video",
+      "label": "Video",
+      "type": "semantic",
+      "color": "#818cf8",
+      "description": "Concepto semántico: Video"
+    },
+    {
+      "id": "vinculo",
+      "label": "Vinculo",
+      "type": "semantic",
+      "color": "#fb7185",
+      "description": "Concepto semántico: Vinculo"
+    },
+    {
+      "id": "vintage",
+      "label": "Vintage",
+      "type": "semantic",
+      "color": "#4ade80",
+      "description": "Concepto semántico: Vintage"
+    },
+    {
+      "id": "vista",
+      "label": "Vista",
+      "type": "semantic",
+      "color": "#22d3ee",
+      "description": "Concepto semántico: Vista"
+    },
+    {
+      "id": "visual",
+      "label": "Visual",
+      "type": "semantic",
+      "color": "#e879f9",
+      "description": "Concepto semántico: Visual"
+    },
+    {
+      "id": "votacion",
+      "label": "Votacion",
+      "type": "semantic",
+      "color": "#f472b6",
+      "description": "Concepto semántico: Votacion"
+    },
+    {
+      "id": "wayfinding",
+      "label": "Wayfinding",
+      "type": "semantic",
+      "color": "#a78bfa",
+      "description": "Concepto semántico: Wayfinding"
+    },
+    {
+      "id": "wearable",
+      "label": "Wearable",
+      "type": "semantic",
+      "color": "#fb923c",
+      "description": "Concepto semántico: Wearable"
+    }
+  ]
+}

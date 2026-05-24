@@ -534,19 +534,18 @@
                 </div>
 
                 <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
-                    <!-- Slot 7: Tipo de Solución -->
-                    <div class="generator-slot flex flex-col gap-2" data-category="Tipo solución">
+                    <!-- Slot 7: Tipo de Intervención -->
+                    <div class="generator-slot flex flex-col gap-2" data-category="Tipo de Intervención">
                         <div class="flex justify-between items-center px-1">
-                            <span class="text-[9px] font-bold text-sky-600 uppercase tracking-wider">Tipo
-                                Solución</span>
-                            <button onclick="toggleSlotLock('Tipo solución')"
+                            <span class="text-[9px] font-bold text-sky-600 uppercase tracking-wider">Tipo Intervención</span>
+                            <button onclick="toggleSlotLock('Tipo de Intervención')"
                                 class="slot-lock-btn hover:text-indigo-600 flex items-center justify-center"
-                                id="lock-Tipo solución">
+                                id="lock-Tipo de Intervención">
                                 <i data-lucide="lock-keyhole-open" class="w-3.5 h-3.5 text-neutral-400"></i>
                             </button>
                         </div>
                         <div class="slot-container relative h-56 bg-white dark:bg-zinc-800 border-2 border-dashed border-zinc-200 dark:border-zinc-700 rounded-2xl flex items-center justify-center overflow-hidden transition-all"
-                            id="slot-Tipo solución">
+                            id="slot-Tipo de Intervención">
                             <!-- Carta insertada dinámicamente -->
                         </div>
                     </div>
@@ -580,33 +579,33 @@
                             <!-- Carta insertada dinámicamente -->
                         </div>
                     </div>
-                    <!-- Slot 10: Formato -->
-                    <div class="generator-slot flex flex-col gap-2" data-category="Formato">
+                    <!-- Slot 10: Formato/Medio -->
+                    <div class="generator-slot flex flex-col gap-2" data-category="Formato/Medio">
                         <div class="flex justify-between items-center px-1">
-                            <span class="text-[9px] font-bold text-violet-600 uppercase tracking-wider">Formato</span>
-                            <button onclick="toggleSlotLock('Formato')"
+                            <span class="text-[9px] font-bold text-violet-600 uppercase tracking-wider">Formato/Medio</span>
+                            <button onclick="toggleSlotLock('Formato/Medio')"
                                 class="slot-lock-btn hover:text-indigo-600 flex items-center justify-center"
-                                id="lock-Formato">
+                                id="lock-Formato/Medio">
                                 <i data-lucide="lock-keyhole-open" class="w-3.5 h-3.5 text-neutral-400"></i>
                             </button>
                         </div>
                         <div class="slot-container relative h-56 bg-white dark:bg-zinc-800 border-2 border-dashed border-zinc-200 dark:border-zinc-700 rounded-2xl flex items-center justify-center overflow-hidden transition-all"
-                            id="slot-Formato">
+                            id="slot-Formato/Medio">
                             <!-- Carta insertada dinámicamente -->
                         </div>
                     </div>
-                    <!-- Slot 11: Valor -->
-                    <div class="generator-slot flex flex-col gap-2" data-category="Valor">
+                    <!-- Slot 11: Valor Generado -->
+                    <div class="generator-slot flex flex-col gap-2" data-category="Valor Generado">
                         <div class="flex justify-between items-center px-1">
-                            <span class="text-[9px] font-bold text-amber-500 uppercase tracking-wider">Valor</span>
-                            <button onclick="toggleSlotLock('Valor')"
+                            <span class="text-[9px] font-bold text-amber-500 uppercase tracking-wider">Valor Gen.</span>
+                            <button onclick="toggleSlotLock('Valor Generado')"
                                 class="slot-lock-btn hover:text-indigo-600 flex items-center justify-center"
-                                id="lock-Valor">
+                                id="lock-Valor Generado">
                                 <i data-lucide="lock-keyhole-open" class="w-3.5 h-3.5 text-neutral-400"></i>
                             </button>
                         </div>
                         <div class="slot-container relative h-56 bg-white dark:bg-zinc-800 border-2 border-dashed border-zinc-200 dark:border-zinc-700 rounded-2xl flex items-center justify-center overflow-hidden transition-all"
-                            id="slot-Valor">
+                            id="slot-Valor Generado">
                             <!-- Carta insertada dinámicamente -->
                         </div>
                     </div>
@@ -616,9 +615,15 @@
             <!-- Narrativa Generada Integrada -->
             <div
                 class="bg-indigo-50 border border-indigo-100 rounded-3xl p-6 dark:bg-indigo-950/20 dark:border-indigo-950/50 space-y-4">
-                <span
-                    class="px-3 py-1 bg-indigo-600 text-white rounded-full text-[10px] font-black tracking-widest uppercase">NARRATIVA
-                    FORMULADA</span>
+                <div class="flex justify-between items-center">
+                    <span
+                        class="px-3 py-1 bg-indigo-600 text-white rounded-full text-[10px] font-black tracking-widest uppercase">NARRATIVA
+                        FORMULADA</span>
+                    <!-- Indicador de coherencia semántica -->
+                    <div id="semantic-coherence-indicator" class="flex items-center gap-2">
+                        <!-- Se actualiza dinámicamente -->
+                    </div>
+                </div>
                 <div class="space-y-4 font-serif text-lg leading-relaxed text-zinc-800 dark:text-zinc-200">
                     <p id="narrative-problem" class="border-l-4 border-indigo-400 pl-4 italic">
                         Cargando formulación de problema...
